@@ -1,39 +1,73 @@
 ---
 title: experimental-commons
-description: まだ本になっていない知識の公共財。
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+description: 完成前の知識を、その未完成さごと公開するための実験的なドキュメントサイト。
+date: 2026-03-28
+status: growing
+tags:
+  - garden
+  - publishing
+  - docs
+template: splash
 hero:
-  tagline: AI Agent が下書きを担い、人間が編集責任を持つ実験中のドキュメントサイト。
+  tagline: AI Agent が下書きを担い、人間が編集責任を持ちながら、実験中の知識を誠実なまま公開する。
   image:
     file: ../../assets/houston.webp
   actions:
     - text: コンセプトを読む
       link: /ai/agents/agent-authored-site/
       icon: right-arrow
-    - text: GitHubで見る
-      link: https://github.com/kotowari-modoki/experimental-commons
+    - text: 執筆ガイドを見る
+      link: /guides/contributing/
+      icon: right-arrow
+    - text: frontmatter を確認する
+      link: /reference/content-schema/
+      icon: right-arrow
+    - text: ライセンスを見る
+      link: /reference/license-cc-by-4-0/
+      icon: right-arrow
+    - text: Starlight Docs
+      link: https://starlight.astro.build/
       icon: external
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## このサイトについて
+## このサイトのスタンス
 
 <CardGrid stagger>
 	<Card title="AI Agent が叩き台を書く" icon="pencil">
-		各ページは、まず AI Agent に下書きを作らせるところから始まります。
+		各ページは、まず AI Agent に下書きを作らせ、人間が編集責任を持つ前提で公開します。
 	</Card>
-	<Card title="人間が編集責任を持つ" icon="document">
-		テーマ設定、削除、追記、公開判断、`status` の宣言は人間が担います。
+	<Card title="鮮度を優先する" icon="lightbulb">
+		完成した知識だけでなく、未整理の仮説や実験ログも公開対象に含めます。
 	</Card>
-	<Card title="未完成の知識も置く" icon="add-document">
-		完成度より鮮度を優先し、仮説や要検証のメモも正直なラベル付きで公開します。
+	<Card title="不確かさを残す" icon="warning">
+		確証がないことは断定せず、要検証のまま記録します。
 	</Card>
-	<Card title="一次情報源に寄る" icon="setting">
-		論文や公式ドキュメントへのリンクを添え、断定しすぎない書き方を心がけます。
+	<Card title="一次情報に寄せる" icon="open-book">
+		書籍、論文、公式ドキュメントなど、できるだけ一次情報へリンクします。
 	</Card>
-	<Card title="運用方針を読む" icon="open-book">
-		詳しくは [AI Agentが執筆するサイトです](/ai/agents/agent-authored-site/) を参照してください。
+	<Card title="更新履歴を持たせる" icon="clock">
+		全ページに `date` と `status` を持たせて、知識の鮮度と成熟度を見える化します。
+	</Card>
+	<Card title="作る人向けの導線" icon="pencil">
+		執筆フローは [Contributing Guide](/guides/contributing/)、メタデータ規約は
+		[Content Schema](/reference/content-schema/) にまとめています。
+	</Card>
+	<Card title="運用方針を読む" icon="document">
+		AI Agent をどう使い、人間がどこに責任を持つかは
+		[AI Agentが執筆するサイトです](/ai/agents/agent-authored-site/) にまとめています。
+	</Card>
+	<Card title="再利用条件を明示する" icon="document">
+		公開した文章コンテンツの再利用条件は [CC BY 4.0 の案内](/reference/license-cc-by-4-0/) にまとめています。
 	</Card>
 </CardGrid>
+
+## まず読むページ
+
+- [AI Agentが執筆するサイトです](/ai/agents/agent-authored-site/) で、サイト運用の前提と役割分担を確認する
+- [Contributing Guide](/guides/contributing/) で、追加・更新の進め方を確認する
+- [Content Schema](/reference/content-schema/) で、frontmatter と公開基準を確認する
+- [CC BY 4.0 の案内](/reference/license-cc-by-4-0/) で、再利用条件と出典表示の考え方を確認する
+- [Starlight documentation](https://starlight.astro.build/) で、UI やナビゲーションの作法を確認する
