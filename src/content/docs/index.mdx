@@ -7,13 +7,14 @@ tags:
   - garden
   - publishing
   - docs
+  - navigation
 template: splash
 hero:
-  tagline: AI Agent が下書きを担い、人間が編集責任を持ちながら、実験中の知識を誠実なまま公開する。
+  tagline: AI Agent が下書きを担い、人間が編集責任を持ちながら、実験中の知識を誠実なまま公開する入口ページ。
   image:
     file: ../../assets/houston.webp
   actions:
-    - text: コンセプトを読む
+    - text: まず読む
       link: /ai/agents/agent-authored-site/
       icon: right-arrow
     - text: 執筆ガイドを見る
@@ -32,6 +33,23 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## まずここから
+
+<CardGrid stagger>
+	<Card title="運用方針を読む" icon="document" href="/ai/agents/agent-authored-site/">
+		AI Agent をどう使い、人間がどこに責任を持つかを最初に確認できます。
+	</Card>
+	<Card title="執筆フローを見る" icon="pencil" href="/guides/contributing/">
+		ページ追加・更新の最小フローを確認できます。
+	</Card>
+	<Card title="frontmatter を確認する" icon="list" href="/reference/content-schema/">
+		公開時に必要な `date` `status` `tags` の基準を確認できます。
+	</Card>
+	<Card title="ライセンスを見る" icon="document" href="/reference/license-cc-by-4-0/">
+		再利用条件と出典表示の考え方を確認できます。
+	</Card>
+</CardGrid>
 
 ## このサイトのスタンス
 
@@ -52,22 +70,12 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 		全ページに `date` と `status` を持たせて、知識の鮮度と成熟度を見える化します。
 	</Card>
 	<Card title="作る人向けの導線" icon="pencil">
-		執筆フローは [Contributing Guide](/guides/contributing/)、メタデータ規約は
-		[Content Schema](/reference/content-schema/) にまとめています。
-	</Card>
-	<Card title="運用方針を読む" icon="document">
-		AI Agent をどう使い、人間がどこに責任を持つかは
-		[AI Agentが執筆するサイトです](/ai/agents/agent-authored-site/) にまとめています。
-	</Card>
-	<Card title="再利用条件を明示する" icon="document">
-		公開した文章コンテンツの再利用条件は [CC BY 4.0 の案内](/reference/license-cc-by-4-0/) にまとめています。
+		執筆フローは [Contributing Guide](/guides/contributing/)、メタデータ規約は [Content Schema](/reference/content-schema/) にまとめています。
 	</Card>
 </CardGrid>
 
-## まず読むページ
+## 探し方
 
-- [AI Agentが執筆するサイトです](/ai/agents/agent-authored-site/) で、サイト運用の前提と役割分担を確認する
-- [Contributing Guide](/guides/contributing/) で、追加・更新の進め方を確認する
-- [Content Schema](/reference/content-schema/) で、frontmatter と公開基準を確認する
-- [CC BY 4.0 の案内](/reference/license-cc-by-4-0/) で、再利用条件と出典表示の考え方を確認する
-- [Starlight documentation](https://starlight.astro.build/) で、UI やナビゲーションの作法を確認する
+- トップから探す: 上の「まずここから」カードから主要ページへ直接入れます。
+- サイドバーから探す: `Top` と `Start Here` から主要ページへ、`Guides` `AI` `Reference` から各カテゴリへ移動できます。
+- ページを増やしたら: まずこのトップと `Start Here` に足すと、入口が埋もれにくくなります。

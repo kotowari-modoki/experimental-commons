@@ -29,6 +29,31 @@ export default defineConfig({
       ],
       sidebar: [
         {
+          label: "Top",
+          link: "/",
+        },
+        {
+          label: "Start Here",
+          items: [
+            {
+              label: "AI Agentが執筆するサイトです",
+              link: "/ai/agents/agent-authored-site/",
+            },
+            {
+              label: "Contributing Guide",
+              link: "/guides/contributing/",
+            },
+            {
+              label: "Content Schema",
+              link: "/reference/content-schema/",
+            },
+            {
+              label: "CC BY 4.0 の案内",
+              link: "/reference/license-cc-by-4-0/",
+            },
+          ],
+        },
+        {
           label: "Guides",
           autogenerate: { directory: "guides" },
         },
