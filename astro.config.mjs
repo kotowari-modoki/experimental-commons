@@ -33,6 +33,10 @@ export default defineConfig({
           autogenerate: { directory: "guides" },
         },
         {
+          label: "AI",
+          autogenerate: { directory: "ai" },
+        },
+        {
           label: "Reference",
           autogenerate: { directory: "reference" },
         },
