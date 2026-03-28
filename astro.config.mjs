@@ -1,3 +1,5 @@
+// ABOUTME: Configures the Astro/Starlight documentation site for experimental-commons.
+// ABOUTME: Defines site metadata, sidebar navigation, and editing links for published docs.
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
@@ -26,6 +28,23 @@ export default defineConfig({
         },
       ],
       sidebar: [
+        {
+          label: "Top",
+          link: "/",
+        },
+        {
+          label: "Published",
+          items: [
+            {
+              label: "Guide",
+              link: "/guides/example/",
+            },
+            {
+              label: "Reference",
+              link: "/reference/example/",
+            },
+          ],
+        },
         {
           label: "AI / Agents / LLM",
           autogenerate: { directory: "ai" },

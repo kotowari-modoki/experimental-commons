@@ -1,40 +1,54 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: experimental-commons
+description: 追加した知見へ、トップページから迷わず辿れる入口ページ。
+date: 2026-03-28
+status: seed
+tags:
+  - home
+  - navigation
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: まだ本になっていない知識を、入口から見つけやすくする。
   image:
     file: ../../assets/houston.webp
   actions:
-    - text: Example Guide
+    - text: まず読む
       link: /guides/example/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
+    - text: 参照ページへ
+      link: /reference/example/
+      icon: right-arrow
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## まずここから
+
+トップから入ったときに「どこを見ればよいか」がすぐ分かるよう、
+いま読めるページを先頭にまとめています。
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Guide" icon="open-book" href="/guides/example/">
+		はじめに辿る入口ページ。流れを追って読みたいときはこちら。
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Reference" icon="document" href="/reference/example/">
+		必要な情報をピンポイントで確認したいときはこちら。
 	</Card>
 </CardGrid>
+
+## 追加済みコンテンツ
+
+<CardGrid stagger>
+	<Card title="Example Guide" icon="pencil" href="/guides/example/">
+		追加済みのガイドページ。トップのCTAからも直接アクセスできます。
+	</Card>
+	<Card title="Example Reference" icon="list" href="/reference/example/">
+		追加済みのリファレンスページ。調べもの用の入口として置いています。
+	</Card>
+</CardGrid>
+
+## 探し方
+
+- トップから探す: 上の「まずここから」と「追加済みコンテンツ」から辿れます。
+- サイドバーから探す: `Top` と `Published` セクションから主要ページへ移動できます。
+- 今後ページが増えたら: 同じ場所に追加して、入口をここに集約していきます。
