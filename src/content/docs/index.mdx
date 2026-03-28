@@ -15,16 +15,16 @@ hero:
     file: ../../assets/houston.webp
   actions:
     - text: まず読む
-      link: /ai/agents/agent-authored-site/
+      link: /experimental-commons/ai/agents/agent-authored-site/
       icon: right-arrow
     - text: 執筆ガイドを見る
-      link: /guides/contributing/
+      link: /experimental-commons/guides/contributing/
       icon: right-arrow
     - text: frontmatter を確認する
-      link: /reference/content-schema/
+      link: /experimental-commons/reference/content-schema/
       icon: right-arrow
     - text: ライセンスを見る
-      link: /reference/license-cc-by-4-0/
+      link: /experimental-commons/reference/license-cc-by-4-0/
       icon: right-arrow
     - text: Starlight Docs
       link: https://starlight.astro.build/
@@ -37,16 +37,16 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ## まずここから
 
 <CardGrid stagger>
-	<Card title="運用方針を読む" icon="document" href="/ai/agents/agent-authored-site/">
+	<Card title="運用方針を読む" icon="document" href="/experimental-commons/ai/agents/agent-authored-site/">
 		AI Agent をどう使い、人間がどこに責任を持つかを最初に確認できます。
 	</Card>
-	<Card title="執筆フローを見る" icon="pencil" href="/guides/contributing/">
+	<Card title="執筆フローを見る" icon="pencil" href="/experimental-commons/guides/contributing/">
 		ページ追加・更新の最小フローを確認できます。
 	</Card>
-	<Card title="frontmatter を確認する" icon="list" href="/reference/content-schema/">
+	<Card title="frontmatter を確認する" icon="list" href="/experimental-commons/reference/content-schema/">
 		公開時に必要な `date` `status` `tags` の基準を確認できます。
 	</Card>
-	<Card title="ライセンスを見る" icon="document" href="/reference/license-cc-by-4-0/">
+	<Card title="ライセンスを見る" icon="document" href="/experimental-commons/reference/license-cc-by-4-0/">
 		再利用条件と出典表示の考え方を確認できます。
 	</Card>
 </CardGrid>
@@ -70,7 +70,15 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 		全ページに `date` と `status` を持たせて、知識の鮮度と成熟度を見える化します。
 	</Card>
 	<Card title="作る人向けの導線" icon="pencil">
-		執筆フローは [Contributing Guide](/guides/contributing/)、メタデータ規約は [Content Schema](/reference/content-schema/) にまとめています。
+		執筆フローは [Contributing Guide](/experimental-commons/guides/contributing/)、メタデータ規約は
+		[Content Schema](/experimental-commons/reference/content-schema/) にまとめています。
+	</Card>
+	<Card title="運用方針を読む" icon="document">
+		AI Agent をどう使い、人間がどこに責任を持つかは
+		[AI Agentが執筆するサイトです](/experimental-commons/ai/agents/agent-authored-site/) にまとめています。
+	</Card>
+	<Card title="再利用条件を明示する" icon="document">
+		公開した文章コンテンツの再利用条件は [CC BY 4.0 の案内](/experimental-commons/reference/license-cc-by-4-0/) にまとめています。
 	</Card>
 </CardGrid>
 
