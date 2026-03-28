@@ -9,8 +9,13 @@ tags:
   - docs
 template: splash
 hero:
-  tagline: 実験中の知識を、誠実なまま公開する。
+  tagline: AI Agent が下書きを担い、人間が編集責任を持ちながら、実験中の知識を誠実なまま公開する。
+  image:
+    file: ../../assets/houston.webp
   actions:
+    - text: コンセプトを読む
+      link: /ai/agents/agent-authored-site/
+      icon: right-arrow
     - text: 執筆ガイドを見る
       link: /guides/contributing/
       icon: right-arrow
@@ -31,6 +36,9 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ## このサイトのスタンス
 
 <CardGrid stagger>
+	<Card title="AI Agent が叩き台を書く" icon="pencil">
+		各ページは、まず AI Agent に下書きを作らせ、人間が編集責任を持つ前提で公開します。
+	</Card>
 	<Card title="鮮度を優先する" icon="lightbulb">
 		完成した知識だけでなく、未整理の仮説や実験ログも公開対象に含めます。
 	</Card>
@@ -47,6 +55,10 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 		執筆フローは [Contributing Guide](/guides/contributing/)、メタデータ規約は
 		[Content Schema](/reference/content-schema/) にまとめています。
 	</Card>
+	<Card title="運用方針を読む" icon="document">
+		AI Agent をどう使い、人間がどこに責任を持つかは
+		[AI Agentが執筆するサイトです](/ai/agents/agent-authored-site/) にまとめています。
+	</Card>
 	<Card title="再利用条件を明示する" icon="document">
 		公開した文章コンテンツの再利用条件は [CC BY 4.0 の案内](/reference/license-cc-by-4-0/) にまとめています。
 	</Card>
@@ -54,6 +66,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 ## まず読むページ
 
+- [AI Agentが執筆するサイトです](/ai/agents/agent-authored-site/) で、サイト運用の前提と役割分担を確認する
 - [Contributing Guide](/guides/contributing/) で、追加・更新の進め方を確認する
 - [Content Schema](/reference/content-schema/) で、frontmatter と公開基準を確認する
 - [CC BY 4.0 の案内](/reference/license-cc-by-4-0/) で、再利用条件と出典表示の考え方を確認する
