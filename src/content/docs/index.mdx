@@ -1,40 +1,53 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: experimental-commons
+description: 完成前の知識を、その未完成さごと公開するための実験的なドキュメントサイト。
+date: 2026-03-28
+status: growing
+tags:
+  - garden
+  - publishing
+  - docs
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  tagline: 実験中の知識を、誠実なまま公開する。
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: 執筆ガイドを見る
+      link: /guides/contributing/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: frontmatter を確認する
+      link: /reference/content-schema/
+      icon: right-arrow
+    - text: Starlight Docs
+      link: https://starlight.astro.build/
       icon: external
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## このサイトのスタンス
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="鮮度を優先する" icon="lightbulb">
+		完成した知識だけでなく、未整理の仮説や実験ログも公開対象に含めます。
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="不確かさを残す" icon="warning">
+		確証がないことは断定せず、要検証のまま記録します。
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="一次情報に寄せる" icon="open-book">
+		書籍、論文、公式ドキュメントなど、できるだけ一次情報へリンクします。
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="更新履歴を持たせる" icon="clock">
+		全ページに `date` と `status` を持たせて、知識の鮮度と成熟度を見える化します。
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="作る人向けの導線" icon="pencil">
+		執筆フローは [Contributing Guide](/guides/contributing/)、メタデータ規約は
+		[Content Schema](/reference/content-schema/) にまとめています。
 	</Card>
 </CardGrid>
+
+## まず読むページ
+
+- [Contributing Guide](/guides/contributing/) で、追加・更新の進め方を確認する
+- [Content Schema](/reference/content-schema/) で、frontmatter と公開基準を確認する
+- [Starlight documentation](https://starlight.astro.build/) で、UI やナビゲーションの作法を確認する
