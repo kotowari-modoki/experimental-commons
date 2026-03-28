@@ -1,3 +1,5 @@
+// ABOUTME: Configures Astro and Starlight for the experimental-commons documentation site.
+// ABOUTME: Defines site metadata, navigation, and edit links for the published knowledge garden.
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
@@ -27,32 +29,12 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: "AI / Agents / LLM",
-          autogenerate: { directory: "ai" },
+          label: "Guides",
+          autogenerate: { directory: "guides" },
         },
         {
-          label: "Design",
-          autogenerate: { directory: "design" },
-        },
-        {
-          label: "Art & Computation",
-          autogenerate: { directory: "art" },
-        },
-        {
-          label: "Computer Science",
-          autogenerate: { directory: "cs" },
-        },
-        {
-          label: "Economics",
-          autogenerate: { directory: "economics" },
-        },
-        {
-          label: "Anthropology",
-          autogenerate: { directory: "anthropology" },
-        },
-        {
-          label: "Education",
-          autogenerate: { directory: "education" },
+          label: "Reference",
+          autogenerate: { directory: "reference" },
         },
       ],
       // customCss: ['./src/styles/custom.css'],
