@@ -1,5 +1,5 @@
-// ABOUTME: Configures the Astro/Starlight documentation site for experimental-commons.
-// ABOUTME: Defines site metadata, sidebar navigation, and editing links for published docs.
+// ABOUTME: Configures Astro and Starlight for the experimental-commons documentation site.
+// ABOUTME: Defines site metadata, navigation, and edit links for the published knowledge garden.
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
@@ -33,45 +33,37 @@ export default defineConfig({
           link: "/",
         },
         {
-          label: "Published",
+          label: "Start Here",
           items: [
             {
-              label: "Guide",
-              link: "/guides/example/",
+              label: "AI Agentが執筆するサイトです",
+              link: "/ai/agents/agent-authored-site/",
             },
             {
-              label: "Reference",
-              link: "/reference/example/",
+              label: "Contributing Guide",
+              link: "/guides/contributing/",
+            },
+            {
+              label: "Content Schema",
+              link: "/reference/content-schema/",
+            },
+            {
+              label: "CC BY 4.0 の案内",
+              link: "/reference/license-cc-by-4-0/",
             },
           ],
         },
         {
-          label: "AI / Agents / LLM",
+          label: "Guides",
+          autogenerate: { directory: "guides" },
+        },
+        {
+          label: "AI",
           autogenerate: { directory: "ai" },
         },
         {
-          label: "Design",
-          autogenerate: { directory: "design" },
-        },
-        {
-          label: "Art & Computation",
-          autogenerate: { directory: "art" },
-        },
-        {
-          label: "Computer Science",
-          autogenerate: { directory: "cs" },
-        },
-        {
-          label: "Economics",
-          autogenerate: { directory: "economics" },
-        },
-        {
-          label: "Anthropology",
-          autogenerate: { directory: "anthropology" },
-        },
-        {
-          label: "Education",
-          autogenerate: { directory: "education" },
+          label: "Reference",
+          autogenerate: { directory: "reference" },
         },
       ],
       // customCss: ['./src/styles/custom.css'],

@@ -1,129 +1,97 @@
-# Starlight Starter Kit: Basics
+# experimental-commons
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
+まだ本になっていない知識を、実験しながら公開するデジタルガーデンです。
+完成度より鮮度と誠実さを優先し、未整理の仮説や運用知見も「未完成であること」を明示して公開します。
 
-## プロジェクト概要
+## このリポジトリが扱うもの
 
-まだ本になっていない知識を、実験しながら公開するデジタルガーデン。
-AIエージェント運用、デザイン、アート、経済学、文化人類学など、
-領域を問わず「現在進行形の知」を扱う。
+- AIエージェント運用、設計、観察メモ
+- デザイン、アート、文化、人文、計算にまたがる実験知
+- あとで本や論考になるかもしれない断片
 
-Starlight (Astro) で構築し、GitHub Pages で公開する。
-ライセンス: CC BY 4.0
+Astro + Starlight で構築し、GitHub Pages で公開します。
+ライセンスは `CC BY 4.0` です。
 
-## ファイル構成
+## 現在のドキュメント構成
 
-```
-src/content/docs/
-├── index.mdx              # トップページ
-├── ai/                    # AI・エージェント・LLM
-│   ├── index.md
-│   ├── agents/            # エージェント設計・運用
-│   └── llm/               # LLMの使いこなし
-├── design/                # デザイン・UI/UX
-├── art/                   # アートと計算
-├── cs/                    # コンピューターサイエンス
-├── economics/             # 経済学
-├── anthropology/          # 文化人類学
-└── education/             # 教育・学び
+```text
+README.md                               # リポジトリ向けの開発・運用ガイド
+astro.config.mjs                        # Starlight のサイト設定とサイドバー
+src/content.config.ts                   # docs frontmatter のスキーマ
+src/content/docs/index.mdx              # 公開サイトのトップページ
+src/content/docs/guides/contributing.md # 執筆・更新フロー
+src/content/docs/reference/content-schema.md
+                                        # frontmatter と公開ルールの参照
 ```
 
-## コンテンツのスタンス
+`src/content/docs/` 配下の `.md` / `.mdx` はそのまま公開ページになります。
 
-このwikiは「完成した知識」を扱わない。以下を明示することで公開してよい：
+## セットアップ
 
-- 実験中・未検証であること
-- 書いた日付
-- 参照した一次情報源
+```bash
+pnpm install
+pnpm dev
+```
 
-## frontmatter 必須フィールド
+ローカル確認は `http://localhost:4321/experimental-commons` を使います。
+
+## 執筆ルール
+
+すべての公開コンテンツは、少なくとも次の frontmatter を持ちます。
 
 ```yaml
 ---
 title: タイトル
-description: 1〜2文
-date: YYYY-MM-DD         # 必須：知識の鮮度を示す
-status: seed | growing | evergreen   # 成熟度
-tags: [ai, agents, design]
+description: 1〜2文の説明
+date: 2026-03-28
+status: seed
+tags:
+  - ai
+  - agents
 ---
 ```
 
-### statusの意味
+`status` の意味:
 
-| status | 意味 |
-|---|---|
-| `seed` | 断片的なメモ、まだ構造化されていない |
-| `growing` | 書きかけ、実験中 |
-| `evergreen` | ある程度安定した知識（ただし更新される） |
+- `seed`: 断片的なメモ。仮説や観察が中心
+- `growing`: 実験中の整理されたノート
+- `evergreen`: ある程度安定した知見
 
-## 文体ルール
+本文では次を守ります。
 
-- 一人称は「私」または省略
-- 断定しすぎない（「〜と思う」「〜の可能性がある」を厭わない）
-- コードブロック・図・リンクを積極的に使う
-- 英語・日本語どちらでも可
+- 不確かなことは不確かと書く
+- 一次情報源へのリンクを付ける
+- 実験途中であることを隠さない
+- 余計に断定しない
 
-## よく使うコマンド
+## 開発フロー
+
+このリポジトリではタスク管理に `bd` を使います。
 
 ```bash
-npm run dev      # ローカル確認
-npm run build    # ビルド
-npm run preview  # ビルド確認
+bd ready --json
+bd create "READMEを整理する" -t task -p 2 --json
+bd update <issue-id> --claim --json
+bd close <issue-id> --reason "Completed" --json
 ```
 
-## Codexへの典型的な指示パターン
+ドキュメント変更時の最低限の確認:
 
-```
-「src/content/docs/ai/agents/soul-md-design.md を作成して。
-AIエージェントのSOUL.mdを設計する際の知見をまとめた章。
-status: growing, date: 今日の日付。
-OpenClawとnanobotの実例を含めて。」
+```bash
+pnpm build
 ```
 
+## どこを読めばよいか
 
-```
-pnpm create astro@latest -- --template starlight
-```
+- 執筆の進め方: `src/content/docs/guides/contributing.md`
+- frontmatter の意味と公開基準: `src/content/docs/reference/content-schema.md`
+- サイト構成の変更: `astro.config.mjs`
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 参考リンク
 
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
-
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
-
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
-
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
-
-Static assets, like favicons, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+- [Starlight documentation](https://starlight.astro.build/)
+- [Astro documentation](https://docs.astro.build/)
+- [Diataxis](https://diataxis.fr/)
+- [beads](https://github.com/steveyegge/beads)

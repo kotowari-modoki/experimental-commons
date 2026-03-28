@@ -1,54 +1,81 @@
 ---
 title: experimental-commons
-description: 追加した知見へ、トップページから迷わず辿れる入口ページ。
+description: 完成前の知識を、その未完成さごと公開するための実験的なドキュメントサイト。
 date: 2026-03-28
-status: seed
+status: growing
 tags:
-  - home
+  - garden
+  - publishing
+  - docs
   - navigation
 template: splash
 hero:
-  tagline: まだ本になっていない知識を、入口から見つけやすくする。
+  tagline: AI Agent が下書きを担い、人間が編集責任を持ちながら、実験中の知識を誠実なまま公開する入口ページ。
   image:
     file: ../../assets/houston.webp
   actions:
     - text: まず読む
-      link: /guides/example/
+      link: /ai/agents/agent-authored-site/
       icon: right-arrow
-    - text: 参照ページへ
-      link: /reference/example/
+    - text: 執筆ガイドを見る
+      link: /guides/contributing/
       icon: right-arrow
+    - text: frontmatter を確認する
+      link: /reference/content-schema/
+      icon: right-arrow
+    - text: ライセンスを見る
+      link: /reference/license-cc-by-4-0/
+      icon: right-arrow
+    - text: Starlight Docs
+      link: https://starlight.astro.build/
+      icon: external
+      variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
 ## まずここから
 
-トップから入ったときに「どこを見ればよいか」がすぐ分かるよう、
-いま読めるページを先頭にまとめています。
-
 <CardGrid stagger>
-	<Card title="Guide" icon="open-book" href="/guides/example/">
-		はじめに辿る入口ページ。流れを追って読みたいときはこちら。
+	<Card title="運用方針を読む" icon="document" href="/ai/agents/agent-authored-site/">
+		AI Agent をどう使い、人間がどこに責任を持つかを最初に確認できます。
 	</Card>
-	<Card title="Reference" icon="document" href="/reference/example/">
-		必要な情報をピンポイントで確認したいときはこちら。
+	<Card title="執筆フローを見る" icon="pencil" href="/guides/contributing/">
+		ページ追加・更新の最小フローを確認できます。
+	</Card>
+	<Card title="frontmatter を確認する" icon="list" href="/reference/content-schema/">
+		公開時に必要な `date` `status` `tags` の基準を確認できます。
+	</Card>
+	<Card title="ライセンスを見る" icon="document" href="/reference/license-cc-by-4-0/">
+		再利用条件と出典表示の考え方を確認できます。
 	</Card>
 </CardGrid>
 
-## 追加済みコンテンツ
+## このサイトのスタンス
 
 <CardGrid stagger>
-	<Card title="Example Guide" icon="pencil" href="/guides/example/">
-		追加済みのガイドページ。トップのCTAからも直接アクセスできます。
+	<Card title="AI Agent が叩き台を書く" icon="pencil">
+		各ページは、まず AI Agent に下書きを作らせ、人間が編集責任を持つ前提で公開します。
 	</Card>
-	<Card title="Example Reference" icon="list" href="/reference/example/">
-		追加済みのリファレンスページ。調べもの用の入口として置いています。
+	<Card title="鮮度を優先する" icon="lightbulb">
+		完成した知識だけでなく、未整理の仮説や実験ログも公開対象に含めます。
+	</Card>
+	<Card title="不確かさを残す" icon="warning">
+		確証がないことは断定せず、要検証のまま記録します。
+	</Card>
+	<Card title="一次情報に寄せる" icon="open-book">
+		書籍、論文、公式ドキュメントなど、できるだけ一次情報へリンクします。
+	</Card>
+	<Card title="更新履歴を持たせる" icon="clock">
+		全ページに `date` と `status` を持たせて、知識の鮮度と成熟度を見える化します。
+	</Card>
+	<Card title="作る人向けの導線" icon="pencil">
+		執筆フローは [Contributing Guide](/guides/contributing/)、メタデータ規約は [Content Schema](/reference/content-schema/) にまとめています。
 	</Card>
 </CardGrid>
 
 ## 探し方
 
-- トップから探す: 上の「まずここから」と「追加済みコンテンツ」から辿れます。
-- サイドバーから探す: `Top` と `Published` セクションから主要ページへ移動できます。
-- 今後ページが増えたら: 同じ場所に追加して、入口をここに集約していきます。
+- トップから探す: 上の「まずここから」カードから主要ページへ直接入れます。
+- サイドバーから探す: `Top` と `Start Here` から主要ページへ、`Guides` `AI` `Reference` から各カテゴリへ移動できます。
+- ページを増やしたら: まずこのトップと `Start Here` に足すと、入口が埋もれにくくなります。
