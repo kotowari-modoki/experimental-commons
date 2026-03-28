@@ -4,7 +4,8 @@ import starlight from "@astrojs/starlight";
 import starlightThemeGalaxy from "starlight-theme-galaxy";
 
 export default defineConfig({
-  site: "https://kotowari-modoki.github.io/experimental-commons/",
+  site: "https://kotowari-modoki.github.io/",
+  base: "experimental-commons",
   integrations: [
     starlight({
       plugins: [starlightThemeGalaxy()],
