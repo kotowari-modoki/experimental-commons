@@ -65,6 +65,10 @@ export default defineConfig({
           autogenerate: { directory: "books" },
         },
         {
+          label: "Math",
+          autogenerate: { directory: "math" },
+        },
+        {
           label: "AI",
           autogenerate: { directory: "ai" },
         },
