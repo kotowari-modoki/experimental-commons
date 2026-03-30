@@ -1,0 +1,65 @@
+---
+// ABOUTME: Renders the Starlight article title and exposes frontmatter metadata to readers.
+// ABOUTME: Shows status and date directly under the title so page maturity is visible in-context.
+import { getPageMetadata } from './page-metadata.js';
+
+const entryData = Astro.locals.starlightRoute.entry.data;
+const metadata = getPageMetadata(entryData);
+---
+
+<h1 id="_top">{entryData.title}</h1>
+{
+	metadata.length > 0 && (
+		<div class="page-meta" aria-label="Page metadata">
+			{metadata.map((item) => (
+				<div class="page-meta-item">
+					<span class="page-meta-label">{item.label}</span>
+					<span class="page-meta-value">{item.value}</span>
+				</div>
+			))}
+		</div>
+	)
+}
+
+<style>
+	.page-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 0.9rem;
+	}
+
+	.page-meta-item {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.35rem 0.7rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 999rem;
+		background: var(--sl-color-black);
+		color: var(--sl-color-gray-2);
+		font-size: 0.875rem;
+		line-height: 1;
+	}
+
+	.page-meta-label {
+		color: var(--sl-color-gray-3);
+		font-weight: 600;
+		text-transform: lowercase;
+	}
+
+	.page-meta-value {
+		color: var(--sl-color-white);
+		font-weight: 600;
+	}
+	@media (max-width: 40rem) {
+		.page-meta {
+			gap: 0.5rem;
+		}
+
+		.page-meta-item {
+			width: 100%;
+			justify-content: space-between;
+		}
+	}
+</style>
