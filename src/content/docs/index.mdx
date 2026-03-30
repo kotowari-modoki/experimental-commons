@@ -43,9 +43,6 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 	<Card title="執筆フローを見る" icon="pencil" href="/experimental-commons/guides/contributing/">
 		ページ追加・更新の最小フローを確認できます。
 	</Card>
-	<Card title="Prob Comp 入門を読む" icon="open-book" href="/experimental-commons/ai/prob-comp/probabilistic-programming-intro/">
-		生成モデル、観測、推論の関係を最小限でつかむための入口ページです。
-	</Card>
 	<Card title="frontmatter を確認する" icon="list" href="/experimental-commons/reference/content-schema/">
 		公開時に必要な `date` `status` `tags` の基準を確認できます。
 	</Card>
@@ -88,5 +85,13 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ## 探し方
 
 - トップから探す: 上の「まずここから」カードから主要ページへ直接入れます。
-- サイドバーから探す: `Top` と `Start Here` から主要ページへ、`Guides` `AI` `Reference` から各カテゴリへ移動できます。
-- ページを増やしたら: まずこのトップと `Start Here` に足すと、入口が埋もれにくくなります。
+- サイドバーから探す: `Start Here` `Publishing` `Tools` `Notes` の順に、読む目的ごとにたどれます。
+- ページを増やしたら: まず「これは入口ページか、公開ルールか、ツールの手引きか、ノートか」を決めてから配置すると迷いにくくなります。
+- ディレクトリ名は保管場所、サイドバーは読者導線: 今はこの考え方で分けています。
+
+## コンテンツのまとまり
+
+- `Start Here`: このサイトの前提と、参加・執筆の導線を置く場所です。
+- `Publishing`: frontmatter やライセンスのように、公開条件を確認するページをまとめています。
+- `Tools`: セットアップや運用手順のように、手を動かすためのページをまとめています。
+- `Notes`: 読書メモ、講義メモ、理論入門、論点整理のように、途中経過の知識を置く場所です。
