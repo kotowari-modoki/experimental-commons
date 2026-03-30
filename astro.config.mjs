@@ -58,6 +58,10 @@ export default defineConfig({
           autogenerate: { directory: "guides" },
         },
         {
+          label: "Books",
+          autogenerate: { directory: "books" },
+        },
+        {
           label: "AI",
           autogenerate: { directory: "ai" },
         },
