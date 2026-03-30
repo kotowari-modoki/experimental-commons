@@ -17,6 +17,9 @@ export default defineConfig({
       locales: {
         root: { label: "JA / EN", lang: "ja" },
       },
+      components: {
+        PageTitle: "./src/components/PageTitle.astro",
+      },
       //    logo: {
       //      src: './public/logo.svg',
       //    },
