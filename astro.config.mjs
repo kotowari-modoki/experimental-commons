@@ -43,6 +43,10 @@ export default defineConfig({
               link: "/ai/agents/agent-authored-site/",
             },
             {
+              label: "プロバビリスティックプログラミング入門",
+              link: "/ai/prob-comp/probabilistic-programming-intro/",
+            },
+            {
               label: "Contributing Guide",
               link: "/guides/contributing/",
             },
