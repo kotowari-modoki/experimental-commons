@@ -12,7 +12,7 @@ test('getPageMetadata returns visible status and date items', () => {
 	});
 
 	assert.deepEqual(metadata, [
-		{ label: 'status', value: 'seed' },
+		{ label: 'status', value: '🌱 seed' },
 		{ label: 'date', value: '2026-03-28' },
 	]);
 });
