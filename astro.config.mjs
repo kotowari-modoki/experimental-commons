@@ -90,6 +90,10 @@ export default defineConfig({
               link: "/books/dawn-of-everything/",
             },
             {
+              label: "哲学史の見取り図",
+              link: "/philosophy/philosophy-history-overview/",
+            },
+            {
               label: "生命とはなにか？ ALife概要と池上高志最終講義メモ",
               link: "/ai/agents/alife-what-is-life-lecture-notes/",
             },
