@@ -1,5 +1,5 @@
 // ABOUTME: Formats page frontmatter metadata for the article header in Starlight.
-// ABOUTME: Keeps status emoji and date rendering logic small, predictable, and testable.
+// ABOUTME: Keeps status emoji, author label, and date rendering logic small, predictable, and testable.
 
 const STATUS_EMOJI = {
 	seed: '🌱',
@@ -41,6 +41,10 @@ export function getPageMetadata(data) {
 	if (data.status) {
 		const emoji = getStatusEmoji(data.status);
 		metadata.push({ label: 'status', value: `${emoji} ${data.status}` });
+	}
+
+	if (data.author === 'ai') {
+		metadata.push({ label: 'author', value: '🤖 AI draft' });
 	}
 
 	const formattedDate = formatPageDate(data.date);
