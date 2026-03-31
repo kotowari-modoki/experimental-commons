@@ -1,0 +1,25 @@
+---
+// ABOUTME: Extends Starlight's default head output with Mermaid client bootstrap code.
+// ABOUTME: Renders Mermaid diagrams from pre-mermaid blocks after each page load.
+import StarlightHead from "@astrojs/starlight/components/Head.astro";
+---
+
+<StarlightHead />
+
+<script>
+	import mermaid from 'mermaid';
+
+	mermaid.initialize({ startOnLoad: false });
+
+	const renderMermaid = () => {
+		mermaid.run({ querySelector: 'pre.mermaid' });
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', renderMermaid, { once: true });
+	} else {
+		renderMermaid();
+	}
+
+	document.addEventListener('astro:page-load', renderMermaid);
+</script>

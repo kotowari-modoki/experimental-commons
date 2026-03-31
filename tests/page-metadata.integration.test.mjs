@@ -11,7 +11,7 @@ test('astro config registers the PageTitle override', async () => {
 
 	assert.match(
 		astroConfig,
-		/components:\s*\{\s*PageTitle:\s*['"]\.\/src\/components\/PageTitle\.astro['"]/s,
+		/components:\s*\{[\s\S]*PageTitle:\s*['"]\.\/src\/components\/PageTitle\.astro['"]/,
 	);
 });
 

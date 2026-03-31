@@ -2,8 +2,8 @@
   "name": "",
   "type": "module",
   "version": "0.0.1",
-  "description":	"まだ本になっていない知識の公共財",
-  "license":	"CC-BY-4.0",
+  "description": "まだ本になっていない知識の公共財",
+  "license": "CC-BY-4.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -14,7 +14,12 @@
   "dependencies": {
     "@astrojs/starlight": "^0.38.2",
     "astro": "^6.0.1",
+    "mermaid": "^11.13.0",
+    "rehype-mermaid": "^3.0.0",
     "sharp": "^0.34.2",
     "starlight-theme-galaxy": "^0.8.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2"
   }
 }

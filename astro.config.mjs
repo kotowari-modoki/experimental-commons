@@ -4,10 +4,18 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightThemeGalaxy from "starlight-theme-galaxy";
+import rehypeMermaid from "rehype-mermaid";
 
 export default defineConfig({
   site: "https://kotowari-modoki.github.io/",
   base: "/experimental-commons",
+  markdown: {
+    syntaxHighlight: {
+      type: "shiki",
+      excludeLangs: ["mermaid"],
+    },
+    rehypePlugins: [[rehypeMermaid, { strategy: "pre-mermaid" }]],
+  },
   integrations: [
     starlight({
       plugins: [starlightThemeGalaxy()],
@@ -18,6 +26,7 @@ export default defineConfig({
         root: { label: "JA / EN", lang: "ja" },
       },
       components: {
+        Head: "./src/components/Head.astro",
         PageTitle: "./src/components/PageTitle.astro",
       },
       //    logo: {
