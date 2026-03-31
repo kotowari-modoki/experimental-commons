@@ -94,6 +94,10 @@ export default defineConfig({
               link: "/philosophy/philosophy-history-overview/",
             },
             {
+              label: "古事記・日本書紀の成立史",
+              link: "/history/kojiki-nihon-shoki-history/",
+            },
+            {
               label: "生命とはなにか？ ALife概要と池上高志最終講義メモ",
               link: "/ai/agents/alife-what-is-life-lecture-notes/",
             },
