@@ -43,34 +43,57 @@ export default defineConfig({
               link: "/ai/agents/agent-authored-site/",
             },
             {
-              label: "Contributing Guide",
+              label: "執筆フロー",
               link: "/guides/contributing/",
             },
+          ],
+        },
+        {
+          label: "Publishing",
+          items: [
             {
               label: "Content Schema",
               link: "/reference/content-schema/",
             },
             {
-              label: "CC BY 4.0 の案内",
+              label: "ライセンス: CC BY 4.0",
               link: "/reference/license-cc-by-4-0/",
             },
           ],
         },
         {
-          label: "Guides",
-          autogenerate: { directory: "guides" },
+          label: "Tools",
+          items: [
+            {
+              label: "OpenClaw セットアップマニュアル",
+              link: "/ai/agents/openclaw-setup/",
+            },
+          ],
         },
         {
-          label: "Books",
-          autogenerate: { directory: "books" },
-        },
-        {
-          label: "AI",
-          autogenerate: { directory: "ai" },
-        },
-        {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
+          label: "Notes",
+          items: [
+            {
+              label: "プロバビリスティックプログラミング入門",
+              link: "/ai/prob-comp/probabilistic-programming-intro/",
+            },
+            {
+              label: "量子コンピューティング入門",
+              link: "/guides/quantum-computing-introduction/",
+            },
+            {
+              label: "IUT理論 入門",
+              link: "/math/iut-theory-intro/",
+            },
+            {
+              label: "Dawn of Everything（万物の黎明）",
+              link: "/books/dawn-of-everything/",
+            },
+            {
+              label: "生命とはなにか？ ALife概要と池上高志最終講義メモ",
+              link: "/ai/agents/alife-what-is-life-lecture-notes/",
+            },
+          ],
         },
       ],
       // customCss: ['./src/styles/custom.css'],
