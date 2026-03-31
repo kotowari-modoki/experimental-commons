@@ -94,6 +94,10 @@ export default defineConfig({
               link: "/philosophy/philosophy-history-overview/",
             },
             {
+              label: "万葉集・古今和歌集・新古今和歌集",
+              link: "/books/three-major-waka-anthologies/",
+            },
+            {
               label: "古事記・日本書紀の成立史",
               link: "/history/kojiki-nihon-shoki-history/",
             },
