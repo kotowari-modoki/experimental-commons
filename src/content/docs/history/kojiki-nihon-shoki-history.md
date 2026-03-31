@@ -32,87 +32,15 @@ tags:
 
 ## 成立の時間軸
 
-<div
-  class="history-flowchart"
-  role="img"
-  aria-label="古事記と日本書紀の成立史の時間軸"
-  style="display: grid; gap: 0.75rem; margin: 1.5rem 0;"
->
-  <div
-    class="history-flowchart-node"
-    style="border: 1px solid currentColor; border-radius: 0.75rem; padding: 0.9rem 1rem;"
-  >
-    672 壬申の乱
-  </div>
-  <div
-    class="history-flowchart-arrow"
-    aria-hidden="true"
-    style="text-align: center; font-size: 1.5rem; line-height: 1;"
-  >↓</div>
-  <div
-    class="history-flowchart-node"
-    style="border: 1px solid currentColor; border-radius: 0.75rem; padding: 0.9rem 1rem;"
-  >
-    天武天皇が帝紀・本辞の再整理を志向
-  </div>
-  <div
-    class="history-flowchart-arrow"
-    aria-hidden="true"
-    style="text-align: center; font-size: 1.5rem; line-height: 1;"
-  >↓</div>
-  <div
-    class="history-flowchart-node"
-    style="border: 1px solid currentColor; border-radius: 0.75rem; padding: 0.9rem 1rem;"
-  >
-    712 古事記成立<br />
-    太安万侶が筆録編集
-  </div>
-  <div
-    class="history-flowchart-arrow"
-    aria-hidden="true"
-    style="text-align: center; font-size: 1.5rem; line-height: 1;"
-  >↓</div>
-  <div
-    class="history-flowchart-node"
-    style="border: 1px solid currentColor; border-radius: 0.75rem; padding: 0.9rem 1rem;"
-  >
-    720 日本書紀成立<br />
-    舎人親王らが編纂
-  </div>
-  <div
-    class="history-flowchart-arrow"
-    aria-hidden="true"
-    style="text-align: center; font-size: 1.5rem; line-height: 1;"
-  >↓</div>
-  <div
-    class="history-flowchart-node"
-    style="border: 1px solid currentColor; border-radius: 0.75rem; padding: 0.9rem 1rem;"
-  >
-    721以後 日本書紀講筵
-  </div>
-  <div
-    class="history-flowchart-arrow"
-    aria-hidden="true"
-    style="text-align: center; font-size: 1.5rem; line-height: 1;"
-  >↓</div>
-  <div
-    class="history-flowchart-node"
-    style="border: 1px solid currentColor; border-radius: 0.75rem; padding: 0.9rem 1rem;"
-  >
-    中世 日本書紀が神書化
-  </div>
-  <div
-    class="history-flowchart-arrow"
-    aria-hidden="true"
-    style="text-align: center; font-size: 1.5rem; line-height: 1;"
-  >↓</div>
-  <div
-    class="history-flowchart-node"
-    style="border: 1px solid currentColor; border-radius: 0.75rem; padding: 0.9rem 1rem;"
-  >
-    近世 本居宣長『古事記伝』
-  </div>
-</div>
+```mermaid
+flowchart LR
+    A["672 壬申の乱"] --> B["天武天皇が帝紀・本辞の再整理を志向"]
+    B --> C["712 古事記成立<br/>太安万侶が筆録編集"]
+    C --> D["720 日本書紀成立<br/>舎人親王らが編纂"]
+    D --> E["721以後 日本書紀講筵"]
+    E --> F["中世 日本書紀が神書化"]
+    F --> G["近世 本居宣長『古事記伝』"]
+```
 
 ## 何が起きていた時代か
 

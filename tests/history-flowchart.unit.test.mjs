@@ -1,5 +1,5 @@
-// ABOUTME: Verifies the Kojiki/Nihon Shoki history page stores its timeline as ordered milestones.
-// ABOUTME: Keeps the chronology readable even when Mermaid rendering is unavailable.
+// ABOUTME: Verifies the Kojiki/Nihon Shoki history page keeps its chronology in Mermaid source form.
+// ABOUTME: Protects the authoring format expected by the Astro Mermaid pipeline.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -9,9 +9,9 @@ const page = readFileSync(
 	'utf8',
 );
 
-test('history page contains a dedicated timeline wrapper', () => {
-	assert.match(page, /class="history-flowchart"/);
-	assert.doesNotMatch(page, /```mermaid/);
+test('history page contains a Mermaid code fence', () => {
+	assert.match(page, /```mermaid/);
+	assert.match(page, /flowchart LR/);
 });
 
 test('history page lists milestones in chronological order', () => {

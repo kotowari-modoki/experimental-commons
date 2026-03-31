@@ -1,18 +1,14 @@
-// ABOUTME: Confirms the Kojiki/Nihon Shoki history page exposes semantic flowchart markup.
-// ABOUTME: Protects the page-level contract between the article source and rendered HTML.
+// ABOUTME: Confirms the Astro config wires rehype-mermaid into Markdown rendering.
+// ABOUTME: Protects the site-level contract needed for Mermaid diagrams to render in Starlight.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
 const root = new URL('../', import.meta.url);
 
-test('history timeline section is labeled as an image-like chronology', async () => {
-	const page = await readFile(
-		new URL('src/content/docs/history/kojiki-nihon-shoki-history.md', root),
-		'utf8',
-	);
+test('astro config imports and registers rehype-mermaid', async () => {
+	const astroConfig = await readFile(new URL('astro.config.mjs', root), 'utf8');
 
-	assert.match(page, /role="img"/);
-	assert.match(page, /aria-label="古事記と日本書紀の成立史の時間軸"/);
-	assert.match(page, /class="history-flowchart-node"/);
+	assert.match(astroConfig, /import rehypeMermaid from ["']rehype-mermaid["']/);
+	assert.match(astroConfig, /rehypePlugins:\s*\[\s*\[\s*rehypeMermaid,\s*\{\s*strategy:\s*["']pre-mermaid["']/s);
 });
