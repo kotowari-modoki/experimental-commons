@@ -97,6 +97,10 @@ export default defineConfig({
               label: "生命とはなにか？ ALife概要と池上高志最終講義メモ",
               link: "/ai/agents/alife-what-is-life-lecture-notes/",
             },
+            {
+              label: "2024-2026の知的ラストレクチャー選集",
+              link: "/ai/agents/last-lectures-for-the-posthuman-turn/",
+            },
           ],
         },
       ],
