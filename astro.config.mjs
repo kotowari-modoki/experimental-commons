@@ -94,6 +94,10 @@ export default defineConfig({
               link: "/philosophy/philosophy-history-overview/",
             },
             {
+              label: "万葉集・古今和歌集・新古今和歌集",
+              link: "/books/three-major-waka-anthologies/",
+            },
+            {
               label: "生命とはなにか？ ALife概要と池上高志最終講義メモ",
               link: "/ai/agents/alife-what-is-life-lecture-notes/",
             },
