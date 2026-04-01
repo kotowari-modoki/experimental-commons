@@ -1,0 +1,60 @@
+---
+// ABOUTME: Generates a static page for each tag listing all docs entries with that tag.
+// ABOUTME: Provides entry points for tag-based browsing of the knowledge garden.
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs');
+  const tagSet = new Set(docs.flatMap((entry) => entry.data.tags ?? []));
+
+  return Array.from(tagSet).map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      entries: docs.filter((entry) => (entry.data.tags ?? []).includes(tag)),
+    },
+  }));
+}
+
+const { tag, entries } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>#{tag} — experimental-commons</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 48rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        background: #0d0e14;
+        color: #e4e7eb;
+      }
+      h1 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+      ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+      a { color: #e4e7eb; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .status { font-size: 0.8rem; color: #9ca3af; margin-left: 0.5rem; }
+      .back { display: inline-block; margin-bottom: 2rem; color: #9ca3af; font-size: 0.875rem; }
+    </style>
+  </head>
+  <body>
+    <a class="back" href={`${base}/`}>← experimental-commons</a>
+    <h1>#{tag}</h1>
+    <ul>
+      {entries.map((entry) => (
+        <li>
+          <a href={`${base}/${entry.id}/`}>
+            {entry.data.title}
+            <span class="status">{entry.data.status}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>
