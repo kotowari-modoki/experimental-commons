@@ -32,7 +32,7 @@ export function formatPageDate(value) {
 }
 
 /**
- * @param {{ status?: string; date?: Date; author?: string }} data
+ * @param {{ status?: string; date?: Date; author?: 'ai' | 'human' }} data
  * @returns {Array<{ label: string; value: string }>}
  */
 export function getPageMetadata(data) {

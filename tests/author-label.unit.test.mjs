@@ -23,3 +23,17 @@ test('getPageMetadata omits author label when author is human', () => {
 	const authorItem = metadata.find((m) => m.label === 'author');
 	assert.equal(authorItem, undefined);
 });
+
+test('getPageMetadata returns status then author then date in that order', () => {
+	const metadata = getPageMetadata({
+		status: 'seed',
+		author: 'ai',
+		date: new Date('2026-04-01T00:00:00.000Z'),
+	});
+
+	assert.deepEqual(metadata, [
+		{ label: 'status', value: '🌱 seed' },
+		{ label: 'author', value: '🤖 AI draft' },
+		{ label: 'date', value: '2026-04-01' },
+	]);
+});
