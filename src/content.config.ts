@@ -12,6 +12,7 @@ export const collections = {
 				date: z.coerce.date(),
 				status: z.enum(['seed', 'growing', 'evergreen']),
 				tags: z.array(z.string()).default([]),
+				author: z.enum(['ai', 'human']).optional(),
 			}),
 		}),
 	}),

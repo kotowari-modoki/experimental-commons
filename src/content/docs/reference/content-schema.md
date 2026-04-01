@@ -24,6 +24,21 @@ tags:
 | `status` | enum | `seed` / `growing` / `evergreen` |
 | `tags` | string[] | 検索や関連付けのためのタグ |
 
+## オプションフィールド
+
+| field | type | meaning |
+| --- | --- | --- |
+| `author` | enum | `ai` / `human`（省略可） |
+
+### author の定義
+
+| author | 意味 |
+| --- | --- |
+| `ai` | AI Agentが下書きを作成し、人間が編集責任を持つページ |
+| `human` | 人間が直接執筆したページ |
+
+省略した場合はラベルを表示しません。
+
 ## status の定義
 
 | status | 使いどころ |
