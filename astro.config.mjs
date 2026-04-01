@@ -77,6 +77,10 @@ export default defineConfig({
               label: "OpenClaw セットアップマニュアル",
               link: "/ai/agents/openclaw-setup/",
             },
+            {
+              label: "axios@1.14.1 ハッキング報告",
+              link: "/ai/agents/axios-1-14-1-compromise-report/",
+            },
           ],
         },
         {
