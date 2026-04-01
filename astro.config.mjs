@@ -119,6 +119,10 @@ export default defineConfig({
               link: "/ai/agents/alife-what-is-life-lecture-notes/",
             },
             {
+              label: "Claude Code のソースコード漏洩をどう見るか",
+              link: "/ai/agents/claude-code-source-leak/",
+            },
+            {
               label: "2024-2026の知的ラストレクチャー選集",
               link: "/ai/agents/last-lectures-for-the-posthuman-turn/",
             },
