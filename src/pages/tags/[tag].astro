@@ -17,6 +17,8 @@ export async function getStaticPaths() {
 }
 
 const { tag, entries } = Astro.props;
+// entry.id is the correct field for Astro content collections v2 (docsLoader API),
+// equivalent to the path relative to the content root without extension.
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
@@ -51,7 +53,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <li>
           <a href={`${base}/${entry.id}/`}>
             {entry.data.title}
-            <span class="status">{entry.data.status}</span>
+            <span class="status" aria-label={`status: ${entry.data.status}`}>{entry.data.status}</span>
           </a>
         </li>
       ))}
