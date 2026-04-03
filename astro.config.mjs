@@ -82,6 +82,10 @@ export default defineConfig({
               link: "/ai/agents/git-worktree-with-codex/",
             },
             {
+              label: "Tailscale でサーバーをチーム共有する標準設定",
+              link: "/guides/tailscale-server-sharing/",
+            },
+            {
               label: "axios@1.14.1 ハッキング報告",
               link: "/ai/agents/axios-1-14-1-compromise-report/",
             },
