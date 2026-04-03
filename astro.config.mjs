@@ -115,6 +115,10 @@ export default defineConfig({
               link: "/philosophy/philosophy-history-overview/",
             },
             {
+              label: "禅問答と「雲門の関」",
+              link: "/philosophy/zen-koan-yunmen-barrier/",
+            },
+            {
               label: "万葉集・古今和歌集・新古今和歌集",
               link: "/books/three-major-waka-anthologies/",
             },
