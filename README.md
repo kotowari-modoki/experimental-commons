@@ -33,6 +33,7 @@ src/content/docs/reference/content-schema.md
 ```bash
 pnpm install
 pnpm dev
+pnpm test
 ```
 
 ローカル確認は `http://localhost:4321/experimental-commons` を使います。
