@@ -130,6 +130,10 @@ export default defineConfig({
               label: "2024-2026の知的ラストレクチャー選集",
               link: "/ai/agents/last-lectures-for-the-posthuman-turn/",
             },
+            {
+              label: "ローカルLLMの選定方法",
+              link: "/ai/agents/local-llm-selection/",
+            },
           ],
         },
       ],
