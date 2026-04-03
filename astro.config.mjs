@@ -78,6 +78,10 @@ export default defineConfig({
               link: "/ai/agents/openclaw-setup/",
             },
             {
+              label: "Git worktree と Codex 運用",
+              link: "/ai/agents/git-worktree-with-codex/",
+            },
+            {
               label: "axios@1.14.1 ハッキング報告",
               link: "/ai/agents/axios-1-14-1-compromise-report/",
             },
