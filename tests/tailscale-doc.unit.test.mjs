@@ -45,3 +45,12 @@ test('astro config links the tailscale guide from the Tools sidebar', async () =
         assert.match(content, /Tailscale でサーバーをチーム共有する標準設定/);
         assert.match(content, /\/guides\/tailscale-server-sharing\//);
 });
+
+test('Tailscale server sharing article includes Tailscale SSH details', async () => {
+        const content = await readFile(articlePath, 'utf8');
+
+        assert.match(content, /Tailscale SSH は、SSH 鍵の管理/);
+        assert.match(content, /ID ベースの認可/);
+        assert.match(content, /ACL との統合/);
+        assert.match(content, /tailscale ssh developer@server-name/);
+});
