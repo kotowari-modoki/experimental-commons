@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
 const page = readFileSync(
-	new URL('../src/content/docs/history/kojiki-nihon-shoki-history.md', import.meta.url),
+	new URL('../src/content/docs/history/kojiki-nihon-shoki-history.mdx', import.meta.url),
 	'utf8',
 );
 
