@@ -12,7 +12,7 @@
 - あとで本や論考になるかもしれない断片
 
 Astro + Starlight で構築し、GitHub Pages で公開します。
-ライセンスは `CC BY 4.0` です。
+ライセンスは [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) です。詳細は [`reference/license-cc-by-4-0.md`](src/content/docs/reference/license-cc-by-4-0.md) を参照してください。
 
 ## 現在のドキュメント構成
 
