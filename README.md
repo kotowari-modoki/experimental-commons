@@ -1,3 +1,8 @@
+<!--
+ABOUTME: experimental-commons の全体像と開発フローを記述するメインガイド。
+ABOUTME: セットアップ、執筆ルール、テスト、タスク管理（bd）の基本を網羅する。
+-->
+
 # experimental-commons
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
@@ -11,7 +16,7 @@
 - デザイン、アート、文化、人文、計算にまたがる実験知
 - あとで本や論考になるかもしれない断片
 
-Astro + Starlight で構築し、GitHub Pages で公開します。
+Astro + Starlight で構築し、GitHub Pages で 公開します。
 ライセンスは [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) です。詳細は [`reference/license-cc-by-4-0.md`](src/content/docs/reference/license-cc-by-4-0.md) を参照してください。
 
 ## 現在のドキュメント構成
@@ -37,6 +42,20 @@ pnpm test
 ```
 
 ローカル確認は `http://localhost:4321/experimental-commons` を使います。
+
+## テスト
+
+このリポジトリでは `node:test` を利用したテストが含まれています。
+
+```bash
+# すべてのテストを実行
+pnpm test
+
+# 種類別に実行する場合
+node --test tests/*.unit.test.mjs         # ユニットテスト
+node --test tests/*.integration.test.mjs  # 統合テスト
+node --test tests/*.e2e.test.mjs          # E2Eテスト
+```
 
 ## 執筆ルール
 
@@ -69,14 +88,24 @@ tags:
 
 ## 開発フロー
 
-このリポジトリではタスク管理に `bd` を使います。
+このリポジトリではタスク管理に `bd` (beads) を使います。
 
 ```bash
+# 着手可能なタスクの確認
 bd ready --json
+
+# 新しいタスクの作成
 bd create "READMEを整理する" -t task -p 2 --json
+
+# タスクの着手（claim）
 bd update <issue-id> --claim --json
+
+# 作業完了と同期
 bd close <issue-id> --reason "Completed" --json
+bd sync
 ```
+
+AIエージェントが作業を行う際は、`AGENTS.md` の指示に従い、コミットメッセージに `Co-authored-by` を含めるなどのルールを守ります。
 
 ドキュメント変更時の最低限の確認:
 
@@ -89,6 +118,7 @@ pnpm build
 - 執筆の進め方: `src/content/docs/guides/contributing.md`
 - frontmatter の意味と公開基準: `src/content/docs/reference/content-schema.md`
 - サイト構成の変更: `astro.config.mjs`
+- エージェント向けのルール: `AGENTS.md`
 
 ## 参考リンク
 
