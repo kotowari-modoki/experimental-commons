@@ -107,6 +107,10 @@ export default defineConfig({
               link: "/guides/quantum-computing-introduction/",
             },
             {
+              label: "美味しいペペロンチーノの作り方",
+              link: "/guides/peperoncino-how-to/",
+            },
+            {
               label: "IUT理論 入門",
               link: "/math/iut-theory-intro/",
             },
