@@ -89,6 +89,10 @@ export default defineConfig({
               label: "axios@1.14.1 ハッキング報告",
               link: "/ai/agents/axios-1-14-1-compromise-report/",
             },
+            {
+              label: "ローカルLLMの選定方法",
+              link: "/ai/tools/local-llm-selection/",
+            },
           ],
         },
         {
@@ -137,10 +141,6 @@ export default defineConfig({
             {
               label: "2024-2026の知的ラストレクチャー選集",
               link: "/ai/agents/last-lectures-for-the-posthuman-turn/",
-            },
-            {
-              label: "ローカルLLMの選定方法",
-              link: "/ai/agents/local-llm-selection/",
             },
           ],
         },
