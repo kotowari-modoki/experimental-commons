@@ -12,7 +12,8 @@ test('local LLM selection article includes decision flow and runner setup guidan
 
 	assert.match(content, /```mermaid/);
 	assert.match(content, /flowchart TD/);
-	assert.match(content, /brew install ollama/);
-	assert.match(content, /Apple Siliconのメタル加速に対応/);
-	assert.match(content, /クラウドAPIとの使い分け/);
+	assert.match(content, /常駐枠/);
+	assert.match(content, /本命枠/);
+	assert.match(content, /Gemma 4 26B-A4B vs Qwen3\.5-35B-A3B/);
+	assert.match(content, /ollama pull gemma4/);
 });
