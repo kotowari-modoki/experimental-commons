@@ -1,5 +1,6 @@
 <!--
 ABOUTME: experimental-commons の全体像と開発フローを記述するメインガイド。
+ABOUTME: セットアップ、執筆ルール、テスト、開発フローの基本を網羅する。
 -->
 
 # experimental-commons
@@ -85,6 +86,11 @@ tags:
 - 実験途中であることを隠さない
 - 余計に断定しない
 
+## 開発フロー
+
+AIエージェントが作業を行う際は、`AGENTS.md` の指示に従い、コミットメッセージに `Co-authored-by` を含めるなどのルールを守ります。
+
+ドキュメント変更時の最低限の確認:
 
 ```bash
 pnpm build
