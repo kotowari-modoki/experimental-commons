@@ -1,6 +1,6 @@
 <!--
 ABOUTME: experimental-commons の全体像と開発フローを記述するメインガイド。
-ABOUTME: セットアップ、執筆ルール、テスト、タスク管理（bd）の基本を網羅する。
+ABOUTME: セットアップ、執筆ルール、テスト、開発フローの基本を網羅する。
 -->
 
 # experimental-commons
@@ -88,23 +88,6 @@ tags:
 
 ## 開発フロー
 
-このリポジトリではタスク管理に `bd` (beads) を使います。
-
-```bash
-# 着手可能なタスクの確認
-bd ready --json
-
-# 新しいタスクの作成
-bd create "READMEを整理する" -t task -p 2 --json
-
-# タスクの着手（claim）
-bd update <issue-id> --claim --json
-
-# 作業完了と同期
-bd close <issue-id> --reason "Completed" --json
-bd sync
-```
-
 AIエージェントが作業を行う際は、`AGENTS.md` の指示に従い、コミットメッセージに `Co-authored-by` を含めるなどのルールを守ります。
 
 ドキュメント変更時の最低限の確認:
@@ -125,4 +108,3 @@ pnpm build
 - [Starlight documentation](https://starlight.astro.build/)
 - [Astro documentation](https://docs.astro.build/)
 - [Diataxis](https://diataxis.fr/)
-- [beads](https://github.com/steveyegge/beads)
