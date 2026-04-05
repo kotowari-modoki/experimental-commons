@@ -20,8 +20,9 @@ test('local LLM selection article has required frontmatter in the tools collecti
 test('local LLM selection article keeps machine-sizing guidance and local runner examples', async () => {
 	const content = await readFile(articlePath, 'utf8');
 
-	assert.match(content, /36GB Apple Silicon/);
-	assert.match(content, /M1 MacBook 16GB/);
-	assert.match(content, /ollama run qwen2\.5:7b/);
-	assert.match(content, /LM Studio/);
+	assert.match(content, /M4 Max 36GB/);
+	assert.match(content, /16GB/);
+	assert.match(content, /gpt-oss 20b/);
+	assert.match(content, /Gemma 4 26B-A4B/);
+	assert.match(content, /ollama run gemma4/);
 });
