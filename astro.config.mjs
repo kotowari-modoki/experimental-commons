@@ -93,6 +93,10 @@ export default defineConfig({
               label: "ローカルLLMの選定方法",
               link: "/ai/tools/local-llm-selection/",
             },
+            {
+              label: "Bonsai-demo 1-bit量子化モデル",
+              link: "/ai/tools/bonsai-demo-1bit-local-llm/",
+            },
           ],
         },
         {
