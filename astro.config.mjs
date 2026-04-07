@@ -78,8 +78,8 @@ export default defineConfig({
               link: "/ai/agents/openclaw-setup/",
             },
             {
-              label: "OpenClaw は 2 Agent で設計するとわかりやすい",
-              link: "/ai/agents/openclaw-two-agent-design/",
+              label: "OpenClaw を multi-agent で設計するときのリサーチ",
+              link: "/ai/agents/openclaw-multi-agent-design/",
             },
             {
               label: "Git worktree と Codex 運用",

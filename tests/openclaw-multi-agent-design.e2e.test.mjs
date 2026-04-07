@@ -1,13 +1,13 @@
-// ABOUTME: Checks the OpenClaw two-agent design article renders with diagrams and primary sources.
+// ABOUTME: Checks the OpenClaw multi-agent design article renders with diagrams and primary sources.
 // ABOUTME: Acts as a lightweight end-to-end contract for the published reader experience.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
 const root = new URL('../', import.meta.url);
-const articlePath = new URL('src/content/docs/ai/agents/openclaw-two-agent-design.md', root);
+const articlePath = new URL('src/content/docs/ai/agents/openclaw-multi-agent-design.md', root);
 
-test('OpenClaw two-agent design article includes a structural diagram and primary sources', async () => {
+test('OpenClaw multi-agent design article includes a structural diagram and primary sources', async () => {
 	const content = await readFile(articlePath, 'utf8');
 
 	assert.match(content, /```mermaid/);
