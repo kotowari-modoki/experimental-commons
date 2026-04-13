@@ -143,6 +143,10 @@ export default defineConfig({
               link: "/history/kojiki-nihon-shoki-history/",
             },
             {
+              label: "Artemis II と Whole Earth のまなざし",
+              link: "/history/artemis-ii-whole-earth/",
+            },
+            {
               label: "生命とはなにか？ ALife概要と池上高志最終講義メモ",
               link: "/ai/agents/alife-what-is-life-lecture-notes/",
             },
