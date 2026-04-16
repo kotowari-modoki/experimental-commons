@@ -131,6 +131,10 @@ export default defineConfig({
               link: "/philosophy/philosophy-history-overview/",
             },
             {
+              label: "ウィトゲンシュタイン、言語の限界、LLMの限界",
+              link: "/philosophy/wittgenstein-language-limits-and-llm/",
+            },
+            {
               label: "禅問答と「雲門の関」",
               link: "/philosophy/zen-koan-yunmen-barrier/",
             },
