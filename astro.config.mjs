@@ -82,6 +82,10 @@ export default defineConfig({
               link: "/ai/agents/openclaw-multi-agent-design/",
             },
             {
+              label: "AI時代のプロダクトはプロセスになる",
+              link: "/ai/agents/product-as-process-in-ai-era/",
+            },
+            {
               label: "Git worktree と Codex 運用",
               link: "/ai/agents/git-worktree-with-codex/",
             },
