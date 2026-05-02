@@ -98,6 +98,10 @@ export default defineConfig({
               link: "/ai/agents/axios-1-14-1-compromise-report/",
             },
             {
+              label: "Copy Fail / CVE-2026-31431 調査記事",
+              link: "/ai/agents/copy-fail-cve-2026-31431-case-study/",
+            },
+            {
               label: "ローカルLLMの選定方法",
               link: "/ai/tools/local-llm-selection/",
             },
