@@ -143,6 +143,10 @@ export default defineConfig({
               link: "/philosophy/wittgenstein-language-limits-and-llm/",
             },
             {
+              label: "アーレントの労働・仕事・活動を仕事で考える",
+              link: "/philosophy/arendt-vita-activa-in-work/",
+            },
+            {
               label: "禅問答と「雲門の関」",
               link: "/philosophy/zen-koan-yunmen-barrier/",
             },
