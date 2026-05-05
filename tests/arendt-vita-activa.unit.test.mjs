@@ -1,5 +1,5 @@
-// ABOUTME: Verifies the Arendt vita activa article has required metadata and evidence grounding.
-// ABOUTME: Protects the requested distinction between labor, work, and action in daily work.
+// ABOUTME: Verifies the Arendt vita activa article has required metadata and source grounding.
+// ABOUTME: Protects the distinction between labor, work, action, and non-conclusive plurality.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
@@ -17,7 +17,7 @@ test('arendt vita activa article has required frontmatter', async () => {
 	assert.match(content, /\ntags:\n(?:\s+- .+\n)+/);
 });
 
-test('arendt vita activa article verifies the three categories with source terms', async () => {
+test('arendt vita activa article explains the three categories with source terms', async () => {
 	const content = await readFile(articlePath, 'utf8');
 
 	assert.match(content, /labor/);
@@ -26,7 +26,8 @@ test('arendt vita activa article verifies the three categories with source terms
 	assert.match(content, /労働/);
 	assert.match(content, /仕事/);
 	assert.match(content, /活動/);
-	assert.match(content, /勤労よりも「労働」/);
+	assert.doesNotMatch(content, /記憶はどこまで正しいか/);
+	assert.doesNotMatch(content, /検証結果/);
 });
 
 test('arendt vita activa article links primary and scholarly sources', async () => {
