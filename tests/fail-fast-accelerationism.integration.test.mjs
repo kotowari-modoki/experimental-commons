@@ -6,9 +6,10 @@ import { readFile } from 'node:fs/promises';
 
 const root = new URL('../', import.meta.url);
 
-test('astro config links the fail-fast accelerationism article from the Notes sidebar', async () => {
+test('astro config links the fail-fast accelerationism article from the Philosophy & Thought sidebar', async () => {
 	const astroConfig = await readFile(new URL('astro.config.mjs', root), 'utf8');
 
 	assert.match(astroConfig, /label:\s*["']fail-fast と加速度主義はどちらが先か["']/);
+	assert.match(astroConfig, /label:\s*["']Philosophy & Thought["'][\s\S]*label:\s*["']fail-fast と加速度主義はどちらが先か["']/);
 	assert.match(astroConfig, /link:\s*["']\/philosophy\/fail-fast-accelerationism-agile\/["']/);
 });

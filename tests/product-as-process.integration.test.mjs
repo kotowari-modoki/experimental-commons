@@ -6,9 +6,10 @@ import { readFile } from 'node:fs/promises';
 
 const root = new URL('../', import.meta.url);
 
-test('astro config links the product-as-process article from the Tools sidebar', async () => {
+test('astro config links the product-as-process article from the AI & Agents sidebar', async () => {
 	const astroConfig = await readFile(new URL('astro.config.mjs', root), 'utf8');
 
 	assert.match(astroConfig, /label:\s*["']AI時代のプロダクトはプロセスになる["']/);
+	assert.match(astroConfig, /label:\s*["']AI & Agents["'][\s\S]*label:\s*["']AI時代のプロダクトはプロセスになる["']/);
 	assert.match(astroConfig, /link:\s*["']\/ai\/agents\/product-as-process-in-ai-era\/["']/);
 });

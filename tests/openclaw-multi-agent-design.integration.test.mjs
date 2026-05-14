@@ -6,9 +6,10 @@ import { readFile } from 'node:fs/promises';
 
 const root = new URL('../', import.meta.url);
 
-test('astro config links the OpenClaw multi-agent design guide from the Tools sidebar', async () => {
+test('astro config links the OpenClaw multi-agent design guide from the AI & Agents sidebar', async () => {
 	const astroConfig = await readFile(new URL('astro.config.mjs', root), 'utf8');
 
 	assert.match(astroConfig, /label:\s*["']OpenClaw を multi-agent で設計するときのリサーチ["']/);
+	assert.match(astroConfig, /label:\s*["']AI & Agents["'][\s\S]*label:\s*["']OpenClaw を multi-agent で設計するときのリサーチ["']/);
 	assert.match(astroConfig, /link:\s*["']\/ai\/agents\/openclaw-multi-agent-design\/["']/);
 });
