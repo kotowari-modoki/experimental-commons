@@ -147,6 +147,10 @@ export default defineConfig({
               link: "/philosophy/arendt-vita-activa-in-work/",
             },
             {
+              label: "fail-fast と加速度主義はどちらが先か",
+              link: "/philosophy/fail-fast-accelerationism-agile/",
+            },
+            {
               label: "禅問答と「雲門の関」",
               link: "/philosophy/zen-koan-yunmen-barrier/",
             },
