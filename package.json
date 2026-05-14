@@ -2,6 +2,7 @@
   "name": "",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@10.30.2",
   "description": "まだ本になっていない知識の公共財",
   "license": "CC-BY-4.0",
   "scripts": {
