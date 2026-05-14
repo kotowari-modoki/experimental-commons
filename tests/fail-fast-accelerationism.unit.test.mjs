@@ -50,3 +50,14 @@ test('fail-fast accelerationism article distinguishes startup speed culture from
 	assert.match(content, /市場学習と成長のための高速化/);
 	assert.match(content, /加速度主義とは、対象も射程も違います/);
 });
+
+test('fail-fast accelerationism article explains why danger intuitions differ', async () => {
+	const content = await readFile(articlePath, 'utf8');
+
+	assert.match(content, /なぜ危険に見えるのか/);
+	assert.match(content, /異常検知と非常停止の設計/);
+	assert.match(content, /失敗コストを誰が負担するか/);
+	assert.match(content, /速度の利益を得る人と、壊れた結果を負担する人がずれる/);
+	assert.match(content, /失敗の半径/);
+	assert.match(content, /制御不能性/);
+});
