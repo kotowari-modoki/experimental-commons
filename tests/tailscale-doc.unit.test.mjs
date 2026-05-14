@@ -38,10 +38,11 @@ test('Tailscale server sharing article includes the network diagram', async () =
         assert.match(content, /サーバー用PC/);
 });
 
-test('astro config links the tailscale guide from the Tools sidebar', async () => {
+test('astro config links the tailscale guide from the Practical Guides sidebar', async () => {
         const configPath = new URL('astro.config.mjs', root);
         const content = await readFile(configPath, 'utf8');
 
+        assert.match(content, /label:\s*["']Practical Guides["'][\s\S]*label:\s*["']Tailscale でサーバーをチーム共有する標準設定["']/);
         assert.match(content, /Tailscale でサーバーをチーム共有する標準設定/);
         assert.match(content, /\/guides\/tailscale-server-sharing\//);
 });

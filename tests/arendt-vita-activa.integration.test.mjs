@@ -6,9 +6,10 @@ import { readFile } from 'node:fs/promises';
 
 const root = new URL('../', import.meta.url);
 
-test('astro config links the Arendt vita activa article from the Notes sidebar', async () => {
+test('astro config links the Arendt vita activa article from the Philosophy & Thought sidebar', async () => {
 	const astroConfig = await readFile(new URL('astro.config.mjs', root), 'utf8');
 
 	assert.match(astroConfig, /label:\s*["']アーレントの労働・仕事・活動を仕事で考える["']/);
+	assert.match(astroConfig, /label:\s*["']Philosophy & Thought["'][\s\S]*label:\s*["']アーレントの労働・仕事・活動を仕事で考える["']/);
 	assert.match(astroConfig, /link:\s*["']\/philosophy\/arendt-vita-activa-in-work\/["']/);
 });

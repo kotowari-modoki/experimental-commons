@@ -71,7 +71,7 @@ export default defineConfig({
           ],
         },
         {
-          label: "Tools",
+          label: "AI & Agents",
           items: [
             {
               label: "OpenClaw セットアップマニュアル",
@@ -82,28 +82,16 @@ export default defineConfig({
               link: "/ai/agents/openclaw-multi-agent-design/",
             },
             {
-              label: "AI時代のプロダクトはプロセスになる",
-              link: "/ai/agents/product-as-process-in-ai-era/",
+              label: "Git worktree と Codex 運用",
+              link: "/ai/agents/git-worktree-with-codex/",
             },
             {
               label: "身体性、AIエージェント、分断社会",
               link: "/ai/agents/body-schema-ai-agents-social-fragmentation/",
             },
             {
-              label: "Git worktree と Codex 運用",
-              link: "/ai/agents/git-worktree-with-codex/",
-            },
-            {
-              label: "Tailscale でサーバーをチーム共有する標準設定",
-              link: "/guides/tailscale-server-sharing/",
-            },
-            {
-              label: "axios@1.14.1 ハッキング報告",
-              link: "/ai/agents/axios-1-14-1-compromise-report/",
-            },
-            {
-              label: "Copy Fail / CVE-2026-31431 調査記事",
-              link: "/ai/agents/copy-fail-cve-2026-31431-case-study/",
+              label: "AI時代のプロダクトはプロセスになる",
+              link: "/ai/agents/product-as-process-in-ai-era/",
             },
             {
               label: "ローカルLLMの選定方法",
@@ -113,31 +101,49 @@ export default defineConfig({
               label: "Bonsai-demo 1-bit量子化モデル",
               link: "/ai/tools/bonsai-demo-1bit-local-llm/",
             },
-          ],
-        },
-        {
-          label: "Notes",
-          items: [
             {
               label: "プロバビリスティックプログラミング入門",
               link: "/ai/prob-comp/probabilistic-programming-intro/",
             },
             {
-              label: "量子コンピューティング入門",
-              link: "/guides/quantum-computing-introduction/",
+              label: "生命とはなにか？ ALife概要と池上高志最終講義メモ",
+              link: "/ai/agents/alife-what-is-life-lecture-notes/",
+            },
+          ],
+        },
+        {
+          label: "Security & Incidents",
+          items: [
+            {
+              label: "Claude Code のソースコード漏洩をどう見るか",
+              link: "/ai/agents/claude-code-source-leak/",
             },
             {
-              label: "美味しいペペロンチーノの作り方",
-              link: "/guides/peperoncino-how-to/",
+              label: "axios@1.14.1 ハッキング報告",
+              link: "/ai/agents/axios-1-14-1-compromise-report/",
+            },
+            {
+              label: "Copy Fail / CVE-2026-31431 調査記事",
+              link: "/ai/agents/copy-fail-cve-2026-31431-case-study/",
+            },
+          ],
+        },
+        {
+          label: "Science & Systems",
+          items: [
+            {
+              label: "量子コンピューティング入門",
+              link: "/guides/quantum-computing-introduction/",
             },
             {
               label: "IUT理論 入門",
               link: "/math/iut-theory-intro/",
             },
-            {
-              label: "Dawn of Everything（万物の黎明）",
-              link: "/books/dawn-of-everything/",
-            },
+          ],
+        },
+        {
+          label: "Philosophy & Thought",
+          items: [
             {
               label: "哲学史の見取り図",
               link: "/philosophy/philosophy-history-overview/",
@@ -158,6 +164,15 @@ export default defineConfig({
               label: "禅問答と「雲門の関」",
               link: "/philosophy/zen-koan-yunmen-barrier/",
             },
+          ],
+        },
+        {
+          label: "Culture & History",
+          items: [
+            {
+              label: "Dawn of Everything（万物の黎明）",
+              link: "/books/dawn-of-everything/",
+            },
             {
               label: "万葉集・古今和歌集・新古今和歌集",
               link: "/books/three-major-waka-anthologies/",
@@ -171,16 +186,21 @@ export default defineConfig({
               link: "/history/artemis-ii-whole-earth/",
             },
             {
-              label: "生命とはなにか？ ALife概要と池上高志最終講義メモ",
-              link: "/ai/agents/alife-what-is-life-lecture-notes/",
-            },
-            {
-              label: "Claude Code のソースコード漏洩をどう見るか",
-              link: "/ai/agents/claude-code-source-leak/",
-            },
-            {
               label: "2024-2026の知的ラストレクチャー選集",
               link: "/ai/agents/last-lectures-for-the-posthuman-turn/",
+            },
+          ],
+        },
+        {
+          label: "Practical Guides",
+          items: [
+            {
+              label: "Tailscale でサーバーをチーム共有する標準設定",
+              link: "/guides/tailscale-server-sharing/",
+            },
+            {
+              label: "美味しいペペロンチーノの作り方",
+              link: "/guides/peperoncino-how-to/",
             },
           ],
         },
