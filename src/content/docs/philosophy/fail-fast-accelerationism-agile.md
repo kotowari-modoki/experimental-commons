@@ -127,7 +127,13 @@ Urbanomic の `#Accelerate: The Accelerationist Reader` は、加速度主義を
 
 どちらも「遅い安定」への不信を含みます。問題を長く隠すより、早く露出させる。変化を避けるより、変化の中で学ぶ。既存の均衡に安住するより、動きを強める。
 
-しかし、ここで止めると危険です。fail-fast は、観測可能で可逆的な実験を増やすための工学的・実務的な原則です。加速度主義は、社会全体の技術的・経済的・政治的な力をどう捉えるかという思想です。
+ここに、Lean Startup やシリコンバレーのスタートアップ文化が重なると、さらに似て見えます。Lean Startup は、MVP、validated learning、Build-Measure-Learn によって、事業仮説を早く市場にさらし、学習を次の判断に戻す方法論です。Paul Graham も 2012 年の `Startup = Growth` で、スタートアップを「速く成長するよう設計された会社」と説明しています。この文脈では、速さは思想上の加速というより、学習速度と成長率を上げるための経営上の圧力です。
+
+Facebook の 2012 年 S-1 にある Zuckerberg のレターは、この文化をより強い標語で表しています。そこでは `Move Fast` が中核価値の一つとされ、「速く動くことで、より多く作り、より速く学ぶ」と説明されています。さらに `Move fast and break things` という社内の言い回しも示されています。これは Silicon Valley 的な速度文化を象徴する表現ですが、ここでも主眼は、プロダクト開発・組織運営・市場機会への対応です。
+
+したがって、Lean Startup や Silicon Valley culture は、fail-fast と加速度主義の中間に見える層です。どちらにも「速度」「実験」「既存の遅さへの不信」があります。しかし、Lean Startup の fail fast は、基本的には **仮説検証を速くして損失を限定する** ための実務です。Facebook 的な `move fast` も、**市場機会を逃さず、プロダクト学習を速める** ための企業文化です。資本主義や技術社会そのものを加速させることで別の秩序や崩壊を問う加速度主義とは、対象も射程も違います。
+
+つまり、ここで止めると危険です。fail-fast は、観測可能で可逆的な実験を増やすための工学的・実務的な原則です。Lean Startup / Silicon Valley の速度文化は、それを市場学習や成長へ拡張した事業文化です。加速度主義は、社会全体の技術的・経済的・政治的な力をどう捉えるかという思想です。
 
 ## 実務での分け方
 
@@ -160,7 +166,9 @@ Urbanomic の `#Accelerate: The Accelerationist Reader` は、加速度主義を
 
 両者の直接の系譜関係は薄いと見た方がよいです。fail-fast は、信頼性設計、デバッグ、仮説検証のための実務原則です。加速度主義は、資本主義と技術の進行をどう捉えるかという哲学・政治思想です。
 
-似ているのは、どちらも「遅く隠す」より「早く露出させる」方向を持つからです。しかし、fail-fast は **制御された実験**、加速度主義は **制御可能性も含めて問う加速の思想** と分けて理解するのが、いちばん誠実だと思われます。
+似ているのは、どちらも「遅く隠す」より「早く露出させる」方向を持つからです。さらに Lean Startup やシリコンバレー文化を経由すると、その類似は強く見えます。MVP、A/B テスト、growth、`move fast` は、どれも速度と学習を重視するからです。
+
+しかし、fail-fast は **制御された実験**、Lean Startup / Silicon Valley の速度文化は **市場学習と成長のための高速化**、加速度主義は **制御可能性も含めて問う加速の思想** と分けて理解するのが、いちばん誠実だと思われます。
 
 ## 参照資料
 
@@ -169,6 +177,8 @@ Urbanomic の `#Accelerate: The Accelerationist Reader` は、加速度主義を
 - Agile Manifesto, [アジャイル宣言の背後にある原則](https://agilemanifesto.org/iso/ja/principles.html), 2001.
 - Jim Shore, [Fail Fast](https://martinfowler.com/ieeeSoftware/failFast.pdf), *IEEE Software*, 2004.
 - The Lean Startup, [Methodology](https://theleanstartup.com/principles).
+- Paul Graham, [Startup = Growth](https://www.paulgraham.com/growth.html), 2012.
+- Facebook, Inc., [Form S-1 Registration Statement](https://www.sec.gov/Archives/edgar/data/1326801/000119312512034517/d287954ds1.htm), 2012.
 - Benjamin Noys, [The Persistence of the Negative](https://edinburghuniversitypress.com/book-the-persistence-of-the-negative.html), Edinburgh University Press, 2010.
 - Alex Williams and Nick Srnicek, [#ACCELERATE MANIFESTO for an Accelerationist Politics](https://criticallegalthinking.com/2013/05/14/accelerate-manifesto-for-an-accelerationist-politics/), 2013.
 - Robin Mackay and Armen Avanessian eds., [#Accelerate: The Accelerationist Reader](https://www.urbanomic.com/book/accelerate/), Urbanomic, 2014.

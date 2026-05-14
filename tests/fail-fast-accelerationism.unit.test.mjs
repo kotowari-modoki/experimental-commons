@@ -35,6 +35,18 @@ test('fail-fast accelerationism article links core evidence sources', async () =
 	assert.match(content, /https:\/\/agilemanifesto\.org\/iso\/ja\/manifesto\.html/);
 	assert.match(content, /https:\/\/martinfowler\.com\/ieeeSoftware\/failFast\.pdf/);
 	assert.match(content, /https:\/\/theleanstartup\.com\/principles/);
+	assert.match(content, /https:\/\/www\.paulgraham\.com\/growth\.html/);
+	assert.match(content, /https:\/\/www\.sec\.gov\/Archives\/edgar\/data\/1326801\/000119312512034517\/d287954ds1\.htm/);
 	assert.match(content, /https:\/\/www\.urbanomic\.com\/book\/accelerate\//);
 	assert.match(content, /https:\/\/www\.britannica\.com\/topic\/accelerationism/);
+});
+
+test('fail-fast accelerationism article distinguishes startup speed culture from accelerationism', async () => {
+	const content = await readFile(articlePath, 'utf8');
+
+	assert.match(content, /Lean Startup やシリコンバレーのスタートアップ文化/);
+	assert.match(content, /Startup = Growth/);
+	assert.match(content, /Move fast and break things/);
+	assert.match(content, /市場学習と成長のための高速化/);
+	assert.match(content, /加速度主義とは、対象も射程も違います/);
 });
