@@ -86,6 +86,10 @@ export default defineConfig({
               link: "/ai/agents/product-as-process-in-ai-era/",
             },
             {
+              label: "身体性、AIエージェント、分断社会",
+              link: "/ai/agents/body-schema-ai-agents-social-fragmentation/",
+            },
+            {
               label: "Git worktree と Codex 運用",
               link: "/ai/agents/git-worktree-with-codex/",
             },
