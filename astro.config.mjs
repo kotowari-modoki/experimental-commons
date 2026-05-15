@@ -90,6 +90,10 @@ export default defineConfig({
               link: "/ai/agents/body-schema-ai-agents-social-fragmentation/",
             },
             {
+              label: "AIエージェント時代の学習空間",
+              link: "/ai/agents/future-learning-spaces-ai-agents/",
+            },
+            {
               label: "AI時代のプロダクトはプロセスになる",
               link: "/ai/agents/product-as-process-in-ai-era/",
             },
