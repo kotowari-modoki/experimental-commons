@@ -29,6 +29,22 @@ export default defineConfig({
         Head: "./src/components/Head.astro",
         PageTitle: "./src/components/PageTitle.astro",
       },
+      head: [
+        {
+          tag: "meta",
+          attrs: {
+            name: "robots",
+            content: "index, follow",
+          },
+        },
+        {
+          tag: "link",
+          attrs: {
+            rel: "sitemap",
+            href: "https://kotowari-modoki.github.io/experimental-commons/sitemap-index.xml",
+          },
+        },
+      ],
       //    logo: {
       //      src: './public/logo.svg',
       //    },
