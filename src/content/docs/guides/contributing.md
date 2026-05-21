@@ -22,6 +22,9 @@ tags:
 4. できるだけ一次情報源へリンクする
 5. `npm run build` で公開サイトとして破綻していないか確認する
 
+AIセッション、Web調査、個人メモから内容を取り込む場合は、可能なら `provenance` と `knowledge_status` も追加します。
+必須ではありませんが、後から出典、AI処理、確信度、過去ノートとの関係を追える状態にしておくと、知識の再編集がしやすくなります。
+
 ## frontmatter の最小例
 
 ```yaml
@@ -34,6 +37,20 @@ tags:
   - ai
   - agents
   - design
+provenance:
+  source_type: ai_session
+  source_ref: "Codex session, 2026-05-21"
+  captured_at: 2026-05-21
+  ai_process:
+    - structure
+    - rewrite
+  confidence: medium
+  review_needed: true
+knowledge_status:
+  claim_status: tentative
+  related_notes:
+    - /ai/agents/session-to-knowledge-capture/
+  contradiction_review: none
 ---
 ```
 
@@ -51,6 +68,8 @@ tags:
 - 「要検証」「と思われる」をためらわない
 - コードブロック、Mermaid、リンクを使って構造を見せる
 - 既存ページと関係があるなら本文中で相互リンクする
+- 過去ノートと矛盾しそうな場合は、自動で直さず `contradiction_review: required` などでレビュー候補にする
+- 古い仮説を更新するときは、削除ではなく update note、`supersedes`、`superseded_by`、関連リンクで関係を残す
 
 ## カテゴリの考え方
 

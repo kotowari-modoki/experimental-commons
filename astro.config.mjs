@@ -81,6 +81,14 @@ export default defineConfig({
               link: "/reference/content-schema/",
             },
             {
+              label: "Provenance Schema",
+              link: "/reference/provenance-schema/",
+            },
+            {
+              label: "AI Agent Editorial Policy",
+              link: "/reference/ai-agent-editorial-policy/",
+            },
+            {
               label: "ライセンス: CC BY 4.0",
               link: "/reference/license-cc-by-4-0/",
             },
@@ -100,6 +108,14 @@ export default defineConfig({
             {
               label: "Git worktree と Codex 運用",
               link: "/ai/agents/git-worktree-with-codex/",
+            },
+            {
+              label: "Session-to-Knowledge Capture",
+              link: "/ai/agents/session-to-knowledge-capture/",
+            },
+            {
+              label: "Contradiction Detection and Reweaving",
+              link: "/ai/agents/contradiction-detection-and-reweaving/",
             },
             {
               label: "身体性、AIエージェント、分断社会",
