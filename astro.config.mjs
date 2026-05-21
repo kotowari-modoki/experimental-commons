@@ -218,6 +218,10 @@ export default defineConfig({
               link: "/history/kojiki-nihon-shoki-history/",
             },
             {
+              label: "MMORPG の歴史",
+              link: "/history/mmorpg-history-from-mud/",
+            },
+            {
               label: "Artemis II と Whole Earth のまなざし",
               link: "/history/artemis-ii-whole-earth/",
             },
