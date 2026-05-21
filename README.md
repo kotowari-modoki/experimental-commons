@@ -29,6 +29,10 @@ src/content/docs/index.mdx              # 公開サイトのトップページ
 src/content/docs/guides/contributing.md # 執筆・更新フロー
 src/content/docs/reference/content-schema.md
                                         # frontmatter と公開ルールの参照
+src/content/docs/reference/provenance-schema.md
+                                        # provenance と claim status の参照
+src/content/docs/reference/ai-agent-editorial-policy.md
+                                        # AI支援編集の運用ポリシー
 ```
 
 `src/content/docs/` 配下の `.md` / `.mdx` はそのまま公開ページになります。
@@ -100,6 +104,8 @@ pnpm build
 
 - 執筆の進め方: `src/content/docs/guides/contributing.md`
 - frontmatter の意味と公開基準: `src/content/docs/reference/content-schema.md`
+- provenance と reweave の考え方: `src/content/docs/reference/provenance-schema.md`
+- AI支援編集の方針: `src/content/docs/reference/ai-agent-editorial-policy.md`
 - サイト構成の変更: `astro.config.mjs`
 - エージェント向けのルール: `AGENTS.md`
 

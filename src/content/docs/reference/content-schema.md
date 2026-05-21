@@ -29,6 +29,8 @@ tags:
 | field | type | meaning |
 | --- | --- | --- |
 | `author` | enum | `ai` / `human`（省略可） |
+| `provenance` | object | 情報源、AI処理、確信度、レビュー要否を残すための任意メタデータ |
+| `knowledge_status` | object | 仮説や説明の状態、supersede関係、矛盾レビュー状態を残すための任意メタデータ |
 
 ### author の定義
 
@@ -38,6 +40,43 @@ tags:
 | `human` | 人間が直接執筆したページ |
 
 省略した場合はラベルを表示しません。
+
+### provenance の例
+
+```yaml
+provenance:
+  source_type: ai_session
+  source_ref: "Codex session, 2026-05-21"
+  captured_at: 2026-05-21
+  ai_process:
+    - summarize
+    - synthesize
+  confidence: medium
+  related_notes:
+    - /ai/agents/session-to-knowledge-capture/
+  review_needed: false
+```
+
+`provenance` は公開本文を重くしすぎず、後から「この知識はどこから来たのか」を追えるようにするための任意フィールドです。
+詳しい定義は [Provenance Schema](/reference/provenance-schema/) を参照してください。
+
+### knowledge_status の例
+
+```yaml
+knowledge_status:
+  claim_status: tentative
+  supersedes:
+    - /ai/agents/old-note/
+  superseded_by:
+    - /ai/agents/newer-note/
+  related_notes:
+    - /ai/agents/contradiction-detection-and-reweaving/
+  contradiction_review: required
+```
+
+`knowledge_status` は、古い仮説や説明を黙って消さず、関係を残しながら知識を編み直すための任意フィールドです。
+`claim_status` は `active` / `tentative` / `superseded` / `archived` を使います。
+`contradiction_review` は `none` / `required` / `reviewed` を使います。
 
 ## status の定義
 
