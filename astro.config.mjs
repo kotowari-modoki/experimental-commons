@@ -218,6 +218,10 @@ export default defineConfig({
               link: "/history/kojiki-nihon-shoki-history/",
             },
             {
+              label: "サンスクリット語入門",
+              link: "/guides/sanskrit-introduction/",
+            },
+            {
               label: "MMORPG の歴史",
               link: "/history/mmorpg-history-from-mud/",
             },
