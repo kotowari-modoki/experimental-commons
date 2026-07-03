@@ -2,6 +2,7 @@
 // ABOUTME: Defines site metadata, navigation, and edit links for the published knowledge garden.
 // @ts-check
 import { defineConfig } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import starlight from "@astrojs/starlight";
 import starlightThemeGalaxy from "starlight-theme-galaxy";
 import rehypeMermaid from "rehype-mermaid";
@@ -14,7 +15,9 @@ export default defineConfig({
       type: "shiki",
       excludeLangs: ["mermaid"],
     },
-    rehypePlugins: [[rehypeMermaid, { strategy: "pre-mermaid" }]],
+    processor: unified({
+      rehypePlugins: [[rehypeMermaid, { strategy: "pre-mermaid" }]],
+    }),
   },
   integrations: [
     starlight({
@@ -45,9 +48,6 @@ export default defineConfig({
           },
         },
       ],
-      //    logo: {
-      //      src: './public/logo.svg',
-      //    },
       social: [
         {
           icon: "github",

@@ -47,18 +47,20 @@ pnpm test
 
 ローカル確認は `http://localhost:4321/experimental-commons` を使います。
 
-## テスト
+## テストの実行
 
-このリポジトリでは `node:test` を利用したテストが含まれています。
+- `pnpm test` — `node:test` の全テストを実行します。
+- `pnpm test:unit` — コンポーネント補助関数、設定、ルート列挙などの小さな契約を検証します。
+- `pnpm test:integration` — コンポーネント配線と全コンテンツの frontmatter 最低構造を検証します。
+- `pnpm build` — Astro/Starlight のビルドと content schema を検証します。
+- `pnpm test:e2e` — 公開アセットと、ビルド済み HTML に全コンテンツページが存在することを検証します。
+- `pnpm check` — `astro check` による型チェックを実行します。
+- 記事を追加してもテストコードの追加は不要です。汎用テストが新しいページを自動で検証対象に含めます。
 
 ```bash
-# すべてのテストを実行
 pnpm test
-
-# 種類別に実行する場合
-node --test tests/*.unit.test.mjs         # ユニットテスト
-node --test tests/*.integration.test.mjs  # 統合テスト
-node --test tests/*.e2e.test.mjs          # E2Eテスト
+pnpm check
+pnpm build
 ```
 
 ## 執筆ルール
