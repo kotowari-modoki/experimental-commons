@@ -1,6 +1,7 @@
 // ABOUTME: Defines the docs collection schema used by the published knowledge garden.
 // ABOUTME: Extends Starlight frontmatter so content metadata matches this repository's rules.
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { docsLoader } from '@astrojs/starlight/loaders';
 import { docsSchema } from '@astrojs/starlight/schema';
 

@@ -24,6 +24,7 @@
 - GitHub Actions ワークフローの変更
 - 外部APIへの呼び出し・データ取得
 - センシティブな情報（APIキー・個人情報・社内情報）の記述
+- 記事(`src/content/docs/` 配下)ごとの専用テストを追加すること。ページの表示検証は `tests/content-build-output.e2e.test.mjs` が全ページを自動で対象にし、frontmatter の構造は `src/content.config.ts` のスキーマ、`tests/content-frontmatter.integration.test.mjs`、`astro build` が検証する。記事の追加・修正にテストコードの追加は不要。
 
 ## コンテンツ生成時のルール
 
