@@ -178,6 +178,15 @@ export default defineConfig({
           ],
         },
         {
+          label: "web3 & Governance",
+          items: [
+            {
+              label: "Ethereum Foundation の縮小と Ethlabs 設立",
+              link: "/web3/ethereum-foundation-ethlabs/",
+            },
+          ],
+        },
+        {
           label: "Philosophy & Thought",
           items: [
             {
