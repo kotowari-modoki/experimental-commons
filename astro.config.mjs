@@ -6,6 +6,8 @@ import { unified } from "@astrojs/markdown-remark";
 import starlight from "@astrojs/starlight";
 import starlightThemeGalaxy from "starlight-theme-galaxy";
 import rehypeMermaid from "rehype-mermaid";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 export default defineConfig({
   site: "https://kotowari-modoki.github.io/",
@@ -16,7 +18,11 @@ export default defineConfig({
       excludeLangs: ["mermaid"],
     },
     processor: unified({
-      rehypePlugins: [[rehypeMermaid, { strategy: "pre-mermaid" }]],
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [
+        [rehypeMermaid, { strategy: "pre-mermaid" }],
+        rehypeKatex,
+      ],
     }),
   },
   integrations: [
@@ -179,6 +185,10 @@ export default defineConfig({
               label: "ドーパミンと恐怖消去 ― 扁桃体の報酬応答ニューロン",
               link: "/science/dopamine-fear-extinction-amygdala/",
             },
+            {
+              label: "光速と電磁波の速度は同じ? ― 光と電磁波の違い",
+              link: "/science/light-speed-electromagnetic-waves/",
+            },
           ],
         },
         {
@@ -290,7 +300,7 @@ export default defineConfig({
           ],
         },
       ],
-      customCss: ['./src/styles/custom.css'],
+      customCss: ['katex/dist/katex.min.css', './src/styles/custom.css'],
       editLink: {
         baseUrl:
           "https://github.com/kotowari-modoki/experimental-commons/edit/main/",
