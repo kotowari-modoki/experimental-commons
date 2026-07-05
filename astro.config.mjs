@@ -188,6 +188,10 @@ export default defineConfig({
               label: "Ethereum Foundation の縮小と Ethlabs 設立",
               link: "/web3/ethereum-foundation-ethlabs/",
             },
+            {
+              label: "tea.xyz の事例と OSS報酬設計の課題",
+              link: "/web3/tea-xyz-oss-rewards/",
+            },
           ],
         },
         {
