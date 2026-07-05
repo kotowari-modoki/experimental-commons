@@ -33,23 +33,14 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import RecentUpdates from '../../components/RecentUpdates.astro';
 
-## まずここから
 
-<CardGrid stagger>
-	<Card title="運用方針を読む" icon="document" href="/experimental-commons/ai/agents/agent-authored-site/">
-		AI Agent をどう使い、人間がどこに責任を持つかを最初に確認できます。
-	</Card>
-	<Card title="執筆フローを見る" icon="pencil" href="/experimental-commons/guides/contributing/">
-		ページ追加・更新の最小フローを確認できます。
-	</Card>
-	<Card title="frontmatter を確認する" icon="list-format" href="/experimental-commons/reference/content-schema/">
-		公開時に必要な `date` `status` `tags` の基準を確認できます。
-	</Card>
-	<Card title="ライセンスを見る" icon="document" href="/experimental-commons/reference/license-cc-by-4-0/">
-		再利用条件と出典表示の考え方を確認できます。
-	</Card>
-</CardGrid>
+## 新着・最近更新されたページ
+
+`date` の新しい順に自動表示されます。記事を追加すると、次回ビルド時にここへ反映されます。
+
+<RecentUpdates limit={10} />
 
 ## このサイトのスタンス
 

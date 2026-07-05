@@ -6,6 +6,8 @@ import { unified } from "@astrojs/markdown-remark";
 import starlight from "@astrojs/starlight";
 import starlightThemeGalaxy from "starlight-theme-galaxy";
 import rehypeMermaid from "rehype-mermaid";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 export default defineConfig({
   site: "https://kotowari-modoki.github.io/",
@@ -16,7 +18,11 @@ export default defineConfig({
       excludeLangs: ["mermaid"],
     },
     processor: unified({
-      rehypePlugins: [[rehypeMermaid, { strategy: "pre-mermaid" }]],
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [
+        [rehypeMermaid, { strategy: "pre-mermaid" }],
+        rehypeKatex,
+      ],
     }),
   },
   integrations: [
@@ -175,6 +181,31 @@ export default defineConfig({
               label: "IUT理論 入門",
               link: "/math/iut-theory-intro/",
             },
+            {
+              label: "ドーパミンと恐怖消去 ― 扁桃体の報酬応答ニューロン",
+              link: "/science/dopamine-fear-extinction-amygdala/",
+            },
+            {
+              label: "光速と電磁波の速度は同じ? ― 光と電磁波の違い",
+              link: "/science/light-speed-electromagnetic-waves/",
+            },
+          ],
+        },
+        {
+          label: "web3 & Governance",
+          items: [
+            {
+              label: "Ethereum Foundation の縮小と Ethlabs 設立",
+              link: "/web3/ethereum-foundation-ethlabs/",
+            },
+            {
+              label: "tea.xyz の事例と OSS報酬設計の課題",
+              link: "/web3/tea-xyz-oss-rewards/",
+            },
+            {
+              label: "x402 ― HTTP に支払いを組み込む決済標準",
+              link: "/web3/x402-http-native-payments/",
+            },
           ],
         },
         {
@@ -183,6 +214,10 @@ export default defineConfig({
             {
               label: "哲学史の見取り図",
               link: "/philosophy/philosophy-history-overview/",
+            },
+            {
+              label: "阿頼耶識とは何か ― 無意識・アートマンを補助線に空海へ",
+              link: "/philosophy/alaya-vijnana-and-kukai/",
             },
             {
               label: "ウィトゲンシュタイン、言語の限界、LLMの限界",
@@ -218,6 +253,14 @@ export default defineConfig({
               link: "/history/kojiki-nihon-shoki-history/",
             },
             {
+              label: "近代日本詩の歴史 ― 日本語表現の更新史として読む",
+              link: "/history/modern-japanese-poetry-history/",
+            },
+            {
+              label: "焼き物の見取り図 ― 『眼の力』を入口に茶陶を分類する",
+              link: "/arts/pottery-classification-tea-ceramics/",
+            },
+            {
               label: "サンスクリット語入門",
               link: "/guides/sanskrit-introduction/",
             },
@@ -243,13 +286,21 @@ export default defineConfig({
               link: "/guides/tailscale-server-sharing/",
             },
             {
+              label: "chezmoi 入門 ― dotfiles を安全に管理・反映する",
+              link: "/guides/chezmoi-introduction/",
+            },
+            {
+              label: "Herdr 入門 ― AIエージェント時代の terminal multiplexer",
+              link: "/guides/herdr-introduction/",
+            },
+            {
               label: "美味しいペペロンチーノの作り方",
               link: "/guides/peperoncino-how-to/",
             },
           ],
         },
       ],
-      // customCss: ['./src/styles/custom.css'],
+      customCss: ['katex/dist/katex.min.css', './src/styles/custom.css'],
       editLink: {
         baseUrl:
           "https://github.com/kotowari-modoki/experimental-commons/edit/main/",

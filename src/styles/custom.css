@@ -1,0 +1,9 @@
+/* ABOUTME: Site-wide style overrides for experimental-commons. */
+/* ABOUTME: Trims the oversized bottom margin the galaxy theme puts on splash card grids. */
+
+/* The galaxy theme sets `.card-grid { margin: 2rem 0 }`, which leaves too much
+   space under the splash sections ("まずここから" / "このサイトのスタンス").
+   Keep the top spacing, tighten the bottom. */
+.sl-markdown-content .card-grid {
+  margin-bottom: 1rem;
+}
