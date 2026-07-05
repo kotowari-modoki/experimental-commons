@@ -218,6 +218,10 @@ export default defineConfig({
               link: "/history/kojiki-nihon-shoki-history/",
             },
             {
+              label: "近代日本詩の歴史 ― 日本語表現の更新史として読む",
+              link: "/history/modern-japanese-poetry-history/",
+            },
+            {
               label: "サンスクリット語入門",
               link: "/guides/sanskrit-introduction/",
             },
