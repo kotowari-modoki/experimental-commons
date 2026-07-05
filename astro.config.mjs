@@ -243,6 +243,10 @@ export default defineConfig({
               link: "/guides/tailscale-server-sharing/",
             },
             {
+              label: "chezmoi 入門 ― dotfiles を安全に管理・反映する",
+              link: "/guides/chezmoi-introduction/",
+            },
+            {
               label: "美味しいペペロンチーノの作り方",
               link: "/guides/peperoncino-how-to/",
             },
