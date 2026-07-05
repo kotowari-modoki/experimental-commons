@@ -206,6 +206,10 @@ export default defineConfig({
               link: "/philosophy/philosophy-history-overview/",
             },
             {
+              label: "阿頼耶識とは何か ― 無意識・アートマンを補助線に空海へ",
+              link: "/philosophy/alaya-vijnana-and-kukai/",
+            },
+            {
               label: "ウィトゲンシュタイン、言語の限界、LLMの限界",
               link: "/philosophy/wittgenstein-language-limits-and-llm/",
             },
