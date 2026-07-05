@@ -270,7 +270,7 @@ export default defineConfig({
           ],
         },
       ],
-      // customCss: ['./src/styles/custom.css'],
+      customCss: ['./src/styles/custom.css'],
       editLink: {
         baseUrl:
           "https://github.com/kotowari-modoki/experimental-commons/edit/main/",
