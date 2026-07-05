@@ -175,6 +175,10 @@ export default defineConfig({
               label: "IUT理論 入門",
               link: "/math/iut-theory-intro/",
             },
+            {
+              label: "ドーパミンと恐怖消去 ― 扁桃体の報酬応答ニューロン",
+              link: "/science/dopamine-fear-extinction-amygdala/",
+            },
           ],
         },
         {
