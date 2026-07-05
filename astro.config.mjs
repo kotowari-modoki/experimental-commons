@@ -247,6 +247,10 @@ export default defineConfig({
               link: "/guides/chezmoi-introduction/",
             },
             {
+              label: "Herdr 入門 ― AIエージェント時代の terminal multiplexer",
+              link: "/guides/herdr-introduction/",
+            },
+            {
               label: "美味しいペペロンチーノの作り方",
               link: "/guides/peperoncino-how-to/",
             },
