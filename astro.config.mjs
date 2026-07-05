@@ -192,6 +192,10 @@ export default defineConfig({
               label: "tea.xyz の事例と OSS報酬設計の課題",
               link: "/web3/tea-xyz-oss-rewards/",
             },
+            {
+              label: "x402 ― HTTP に支払いを組み込む決済標準",
+              link: "/web3/x402-http-native-payments/",
+            },
           ],
         },
         {
