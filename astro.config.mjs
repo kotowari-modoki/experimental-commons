@@ -243,6 +243,10 @@ export default defineConfig({
               link: "/history/modern-japanese-poetry-history/",
             },
             {
+              label: "焼き物の見取り図 ― 『眼の力』を入口に茶陶を分類する",
+              link: "/arts/pottery-classification-tea-ceramics/",
+            },
+            {
               label: "サンスクリット語入門",
               link: "/guides/sanskrit-introduction/",
             },
