@@ -48,7 +48,14 @@
 .sl-markdown-content pre.mermaid .label text,
 .sl-markdown-content pre.mermaid .label span,
 .sl-markdown-content pre.mermaid .edgeLabel,
+.sl-markdown-content pre.mermaid .edgeLabel .label,
+.sl-markdown-content pre.mermaid .edgeLabel foreignObject,
+.sl-markdown-content pre.mermaid .edgeLabel foreignObject div,
+.sl-markdown-content pre.mermaid .edgeLabel foreignObject span,
 .sl-markdown-content pre.mermaid .edgeLabel p,
+.sl-markdown-content pre.mermaid .cluster-label,
+.sl-markdown-content pre.mermaid .cluster-label span,
+.sl-markdown-content pre.mermaid .cluster-label p,
 .sl-markdown-content pre.mermaid .taskText,
 .sl-markdown-content pre.mermaid .sectionTitle,
 .sl-markdown-content pre.mermaid .titleText {
@@ -56,7 +63,9 @@
   fill: var(--sl-color-text) !important;
 }
 
-.sl-markdown-content pre.mermaid .edgeLabel {
+.sl-markdown-content pre.mermaid .edgeLabel,
+.sl-markdown-content pre.mermaid .edgeLabel .label,
+.sl-markdown-content pre.mermaid .edgeLabel foreignObject div {
   background-color: var(--sl-color-bg-nav) !important;
 }
 

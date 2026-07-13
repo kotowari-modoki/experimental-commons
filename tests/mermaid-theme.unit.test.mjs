@@ -15,4 +15,6 @@ test('Mermaid diagrams override inline colors with Starlight theme tokens', asyn
 	assert.match(css, /stroke:\s*var\(--sl-color-accent-high\)\s*!important/);
 	assert.match(css, /color:\s*var\(--sl-color-text\)\s*!important/);
 	assert.match(css, /stroke:\s*var\(--sl-color-gray-2\)\s*!important/);
+	assert.match(css, /\.edgeLabel \.label/);
+	assert.match(css, /\.edgeLabel foreignObject/);
 });
