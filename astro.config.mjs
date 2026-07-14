@@ -274,6 +274,10 @@ export default defineConfig({
               link: "/history/kojiki-nihon-shoki-history/",
             },
             {
+              label: "七夕と梶の葉 ― 短冊の前身をたどる",
+              link: "/history/tanabata-kaji-leaf/",
+            },
+            {
               label: "近代日本詩の歴史 ― 日本語表現の更新史として読む",
               link: "/history/modern-japanese-poetry-history/",
             },
