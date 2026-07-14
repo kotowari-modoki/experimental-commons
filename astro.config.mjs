@@ -101,6 +101,27 @@ export default defineConfig({
           ],
         },
         {
+          label: "Research & Papers",
+          items: [
+            {
+              label: "論文開発日誌",
+              link: "/research/",
+            },
+            {
+              label: "decentralized-multi-agent",
+              link: "/research/decentralized-multi-agent/",
+            },
+            {
+              label: "Agent-Based Theory Testing",
+              link: "/research/agent-based-theory-testing-2-sigma-problem/",
+            },
+            {
+              label: "conspiracy_family_transmission",
+              link: "/research/conspiracy-family-transmission/",
+            },
+          ],
+        },
+        {
           label: "AI & Agents",
           items: [
             {
@@ -251,6 +272,10 @@ export default defineConfig({
             {
               label: "古事記・日本書紀の成立史",
               link: "/history/kojiki-nihon-shoki-history/",
+            },
+            {
+              label: "七夕と梶の葉 ― 短冊の前身をたどる",
+              link: "/history/tanabata-kaji-leaf/",
             },
             {
               label: "近代日本詩の歴史 ― 日本語表現の更新史として読む",

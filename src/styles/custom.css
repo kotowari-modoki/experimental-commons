@@ -1,9 +1,81 @@
 /* ABOUTME: Site-wide style overrides for experimental-commons. */
-/* ABOUTME: Trims the oversized bottom margin the galaxy theme puts on splash card grids. */
+/* ABOUTME: Tunes splash spacing and keeps Mermaid diagrams readable across themes. */
 
 /* The galaxy theme sets `.card-grid { margin: 2rem 0 }`, which leaves too much
    space under the splash sections ("まずここから" / "このサイトのスタンス").
    Keep the top spacing, tighten the bottom. */
 .sl-markdown-content .card-grid {
   margin-bottom: 1rem;
+}
+
+/* Mermaid writes light-theme colors into the generated SVG. Override those
+   inline values with Starlight tokens so theme changes retain contrast. */
+.sl-markdown-content pre.mermaid {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.5rem;
+  background-color: var(--sl-color-bg-nav);
+}
+
+.sl-markdown-content pre.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.sl-markdown-content pre.mermaid .node rect,
+.sl-markdown-content pre.mermaid .node circle,
+.sl-markdown-content pre.mermaid .node ellipse,
+.sl-markdown-content pre.mermaid .node polygon,
+.sl-markdown-content pre.mermaid .node path,
+.sl-markdown-content pre.mermaid .task,
+.sl-markdown-content pre.mermaid .taskWrapper {
+  fill: var(--sl-color-bg-inline-code) !important;
+  stroke: var(--sl-color-accent-high) !important;
+}
+
+.sl-markdown-content pre.mermaid .cluster rect,
+.sl-markdown-content pre.mermaid .edgeLabel rect,
+.sl-markdown-content pre.mermaid .labelBkg {
+  fill: var(--sl-color-bg-nav) !important;
+  stroke: var(--sl-color-gray-4) !important;
+}
+
+.sl-markdown-content pre.mermaid .nodeLabel,
+.sl-markdown-content pre.mermaid .nodeLabel p,
+.sl-markdown-content pre.mermaid .label text,
+.sl-markdown-content pre.mermaid .label span,
+.sl-markdown-content pre.mermaid .edgeLabel,
+.sl-markdown-content pre.mermaid .edgeLabel .label,
+.sl-markdown-content pre.mermaid .edgeLabel foreignObject,
+.sl-markdown-content pre.mermaid .edgeLabel foreignObject div,
+.sl-markdown-content pre.mermaid .edgeLabel foreignObject span,
+.sl-markdown-content pre.mermaid .edgeLabel p,
+.sl-markdown-content pre.mermaid .cluster-label,
+.sl-markdown-content pre.mermaid .cluster-label span,
+.sl-markdown-content pre.mermaid .cluster-label p,
+.sl-markdown-content pre.mermaid .taskText,
+.sl-markdown-content pre.mermaid .sectionTitle,
+.sl-markdown-content pre.mermaid .titleText {
+  color: var(--sl-color-text) !important;
+  fill: var(--sl-color-text) !important;
+}
+
+.sl-markdown-content pre.mermaid .edgeLabel,
+.sl-markdown-content pre.mermaid .edgeLabel .label,
+.sl-markdown-content pre.mermaid .edgeLabel foreignObject div {
+  background-color: var(--sl-color-bg-nav) !important;
+}
+
+.sl-markdown-content pre.mermaid .flowchart-link,
+.sl-markdown-content pre.mermaid .edgePath path {
+  stroke: var(--sl-color-gray-2) !important;
+}
+
+.sl-markdown-content pre.mermaid marker path,
+.sl-markdown-content pre.mermaid .arrowheadPath {
+  fill: var(--sl-color-gray-2) !important;
+  stroke: var(--sl-color-gray-2) !important;
 }
