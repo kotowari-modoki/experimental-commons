@@ -1,0 +1,4 @@
+interface:
+  display_name: "論文開発日誌を書く"
+  short_description: "研究メモから公開可能な論文開発日誌を安全に作成・更新する"
+  default_prompt: "Use $write-research-journal to turn this research memo into a public, append-only development journal entry."
