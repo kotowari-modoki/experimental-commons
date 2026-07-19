@@ -98,6 +98,25 @@ v1では、評価問題にもsolverのプロンプトにもルール全文は直
 - v1: 教師から講義・対話を経て、無制限メモリがルールブックに近い内容を保持した
 - v2: その経路に加え、評価タスクのプロンプトにもルールが直接入った
 
+## L5とは何か
+
+この実験では、評価タスクの`difficulty`フィールドに`L1`から`L6`までの値を設定している。開発ログと論文で「difficulty ladder（難易度ラダー）」と呼んでいるもので、単純な想起からルールの帰納まで、評価タスクを難易度順に並べた通し番号である。
+
+v1–v3で査読したタスクの対応は次のとおりだった。
+
+| タスクID | Level | `task_type` | 意味 |
+| --- | --- | --- | --- |
+| `l1_recall_01` | L1 | `recall` | 単純想起 |
+| `l2_edge_case_01/02` | L2 | `edge_case` | エッジケース |
+| `l3_rule_interaction_01` | L3 | `rule_interaction` | ルール相互作用 |
+| `l4_debug_01/02` | L4 | `debugging` | デバッグ |
+| `l5_counterexample_01` | L5 | `counterexample` | 反例の判定 |
+| `l6_induction_01/02` | L6 | `short_rule_induction` | ルールの自由記述帰納 |
+
+`l5_counterexample_01`は「難易度L5、タスク種別counterexample、通し番号01」という命名であり、学習者IDではない。学習者IDには別のUUIDを使っている。
+
+今回問題になったのは、このv1–v3のL5タスクである。難易度ラダー上では上位に置かれていたが、実際にはZarn Tokensの知識がなくても純粋な論理だけで解けた。そのためv4以降は、L5を`l5_debug_03`というdebuggingタスクへ差し替えた。またv4以降では、`peer_error_detection`と`explanation_choice`にL7を追加している。
+
 ## 訂正2：v3の教育なし条件は0%ではなく13%だった
 
 以前は、v3で`no_education`が0%になったと記録していた。完走したv3 runを確認すると、実際は1/8正解、13%だった。
