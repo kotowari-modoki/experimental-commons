@@ -28,12 +28,14 @@ provenance:
   related_notes:
     - /research/conspiracy-family-transmission/
     - /research/conspiracy-family-transmission/journal/2026-07-20-self-review-v2/
+    - /research/conspiracy-family-transmission/journal/2026-07-25-self-review-v3/
   review_needed: true
 knowledge_status:
   claim_status: tentative
   related_notes:
     - /research/conspiracy-family-transmission/
     - /research/conspiracy-family-transmission/journal/2026-07-20-self-review-v2/
+    - /research/conspiracy-family-transmission/journal/2026-07-25-self-review-v3/
   contradiction_review: none
 ---
 
@@ -165,6 +167,10 @@ for t in f['transcripts']:
 ## 次に残すもの
 
 v3のセルフ査読では、今回の創作上の面白さと、実験全体から支持できる主張を分ける。主張、判定コード、生データ、測定パイプラインを照合した内容は、別の日誌として記録する。
+
+### 追記：セルフ査読を終えた
+
+2026-07-25に[v3のセルフ査読](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-25-self-review-v3/)を終えた。創作として面白い会話は生まれた一方、それを陰謀論者の行動モデルとして扱うための自己申告ラベルは、実際の振る舞いを追跡していなかった。会話観察と研究上の判定は、引き続き分けて扱う。
 
 ## 一次情報源
 

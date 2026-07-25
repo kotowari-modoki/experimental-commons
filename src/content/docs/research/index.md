@@ -20,6 +20,7 @@ provenance:
     - "User self-review memo: conspiracy_family_transmission v1, 2026-07-20"
     - "User self-review memo: conspiracy_family_transmission v2, 2026-07-20"
     - "User observation memo: conspiracy_family_transmission v3 grandparent transcript, 2026-07-25"
+    - "User self-review memo: conspiracy_family_transmission v3, 2026-07-25"
     - "User retrospective: a friend's suggestion to keep research journals, 2026-07-13"
     - https://zenn.dev/geeknees/articles/dc49480af6b726
     - https://github.com/geeknees/decentralized-multi-agent
@@ -68,7 +69,7 @@ ABOUTME: 各論文の正本と、このサイトに蓄積する開発過程の�
 | --- | --- | --- |
 | [decentralized-multi-agent](/experimental-commons/research/decentralized-multi-agent/) | [GitHub](https://github.com/geeknees/decentralized-multi-agent) / [Zenn](https://zenn.dev/geeknees/articles/dc49480af6b726) | 完了・公開済み |
 | [Agent-Based-Theory-Testing-2-Sigma-Problem](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/) | [GitHub](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem) | 論文は完成。v1–v4のセルフ査読を終え、v4の主数値と解釈上の制約を確認済み |
-| [conspiracy_family_transmission](/experimental-commons/research/conspiracy-family-transmission/) | [GitHub](https://github.com/geeknees/conspiracy_family_transmission) | 進行中・論文は未公開。v1–v2のセルフ査読を終え、v3の査読中に見つけた会話例を記録 |
+| [conspiracy_family_transmission](/experimental-commons/research/conspiracy-family-transmission/) | [GitHub](https://github.com/geeknees/conspiracy_family_transmission) | 進行中・論文は未公開。v1–v3をセルフ査読し、v3では5仮説中3件を撤回。対象となる構成概念の成立を再検討中 |
 
 ## 日誌の運用
 

@@ -21,6 +21,7 @@ provenance:
     - "User self-review memo: conspiracy_family_transmission v1, 2026-07-20"
     - "User self-review memo: conspiracy_family_transmission v2, 2026-07-20"
     - "User observation memo: conspiracy_family_transmission v3 grandparent transcript, 2026-07-25"
+    - "User self-review memo: conspiracy_family_transmission v3, 2026-07-25"
     - https://github.com/geeknees/conspiracy_family_transmission
   ai_process:
     - extract
@@ -49,14 +50,15 @@ ABOUTME: 未公開研究の境界を守りながら、著者が公開を認め�
 
 - プロジェクト: 進行中
 - 公開状態: 論文・研究内容の全体は未公開
-- 日誌: テーマ選定の動機、v11からv13までの転換、v1–v11の整合性監査、v1–v2のセルフ査読、v3の会話観察を公開
+- 日誌: テーマ選定の動機、v11からv13までの転換、v1–v11の整合性監査、v1–v3のセルフ査読、v3の会話観察を公開
 - 現在の問い: 陰謀論と孤独のフィードバックループ、およびAIエージェントが孤独を感じるか
-- 現在の仮説: 温かさ操作は成立しても孤立関連指標は動かず、LLMエージェントで孤立状態を再現・維持すること自体が難しい可能性がある（要検証）
-- 進行中の作業: v3のセルフ査読。主張、判定コード、生データ、測定パイプラインの照合は別日誌として記録する
-- 最終更新: 2026-07-25にv3の祖父母エージェント会話の観察メモを追加
+- 現在の仮説: 少なくともv3とv13では、介入対象となる「聞く耳を持たない」状態が成立していなかった可能性があり、介入効果より先に対象チェックが必要（v4–v12は要検証）
+- 進行中の作業: v3査読で撤回した仮説とLimitationsを生成元へ反映し、v4以降の査読へ対象チェックを組み込む
+- 最終更新: 2026-07-25にv3のセルフ査読を追加。5仮説中3件を撤回し、構成概念妥当性の問題を記録
 
 ## 開発日誌
 
+- [v3を120分査読し、5仮説中3件を撤回する](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-25-self-review-v3/)
 - [v3のログから、「月光ガラス」と「ため息エネルギー」の町が立ち上がる](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-25-v3-moonlight-glass-story/)
 - [v2を40分で査読し、盲検scorerの120件すべてが既定値だったと確認する](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-20-self-review-v2/)
 - [v1をセルフ査読し、生成コードとレポートの乖離を直す](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-20-self-review-v1/)
@@ -71,7 +73,7 @@ v10以前の査読・開発メモは将来遡って追加する可能性があ�
 ## 今後記録したいこと
 
 - v13の結果を踏まえた新しい切り口（現時点では未決定）
-- v3以降の主張、判定コード、生データのセルフ査読
+- v4以降の主張、判定コード、生データのセルフ査読
 - 盲検scorerの配線修正と再実行
 - LLMエージェントで孤立状態を再現・維持できるか
 - 同一モデルによる評価の妥当性
@@ -98,4 +100,5 @@ v10以前の査読・開発メモは将来遡って追加する可能性があ�
 - 著者によるv1セルフ査読メモ（2026-07-20）
 - 著者によるv2セルフ査読メモ（2026-07-20）
 - 著者によるv3祖父母エージェント会話の観察メモ（2026-07-25）
+- 著者によるv3セルフ査読メモ（2026-07-25）
 - [geeknees/conspiracy_family_transmission](https://github.com/geeknees/conspiracy_family_transmission)
