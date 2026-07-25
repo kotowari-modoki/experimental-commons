@@ -1,7 +1,7 @@
 ---
 title: Agent-Based Theory Testing 2 Sigma Problem 開発日誌
 description: Bloomの2シグマ問題をLLMエージェントで検証した論文の開発過程、負の結果、交絡監査、今後の自己査読をまとめる入口。
-date: 2026-07-20
+date: 2026-07-25
 status: growing
 tags:
   - research
@@ -19,6 +19,7 @@ provenance:
     - "User retrospective: pre-self-review decision to include run data, 2026-07-14"
     - "User self-review memo: v1-v3, 2026-07-19"
     - "User self-review memo: v4, 2026-07-20"
+    - "User self-review memo: v5, 2026-07-25"
     - https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem
     - https://doi.org/10.5281/zenodo.21186083
   ai_process:
@@ -46,18 +47,21 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 
 > **Update:** 2026年7月20日、v4のセルフ査読を実施しました。主数値は維持し、L3を「全条件0%」とした説明を訂正しました。Classroom優位は、固定4 exchangeや疑似反復などの制約からBloom理論の反証とは扱いません。
 
+> **Update:** 2026年7月25日、v5のセルフ査読を実施しました。主数値は維持し、1on1学習者の高得点を誤概念修正へ帰属した説明を、Yellow=7を含むルールカバレッジの完全性へ訂正しました。論文本文への波及はありません。
+
 ## 現在地
 
 - 論文: 完成
-- 日誌: 実験と論文化のベース日誌、実行データの公開判断、v1–v4のセルフ査読を公開
+- 日誌: 実験と論文化のベース日誌、実行データの公開判断、v1–v5のセルフ査読を公開
 - 研究上の問い: LLMエージェント環境でBloomの2シグマ効果は再現するか
 - 結果: 7世代を通じて再現せず。v9c2では教育条件間差10pp、学習者タイプ間差38pp
 - 方法論上の成果: F1–F5の交絡分類とAコードの是正手順
-- 現在の研究段階: セルフ査読中。v1–v4を完了し、v5以降は未着手
-- 最終更新: 2026-07-20にv4のセルフ査読を追加
+- 現在の研究段階: セルフ査読中。v1–v5を完了し、v6以降は未着手
+- 最終更新: 2026-07-25にv5のセルフ査読を追加
 
 ## 開発日誌
 
+- [v5を30分査読し、1on1高得点の説明をルールカバレッジへ戻す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-25-self-review-v5/)
 - [v4を25分で査読し、Classroom優位をBloom反証と読まない](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-20-self-review-v4/)
 - [v1–v3を80分かけて査読し、天井効果の説明を直す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-19-self-review-v1-v3/)
 - [セルフ査読の前に、実行データを公開対象へ戻す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-14-include-run-data-before-self-review/)
@@ -67,7 +71,7 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 
 ## 次に記録したいこと
 
-- v5以降のclaim→evidence査読
+- v6以降のclaim→evidence査読
 - v1とv3に関する開発ログの訂正
 - `evaluation_tasks.prompt`の世代間再利用がほかのrunへ与える影響
 - 関連文献との一致点、相違点、矛盾候補
@@ -82,3 +86,4 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 - [Working paper and research artifact v1.0.0](https://doi.org/10.5281/zenodo.21186083)
 - 著者によるv1–v3セルフ査読メモ（2026-07-19）
 - 著者によるv4セルフ査読メモ（2026-07-20）
+- 著者によるv5セルフ査読メモ（2026-07-25）

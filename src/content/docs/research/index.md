@@ -17,6 +17,7 @@ provenance:
     - "User research memo: conspiracy_family_transmission v13 warmth dose-response, 2026-07-15"
     - "User self-review memo: Agent-Based Theory Testing v1-v3, 2026-07-19"
     - "User self-review memo: Agent-Based Theory Testing v4, 2026-07-20"
+    - "User self-review memo: Agent-Based Theory Testing v5, 2026-07-25"
     - "User self-review memo: conspiracy_family_transmission v1, 2026-07-20"
     - "User self-review memo: conspiracy_family_transmission v2, 2026-07-20"
     - "User observation memo: conspiracy_family_transmission v3 grandparent transcript, 2026-07-25"
@@ -68,7 +69,7 @@ ABOUTME: 各論文の正本と、このサイトに蓄積する開発過程の�
 | プロジェクト | 正本 | 現在の記録状態 |
 | --- | --- | --- |
 | [decentralized-multi-agent](/experimental-commons/research/decentralized-multi-agent/) | [GitHub](https://github.com/geeknees/decentralized-multi-agent) / [Zenn](https://zenn.dev/geeknees/articles/dc49480af6b726) | 完了・公開済み |
-| [Agent-Based-Theory-Testing-2-Sigma-Problem](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/) | [GitHub](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem) | 論文は完成。v1–v4のセルフ査読を終え、v4の主数値と解釈上の制約を確認済み |
+| [Agent-Based-Theory-Testing-2-Sigma-Problem](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/) | [GitHub](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem) | 論文は完成。v1–v5のセルフ査読を終え、v5では主数値を維持しつつ1on1高得点の機構説明を訂正 |
 | [conspiracy_family_transmission](/experimental-commons/research/conspiracy-family-transmission/) | [GitHub](https://github.com/geeknees/conspiracy_family_transmission) | 進行中・論文は未公開。v1–v3をセルフ査読し、v3では5仮説中3件を撤回。対象となる構成概念の成立を再検討中 |
 
 ## 日誌の運用
