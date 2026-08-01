@@ -86,6 +86,27 @@ Write natural Japanese with concrete verbs and varied rhythm. Preserve first-per
 
 Explain unfamiliar experimental constructs, datasets, metrics, or technical choices with a compact concrete example. Keep observations distinct from causal conclusions. State when a result applies only to an LLM-agent environment and not to humans or a broader domain.
 
+### Write for a general reader
+
+Treat repository-internal English as implementation detail, not reader vocabulary.
+
+- Write the Japanese meaning first and keep the exact role, condition, metric, field, or status name in parentheses or backticks only when traceability needs it.
+- Explain acronyms and statistical terms at first use, including what `n` counts in that comparison. Prefer "結果指標（DV）" over bare "DV" and "既定値（fallback）" over bare "fallback".
+- If an entry uses three or more related roles, conditions, metrics, labels, or stored fields, add a compact "登場人物と用語" or "この記事で使う用語" section before the method or results.
+- For agent experiments, list the central character roles in ordinary Japanese. Distinguish a character role from a judgment label; for example, write "配偶者役" for a participant and "`mixed`（中間状態）判定" for its output.
+- Explain stored artifacts by function: a database stores runs, memory is the learner summary used at test time, and a report is a generated result document. Do not assume the reader knows the research harness.
+- Keep titles, descriptions, and headings understandable without the glossary. Avoid leading with an untranslated internal label when the conclusion can be stated in ordinary Japanese.
+- Preserve the researcher's agency. Write motivations, decisions, pivots, review ordering, and value judgments in the first person when the researcher is the journal's narrator; reserve impersonal phrasing for observations and system behavior.
+- Do not add a glossary to a plain-language entry merely for consistency. Add only definitions needed to understand that entry.
+
+Before final review, run the bundled terminology inventory on every changed journal:
+
+```bash
+ruby .agents/skills/write-research-journal/scripts/audit_reader_terms.rb <journal-file> [<journal-file> ...]
+```
+
+Treat its output as review candidates, not automatic errors. For every candidate, either add a plain-language explanation, confirm that an earlier explanation in the same entry is sufficient, or rewrite the term away. Re-run it after editing and inspect `title`, `description`, headings, tables, and link text manually because the script intentionally ignores frontmatter and cannot judge meaning.
+
 ## 6. Preserve knowledge history
 
 Append a new dated entry instead of silently rewriting an older journal to match the current conclusion.

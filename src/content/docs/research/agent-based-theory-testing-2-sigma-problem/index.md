@@ -46,7 +46,7 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 論文は完成していますが、今後、著者自身が内容を読み直しながら理解、解釈、関連文献を更新していく予定です。
 このページでは、完成済みの論文と、その後も続く読解・再評価の過程を分けて記録します。
 
-> **Update:** 2026年7月20日、v4のセルフ査読を実施しました。主数値は維持し、L3を「全条件0%」とした説明を訂正しました。Classroom優位は、固定4 exchangeや疑似反復などの制約からBloom理論の反証とは扱いません。
+> **Update:** 2026年7月20日、v4のセルフ査読を実施しました。主数値は維持し、L3を「全条件0%」とした説明を訂正しました。集団授業の高得点は、1対1指導が4往復で終わることや、同じ授業を共有した学習者を独立に数えられないことなどから、Bloom理論の反証とは扱いません。
 
 > **Update:** 2026年7月25日、v5のセルフ査読を実施しました。主数値は維持し、1on1学習者の高得点を誤概念修正へ帰属した説明を、Yellow=7を含むルールカバレッジの完全性へ訂正しました。論文本文への波及はありません。
 
@@ -64,9 +64,9 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 
 ## 開発日誌
 
-- [v6を30分査読し、±25ポイントの実効nと異質性操作を問い直す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-31-self-review-v6/)
-- [v5を30分査読し、1on1高得点の説明をルールカバレッジへ戻す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-25-self-review-v5/)
-- [v4を25分で査読し、Classroom優位をBloom反証と読まない](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-20-self-review-v4/)
+- [v6を30分査読し、±25ポイントの人数と学習者差の作り方を問い直す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-31-self-review-v6/)
+- [v5を30分査読し、個別指導の高得点を「必要なルールが記憶に残ったか」から説明し直す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-25-self-review-v5/)
+- [v4を25分で査読し、集団授業の高得点をBloom理論の反証と読まない](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-20-self-review-v4/)
 - [v1–v3を80分かけて査読し、天井効果の説明を直す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-19-self-review-v1-v3/)
 - [セルフ査読の前に、実行データを公開対象へ戻す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-14-include-run-data-before-self-review/)
 - [7世代の負の結果から、交絡を監査するまで](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-04-seven-generation-negative-result/)

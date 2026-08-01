@@ -66,10 +66,10 @@ ABOUTME: 未公開研究の境界を守りながら、著者が公開を認め�
 - [YouTube経由の浸透を語る現地観察から、研究の切迫性を感じる](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-29-youtube-recommendation-concern/)
 - [v3を120分査読し、5仮説中3件を撤回する](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-25-self-review-v3/)
 - [v3のログから、「月光ガラス」と「ため息エネルギー」の町が立ち上がる](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-25-v3-moonlight-glass-story/)
-- [v2を40分で査読し、盲検scorerの120件すべてが既定値だったと確認する](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-20-self-review-v2/)
-- [v1をセルフ査読し、生成コードとレポートの乖離を直す](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-20-self-review-v1/)
+- [v2を40分で査読し、条件を伏せた採点120件がすべて既定値だったと確認する](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-20-self-review-v2/)
+- [v1をセルフ査読し、生成コードとレポートの食い違いを直す](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-20-self-review-v1/)
 - [v13：温かさは変わったが、孤立関連指標は動かなかった](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-15-v13-warmth-null-and-pause/)
-- [v1–v11をバックデートで不整合監査する](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-14-consistency-audit-v1-v11/)
+- [v1–v11を遡って不整合を点検する](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-14-consistency-audit-v1-v11/)
 - [第3弾に陰謀論を選んだ理由](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-13-why-conspiracy-theory/)
 - [v11からv12：伝搬の行き詰まりから「温かさのない境界」へ](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-13-v11-to-v12/)
 
@@ -81,11 +81,11 @@ v10以前の査読・開発メモは将来遡って追加する可能性があ�
 - v13の結果を踏まえた新しい切り口（現時点では未決定）
 - v5以降の主張、判定コード、生データのセルフ査読
 - v4–v13の会話を見ない最終評価が、各世代の主張へ与える影響
-- 盲検scorerの配線修正と再実行
+- 条件を伏せた採点器（盲検scorer）の配線修正と再実行
 - LLMエージェントで孤立状態を再現・維持できるか
 - 同一モデルによる評価の妥当性
 - モデル系列ごとの聞き手の採用挙動
-- `source-side strength` と採用の関係
+- 情報源側の強さ（`source-side strength`）と採用の関係
 - v10以前の判断を再構成できる資料があるか
 
 記録を追加するときは[論文開発日誌テンプレート](/experimental-commons/research/journal-template/)を使います。
