@@ -1,7 +1,7 @@
 ---
 title: conspiracy_family_transmission 開発日誌
 description: conspiracy_family_transmissionの論文開発で生じた問い、実験、判断、未解決事項を時系列で記録する入口。
-date: 2026-08-01
+date: 2026-08-09
 status: seed
 tags:
   - research
@@ -23,6 +23,7 @@ provenance:
     - "User observation memo: conspiracy_family_transmission v3 grandparent transcript, 2026-07-25"
     - "User self-review memo: conspiracy_family_transmission v3, 2026-07-25"
     - "User self-review memo: conspiracy_family_transmission v4, 2026-07-31 to 2026-08-01"
+    - "User self-review memo: conspiracy_family_transmission v5a, 2026-08-09"
     - "User observation memo: YouTube recommendations and the spread of conspiratorial narratives, 2026-07-29"
     - https://x.com/rootsy/status/2082027473106301437
     - https://x.com/rootsy/status/2082257460723925302
@@ -54,14 +55,15 @@ ABOUTME: 未公開研究の境界を守りながら、著者が公開を認め�
 
 - プロジェクト: 進行中
 - 公開状態: 論文・研究内容の全体は未公開
-- 日誌: テーマ選定の動機、YouTube経由の浸透に関する観察、v11からv13までの転換、v1–v11の整合性監査、v1–v4のセルフ査読、v3の会話観察を公開
-- 現在の問い: v4–v13で会話を見ない最終評価から作られた主要指標を、どこまで再解釈する必要があるか
-- 現在の仮説: v4–v13の主要な結果指標は会話履歴と現在状態を受け取らない最終評価に依存しており、介入効果と対象成立の従来解釈は世代ごとの再評価が必要
-- 進行中の作業: v5–v13への影響を個別に確認し、会話履歴、現在状態、独立評価を備えた測定機を再設計する
-- 最終更新: 2026-08-01に、v4のセルフ査読とv4–v13の横断確認から、最終評価が会話を見ないまま主要指標を作っていたことを記録
+- 日誌: テーマ選定の動機、YouTube経由の浸透に関する観察、v11からv13までの転換、v1–v11の整合性監査、v1–v5aのセルフ査読、v3の会話観察を公開
+- 現在の問い: v6–v13で、対象とする振る舞い、結果指標、実験操作が対応しているかをどこまで再評価する必要があるか
+- 現在の仮説: 会話を見ない最終評価に加え、送り手の対象成立と指標が読み取る構成概念のずれが、後続世代の結果解釈にも影響している可能性がある
+- 進行中の作業: v6–v13への影響を個別に確認し、会話履歴、現在状態、独立評価を備えた測定機を再設計する
+- 最終更新: 2026-08-09にv5aのセルフ査読を完了し、部分採用の指標が陰謀的説明の受容より家族への信頼を反映していた可能性と、送り手の対象成立の問題を記録
 
 ## 開発日誌
 
+- [v5aを査読し、「交絡のない対照」で測定器の向きを確かめる](/experimental-commons/research/conspiracy-family-transmission/journal/2026-08-09-self-review-v5a/)
 - [v4を120分査読し、会話を見ない最終評価がv13まで伝播していたと確認する](/experimental-commons/research/conspiracy-family-transmission/journal/2026-08-01-self-review-v4/)
 - [YouTube経由の浸透を語る現地観察から、研究の切迫性を感じる](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-29-youtube-recommendation-concern/)
 - [v3を120分査読し、5仮説中3件を撤回する](/experimental-commons/research/conspiracy-family-transmission/journal/2026-07-25-self-review-v3/)
@@ -79,7 +81,7 @@ v10以前の査読・開発メモは将来遡って追加する可能性があ�
 ## 今後記録したいこと
 
 - v13の結果を踏まえた新しい切り口（現時点では未決定）
-- v5以降の主張、判定コード、生データのセルフ査読
+- v6以降の主張、判定コード、生データのセルフ査読
 - v4–v13の会話を見ない最終評価が、各世代の主張へ与える影響
 - 条件を伏せた採点器（盲検scorer）の配線修正と再実行
 - LLMエージェントで孤立状態を再現・維持できるか
@@ -109,6 +111,7 @@ v10以前の査読・開発メモは将来遡って追加する可能性があ�
 - 著者によるv3祖父母エージェント会話の観察メモ（2026-07-25）
 - 著者によるv3セルフ査読メモ（2026-07-25）
 - 著者によるv4セルフ査読メモ（2026-07-31から2026-08-01）
+- 著者によるv5aセルフ査読メモ（2026-08-09）
 - 著者によるYouTubeレコメンドと陰謀論的言説の拡散についての観察メモ（2026-07-29）
 - [地方で聞いた陰謀論的ナラティブについての投稿](https://x.com/rootsy/status/2082027473106301437)
 - [党派性の薄い層とYouTube動画についての続報](https://x.com/rootsy/status/2082257460723925302)
