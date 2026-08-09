@@ -1,7 +1,7 @@
 ---
 title: Agent-Based Theory Testing 2 Sigma Problem 開発日誌
 description: Bloomの2シグマ問題をLLMエージェントで検証した論文の開発過程、負の結果、交絡監査、今後の自己査読をまとめる入口。
-date: 2026-07-31
+date: 2026-08-09
 status: growing
 tags:
   - research
@@ -21,6 +21,7 @@ provenance:
     - "User self-review memo: v4, 2026-07-20"
     - "User self-review memo: v5, 2026-07-25"
     - "User self-review memo: v6 and v5 follow-up, 2026-07-30 to 2026-07-31"
+    - "User self-review memo: v7a and v7b, 2026-08-09"
     - https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem
     - https://doi.org/10.5281/zenodo.21186083
   ai_process:
@@ -52,18 +53,21 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 
 > **Update:** 2026年7月31日、v6のセルフ査読を完了しました。主数値は維持しましたが、タイプ別の±25ポイントが各条件1名・8問中2問の差だったため、論文の実効nの説明を訂正しました。v5についても、主要なプロファイルが学習者本人へ渡っていなかった実装上の非対称性を追記しました。
 
+> **Update:** 2026年8月9日、v7a・v7bのセルフ査読を完了しました。条件別の主数値は維持しましたが、v7aの強制的なやり取りとv7bの手順混乱タイプは意図どおり成立していませんでした。教材と評価問題の重複も見つかり、機構説明と準備確認の解釈をv8以降の査読へ持ち越しました。
+
 ## 現在地
 
 - 論文: 完成
-- 日誌: 実験と論文化のベース日誌、実行データの公開判断、v1–v6のセルフ査読を公開
+- 日誌: 実験と論文化のベース日誌、実行データの公開判断、v1–v7のセルフ査読を公開
 - 研究上の問い: LLMエージェント環境でBloomの2シグマ効果は再現するか
 - 結果: 7世代を通じて再現せず。v9c2では教育条件間差10pp、学習者タイプ間差38pp
 - 方法論上の成果: F1–F5の交絡分類とAコードの是正手順
-- 現在の研究段階: セルフ査読中。v1–v6を完了し、v7以降は未着手
-- 最終更新: 2026-07-31にv6のセルフ査読とv5へ遡る実装確認を追加
+- 現在の研究段階: セルフ査読中。v1–v7を完了し、v8以降は未着手
+- 最終更新: 2026-08-09にv7a・v7bのセルフ査読、操作成立性と教材・評価重複の確認を追加
 
 ## 開発日誌
 
+- [v7a・v7bを70分査読し、成立しない介入と学習者タイプを切り分ける](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-08-09-self-review-v7a-v7b/)
 - [v6を30分査読し、±25ポイントの人数と学習者差の作り方を問い直す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-31-self-review-v6/)
 - [v5を30分査読し、個別指導の高得点を「必要なルールが記憶に残ったか」から説明し直す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-25-self-review-v5/)
 - [v4を25分で査読し、集団授業の高得点をBloom理論の反証と読まない](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-07-20-self-review-v4/)
@@ -75,8 +79,9 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 
 ## 次に記録したいこと
 
-- v7以降のclaim→evidence査読
-- v7bで`order_confused`の操作が実体として成立していたかの確認
+- v8以降のclaim→evidence査読
+- v9cの準備確認と教材の例題が重複する範囲の監査
+- 手順混乱の機構説明に依存する論文箇所の更新
 - v1とv3に関する開発ログの訂正
 - `evaluation_tasks.prompt`の世代間再利用がほかのrunへ与える影響
 - 関連文献との一致点、相違点、矛盾候補
@@ -93,3 +98,4 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 - 著者によるv4セルフ査読メモ（2026-07-20）
 - 著者によるv5セルフ査読メモ（2026-07-25）
 - 著者によるv6セルフ査読メモとv5への追記（2026-07-30〜31）
+- 著者によるv7a・v7bセルフ査読メモ（2026-08-09）
