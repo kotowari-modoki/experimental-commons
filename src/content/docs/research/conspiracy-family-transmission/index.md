@@ -1,7 +1,7 @@
 ---
 title: conspiracy_family_transmission 開発日誌
 description: conspiracy_family_transmissionの論文開発で生じた問い、実験、判断、未解決事項を時系列で記録する入口。
-date: 2026-08-22
+date: 2026-08-29
 status: seed
 tags:
   - research
@@ -26,6 +26,7 @@ provenance:
     - "User self-review memo: conspiracy_family_transmission v5a, 2026-08-09"
     - "User self-review memo: conspiracy_family_transmission v6, 2026-08-15"
     - "User self-review memo: conspiracy_family_transmission v7, 2026-08-22"
+    - "User self-review memo: conspiracy_family_transmission v8, 2026-08-29"
     - "User observation memo: YouTube recommendations and the spread of conspiratorial narratives, 2026-07-29"
     - https://x.com/rootsy/status/2082027473106301437
     - https://x.com/rootsy/status/2082257460723925302
@@ -57,14 +58,15 @@ ABOUTME: 未公開研究の境界を守りながら、著者が公開を認め�
 
 - プロジェクト: 進行中
 - 公開状態: 論文・研究内容の全体は未公開
-- 日誌: テーマ選定の動機、YouTube経由の浸透に関する観察、v11からv13までの転換、v1–v11の整合性監査、v1–v7のセルフ査読、v3の会話観察を公開
-- 現在の問い: v8–v13で、介入の演じ分け、受け手に届いた操作、測定層ごとの妥当性、役柄外テキストの混入をどこまで分けて再評価する必要があるか
-- 現在の仮説: 指示どおりの発話生成、受け手による操作の知覚、測定器の弁別、役柄外文脈の排除を別々に検証しなければ、LLMエージェントの出力を制御できたとは判断できない
-- 進行中の作業: v8–v13への影響を個別に確認し、会話履歴、現在状態、独立評価、会話の自然さ、役柄外テキストの隔離を備えた測定器を再設計する
-- 最終更新: 2026-08-22にv7のセルフ査読を完了。順序と用量は人間にその軸として届かず、6条件の結果も同じように見えた。結果指標を生む発話への役柄外の制御文脈の混入も確認した
+- 日誌: テーマ選定の動機、YouTube経由の浸透に関する観察、v11からv13までの転換、v1–v11の整合性監査、v1–v8のセルフ査読、v3の会話観察を公開
+- 現在の問い: v9–v13で、判定状態だけでは見逃す退化スコア、会話を見ない自己申告、役柄外テキストの混入をどこまで検出・隔離できるか
+- 現在の仮説: 質問の種類だけでなく応答の柔らかさも対話の継続に関わる可能性がある。ただしv8では柔らかさを操作していないため、要検証である
+- 進行中の作業: v9–v13への影響を個別に確認し、採点理由と数値の矛盾検出、会話履歴と現在状態を渡す最終評価、役柄外テキストの隔離を備えた測定器を再設計する
+- 最終更新: 2026-08-29にv8のセルフ査読を完了。盲検判定器は人間の読解と一部で一致し、強い逆向きの条件差も捉えた。一方、全項目0の退化スコア1件が結果解釈の一部を作っていた
 
 ## 開発日誌
 
+- [v8を査読し、予想外の結果と採点の異常を見直す](/experimental-commons/research/conspiracy-family-transmission/journal/2026-08-29-self-review-v8/)
 - [v7を査読し、順序と用量の実験で出力制御の難しさに突き当たる](/experimental-commons/research/conspiracy-family-transmission/journal/2026-08-22-self-review-v7/)
 - [v6を査読し、演じ分けと結果の変化を切り分ける](/experimental-commons/research/conspiracy-family-transmission/journal/2026-08-15-self-review-v6/)
 - [v5aを査読し、「交絡のない対照」で測定器の向きを確かめる](/experimental-commons/research/conspiracy-family-transmission/journal/2026-08-09-self-review-v5a/)
@@ -85,9 +87,11 @@ v10以前の査読・開発メモは将来遡って追加する可能性があ�
 ## 今後記録したいこと
 
 - v13の結果を踏まえた新しい切り口（現時点では未決定）
-- v8以降の主張、判定コード、生データのセルフ査読
+- v9以降の主張、判定コード、生データのセルフ査読
 - v4–v13の会話を見ない最終評価が、各世代の主張へ与える影響
 - 役柄外テキストの検出、隔離、再採点をどの段階で行うか
+- 有効判定の中に残る退化スコアと、採点理由・数値の矛盾をどう検出するか
+- 質問の種類と応答の柔らかさを分けて操作できるか
 - 条件を伏せた採点器（盲検scorer）の配線修正と再実行
 - LLMエージェントで孤立状態を再現・維持できるか
 - 同一モデルによる評価の妥当性
@@ -119,6 +123,7 @@ v10以前の査読・開発メモは将来遡って追加する可能性があ�
 - 著者によるv5aセルフ査読メモ（2026-08-09）
 - 著者によるv6セルフ査読メモ（2026-08-15）
 - 著者によるv7セルフ査読メモ（2026-08-22）
+- 著者によるv8セルフ査読メモ（2026-08-29）
 - 著者によるYouTubeレコメンドと陰謀論的言説の拡散についての観察メモ（2026-07-29）
 - [地方で聞いた陰謀論的ナラティブについての投稿](https://x.com/rootsy/status/2082027473106301437)
 - [党派性の薄い層とYouTube動画についての続報](https://x.com/rootsy/status/2082257460723925302)
