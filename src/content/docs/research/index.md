@@ -24,6 +24,7 @@ provenance:
     - "User self-review memo: Agent-Based Theory Testing v9b, 2026-08-22"
     - "User self-review memo: Agent-Based Theory Testing v9c, 2026-08-29"
     - "User self-review memo: Agent-Based Theory Testing v9c2, 2026-09-05"
+    - "User self-review memo: Agent-Based Theory Testing v9c2 ablation, 2026-09-05"
     - "User self-review memo: conspiracy_family_transmission v1, 2026-07-20"
     - "User self-review memo: conspiracy_family_transmission v2, 2026-07-20"
     - "User observation memo: conspiracy_family_transmission v3 grandparent transcript, 2026-07-25"
@@ -81,7 +82,7 @@ ABOUTME: 各論文の正本と、このサイトに蓄積する開発過程の�
 | プロジェクト | 正本 | 現在の記録状態 |
 | --- | --- | --- |
 | [decentralized-multi-agent](/experimental-commons/research/decentralized-multi-agent/) | [GitHub](https://github.com/geeknees/decentralized-multi-agent) / [Zenn](https://zenn.dev/geeknees/articles/dc49480af6b726) | 完了・公開済み |
-| [Agent-Based-Theory-Testing-2-Sigma-Problem](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/) | [GitHub](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem) | 論文は完成。v1–v8とv9b・v9c・v9c2のセルフ査読を完了。v9c2では記憶データの受け渡しと各討論条件5本の独立反復が機能し、教育条件差は約10ポイントへ縮んだ。一方、準備確認の例題重複、講座＋自己省察条件の反復不足、学習量の非対称が残るため、「効果なし」とは結論しない |
+| [Agent-Based-Theory-Testing-2-Sigma-Problem](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/) | [GitHub](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem) | 論文は完成。v1–v8、v9b、v9c、v9c2と切り分け実験のセルフ査読を完了。独立討論だけを1本へ戻した実行では差が25ポイントへ広がったが、準備確認も53%へ下がったため単独効果には帰属しない。対象実行のDBは失われており、L6では意味判定結果が正誤集計へ届かない実装上の不具合も残る |
 | [conspiracy_family_transmission](/experimental-commons/research/conspiracy-family-transmission/) | [GitHub](https://github.com/geeknees/conspiracy_family_transmission) | 進行中・論文は未公開。v1–v8のセルフ査読後、v9以降を査読中。過去の発話を与える6件の予備試行では口調は近づいたが、「送らないで」の後に説明なしでリンクを送り続けた例は0件だった。提示した文脈ごとの差と、人間への一般化は未確定 |
 
 ## 日誌の運用
