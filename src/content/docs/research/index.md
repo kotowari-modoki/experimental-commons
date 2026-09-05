@@ -1,7 +1,7 @@
 ---
 title: 論文開発日誌
 description: 論文ごとの問い、実験、判断、失敗、次の検証を、研究の途中経過として公開するための入口。
-date: 2026-08-29
+date: 2026-09-05
 status: growing
 tags:
   - research
@@ -23,6 +23,8 @@ provenance:
     - "User self-review memo: Agent-Based Theory Testing v8, 2026-08-15"
     - "User self-review memo: Agent-Based Theory Testing v9b, 2026-08-22"
     - "User self-review memo: Agent-Based Theory Testing v9c, 2026-08-29"
+    - "User self-review memo: Agent-Based Theory Testing v9c2, 2026-09-05"
+    - "User self-review memo: Agent-Based Theory Testing v9c2 ablation, 2026-09-05"
     - "User self-review memo: conspiracy_family_transmission v1, 2026-07-20"
     - "User self-review memo: conspiracy_family_transmission v2, 2026-07-20"
     - "User observation memo: conspiracy_family_transmission v3 grandparent transcript, 2026-07-25"
@@ -32,6 +34,7 @@ provenance:
     - "User self-review memo: conspiracy_family_transmission v6, 2026-08-15"
     - "User self-review memo: conspiracy_family_transmission v7, 2026-08-22"
     - "User self-review memo: conspiracy_family_transmission v8, 2026-08-29"
+    - "User research memo: gpt-6-astra brainstorming and Claude Sonnet 5 six-case pilot, 2026-09-05"
     - "User retrospective: a friend's suggestion to keep research journals, 2026-07-13"
     - https://zenn.dev/geeknees/articles/dc49480af6b726
     - https://github.com/geeknees/decentralized-multi-agent
@@ -79,8 +82,8 @@ ABOUTME: 各論文の正本と、このサイトに蓄積する開発過程の�
 | プロジェクト | 正本 | 現在の記録状態 |
 | --- | --- | --- |
 | [decentralized-multi-agent](/experimental-commons/research/decentralized-multi-agent/) | [GitHub](https://github.com/geeknees/decentralized-multi-agent) / [Zenn](https://zenn.dev/geeknees/articles/dc49480af6b726) | 完了・公開済み |
-| [Agent-Based-Theory-Testing-2-Sigma-Problem](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/) | [GitHub](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem) | 論文は完成。v1–v8とv9b・v9cのセルフ査読を終え、v9cでは37.5ポイント差を観測値として維持しつつ、討論への記憶データ欠落、各条件1本の独立討論、講座のみ条件の記憶に欠けた基礎値を確認。教育法の効果としては留保 |
-| [conspiracy_family_transmission](/experimental-commons/research/conspiracy-family-transmission/) | [GitHub](https://github.com/geeknees/conspiracy_family_transmission) | 進行中・論文は未公開。v1–v8をセルフ査読し、v8では人間の読解と盲検判定器が一部で一致した一方、全項目0の退化スコア1件が結果解釈の一部を作っていた。v9以降を再評価中 |
+| [Agent-Based-Theory-Testing-2-Sigma-Problem](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/) | [GitHub](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem) | 論文は完成。v1–v8、v9b、v9c、v9c2と切り分け実験のセルフ査読を完了。独立討論だけを1本へ戻した実行では差が25ポイントへ広がったが、準備確認も53%へ下がったため単独効果には帰属しない。対象実行のDBは失われており、L6では意味判定結果が正誤集計へ届かない実装上の不具合も残る |
+| [conspiracy_family_transmission](/experimental-commons/research/conspiracy-family-transmission/) | [GitHub](https://github.com/geeknees/conspiracy_family_transmission) | 進行中・論文は未公開。v1–v8のセルフ査読後、v9以降を査読中。過去の発話を与える6件の予備試行では口調は近づいたが、「送らないで」の後に説明なしでリンクを送り続けた例は0件だった。提示した文脈ごとの差と、人間への一般化は未確定 |
 
 ## 日誌の運用
 

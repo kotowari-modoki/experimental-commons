@@ -1,7 +1,7 @@
 ---
 title: Agent-Based Theory Testing 2 Sigma Problem 開発日誌
 description: Bloomの2シグマ問題をLLMエージェントで検証した論文の開発過程、負の結果、交絡監査、今後の自己査読をまとめる入口。
-date: 2026-08-29
+date: 2026-09-05
 status: growing
 tags:
   - research
@@ -25,6 +25,8 @@ provenance:
     - "User self-review memo: v8, 2026-08-15"
     - "User self-review memo: v9b, 2026-08-22"
     - "User self-review memo: v9c, 2026-08-29"
+    - "User self-review memo: v9c2, 2026-09-05"
+    - "User self-review memo: v9c2 ablation, 2026-09-05"
     - https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem
     - https://doi.org/10.5281/zenodo.21186083
   ai_process:
@@ -52,6 +54,8 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 
 ## 査読の更新履歴
 
+- **2026-09-05 — [v9c2切り分け実験](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-05-self-review-v9c2-ablation/):** 独立討論数だけを各条件1本へ戻した実行では最大差25ポイント、準備確認53%だったため、反復数単独の効果とは判断しない。対象実行のDBは失われているが、実装と小規模な動作確認データから、L6の意味判定結果が正誤欄へ保存されない不具合も確認した
+- **2026-09-05 — [v9c2](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-05-self-review-v9c2/):** 討論への記憶データ受け渡しと各条件5本の独立反復が機能したことを確認。条件差は約10ポイントへ縮んだ一方、準備確認4問中2問の例題重複、講座＋自己省察条件の反復不足と学習量の非対称が残り、「効果なし」とは判断しない
 - **2026-08-29 — [v9c](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-08-29-self-review-v9c/):** 37.5ポイントの得点差は観測値として維持。討論への記憶データ欠落、各条件1本の独立討論、学習予算の非対称、講座のみ条件の記憶に欠けた基礎値を確認し、討論やクラスサイズの効果としては解釈しない
 - **2026-08-22 — [v9b](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-08-22-self-review-v9b/):** 条件別得点は維持。討論参加者へ講義後の記憶が渡らず、各討論条件の独立反復も1本だったため、クラスサイズや討論の効果としては解釈できないと判断した
 - **2026-08-15 — [v8](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-08-15-self-review-v8/):** 条件別順位は維持。自由記述0%が完全一致採点の産物で、最高得点の全体討論が独立した討論1本に依存していたと確認した
@@ -63,15 +67,17 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 ## 現在地
 
 - 論文: 完成
-- 日誌: 実験と論文化のベース日誌、実行データの公開判断、v1–v8とv9b・v9cのセルフ査読を公開
+- 日誌: 実験と論文化のベース日誌、実行データの公開判断、v1–v8、v9b、v9c、v9c2とその切り分け実験のセルフ査読を公開
 - 研究上の問い: LLMエージェント環境でBloomの2シグマ効果は再現するか
-- 結果: 7世代を通じて再現せず。v9c2では教育条件間差10pp、学習者タイプ間差38pp
+- 結果: 7世代を通じて再現せず。v9c2では教育条件間差約10ポイント、学習者タイプ間差38.4ポイント。ただし、いずれも記述統計であり人間への一般化はできない
 - 方法論上の成果: F1–F5の交絡分類とAコードの是正手順
-- 現在の研究段階: セルフ査読中。v1–v8とv9b・v9cを完了し、v9c2以降と世代横断監査を順次確認する
-- 最終更新: 2026-08-29にv9cを査読。37.5ポイント差は再現できたが、討論への記憶データ欠落、各条件1本の独立討論、講座のみ条件の記憶に欠けた基礎値を確認し、教育形式としての解釈を留保した
+- 現在の研究段階: セルフ査読中。v1–v8、v9b、v9c、v9c2とその切り分け実験を完了し、後続世代と世代横断監査を順次確認する
+- 最終更新: 2026-09-05にv9c2の切り分け実験を査読。独立討論を1本へ戻した実行では最大差25ポイントだったが、準備確認も53%へ下がったため反復数単独には帰属しない。元DBの喪失と、L6の意味判定結果が正誤集計へ届かない不具合も論文査読へ持ち越した
 
 ## 開発日誌
 
+- [反復数だけ戻した実験を20分査読し、25ポイント差とL6採点経路を問い直す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-05-self-review-v9c2-ablation/)
+- [v9c2を25分査読し、修正後の10ポイント差を「効果なし」と読まない](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-05-self-review-v9c2/)
 - [v9cを30分査読し、37ポイント差を討論の効果と読まない](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-08-29-self-review-v9c/)
 - [v9bを45分査読し、ルールを持たない討論をクラスサイズ効果と読まない](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-08-22-self-review-v9b/)
 - [v8を50分査読し、自由記述0%と「4人分」の独立性を問い直す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-08-15-self-review-v8/)
@@ -87,8 +93,13 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 
 ## 次に記録したいこと
 
-- v9c2とv10以降で、主張から根拠へたどる査読（claim→evidence）
-- v9c2の準備確認90%を、教材との例題重複を踏まえてどう解釈するか
+- L6の意味判定結果を正誤欄へ保存する修正、再実行、論文の採点説明への反映
+- 準備確認を通過した状態で、独立討論数だけを1本と5本に変える切り分け
+- 元DBを失った切り分け実験の生成レポートに、対象外の条件列と古い判定が残る問題
+- v9c2の準備確認90.3%と教材の例題重複を、論文と世代横断監査へどう反映するか
+- v9c2の約10ポイント差を、「大きな効果を確認しなかった」以上に強く解釈していないか
+- v9cの高い確信を示した誤答率12.9%への訂正が、v9c2と切り分け実験の分析文書に行き渡っていない問題
+- v10以降で、主張から根拠へたどる査読（claim→evidence）
 - 手順混乱の機構説明に依存する論文箇所の更新
 - v1とv3に関する開発ログの訂正
 - `evaluation_tasks.prompt`の世代間再利用がほかのrunへ与える影響
@@ -110,3 +121,5 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 - 著者によるv8セルフ査読メモ（2026-08-15）
 - 著者によるv9bセルフ査読メモ（2026-08-22）
 - 著者によるv9cセルフ査読メモ（2026-08-29）
+- 著者によるv9c2セルフ査読メモ（2026-09-05）
+- 著者によるv9c2切り分け実験セルフ査読メモ（2026-09-05。冒頭日付は要確認）
