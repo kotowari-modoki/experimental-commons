@@ -1,7 +1,7 @@
 ---
 title: conspiracy_family_transmission 開発日誌
 description: conspiracy_family_transmissionの論文開発で生じた問い、実験、判断、未解決事項を時系列で記録する入口。
-date: 2026-08-29
+date: 2026-09-05
 status: seed
 tags:
   - research
@@ -27,6 +27,7 @@ provenance:
     - "User self-review memo: conspiracy_family_transmission v6, 2026-08-15"
     - "User self-review memo: conspiracy_family_transmission v7, 2026-08-22"
     - "User self-review memo: conspiracy_family_transmission v8, 2026-08-29"
+    - "User research memo: gpt-6-astra brainstorming and Claude Sonnet 5 six-case pilot, 2026-09-05"
     - "User observation memo: YouTube recommendations and the spread of conspiratorial narratives, 2026-07-29"
     - https://x.com/rootsy/status/2082027473106301437
     - https://x.com/rootsy/status/2082257460723925302
@@ -58,14 +59,15 @@ ABOUTME: 未公開研究の境界を守りながら、著者が公開を認め�
 
 - プロジェクト: 進行中
 - 公開状態: 論文・研究内容の全体は未公開
-- 日誌: テーマ選定の動機、YouTube経由の浸透に関する観察、v11からv13までの転換、v1–v11の整合性監査、v1–v8のセルフ査読、v3の会話観察を公開
-- 現在の問い: v9–v13で、判定状態だけでは見逃す退化スコア、会話を見ない自己申告、役柄外テキストの混入をどこまで検出・隔離できるか
-- 現在の仮説: 質問の種類だけでなく応答の柔らかさも対話の継続に関わる可能性がある。ただしv8では柔らかさを操作していないため、要検証である
-- 進行中の作業: v9–v13への影響を個別に確認し、採点理由と数値の矛盾検出、会話履歴と現在状態を渡す最終評価、役柄外テキストの隔離を備えた測定器を再設計する
-- 最終更新: 2026-08-29にv8のセルフ査読を完了。盲検判定器は人間の読解と一部で一致し、強い逆向きの条件差も捉えた。一方、全項目0の退化スコア1件が結果解釈の一部を作っていた
+- 日誌: テーマ選定の動機、YouTube経由の浸透に関する観察、v11からv13までの転換、v1–v11の整合性監査、v1–v8のセルフ査読、v3の会話観察、過去の発話を与えた6件の予備試行を公開
+- 現在の問い: v9–v13の測定上の問題をどこまで検出・修正できるか。また、大規模言語モデル（LLM）が人物らしい口調をまねることと、拒否された後も非協力的な行動を続けることを分けて再現できるか
+- 現在の仮説: 質問の種類だけでなく応答の柔らかさも対話の継続に関わる可能性がある。過去の発話履歴は口調を近づける可能性があるが、6件の予備試行では行動の持続を再現するには足りなかった。いずれも要検証である
+- 進行中の作業: v9以降の査読を続けている。査読中に見つけた次回の改善点は未修正で、今回の予備試行も本実験の設計にはまだ反映していない
+- 最終更新: 2026-09-05に、人格設定、過去行動の要約、具体的な発話履歴を各2件試した。口調は近づいたが、説明なしでリンクを送り続けた例は0件だった。4件は送信停止を明言し、2件の無応答は判断を保留した
 
 ## 開発日誌
 
+- [過去の発話を与えても、「送らないで」を押し切る振る舞いは再現しなかった](/experimental-commons/research/conspiracy-family-transmission/journal/2026-09-05-history-prompt-behavior-pilot/)
 - [v8を査読し、予想外の結果と採点の異常を見直す](/experimental-commons/research/conspiracy-family-transmission/journal/2026-08-29-self-review-v8/)
 - [v7を査読し、順序と用量の実験で出力制御の難しさに突き当たる](/experimental-commons/research/conspiracy-family-transmission/journal/2026-08-22-self-review-v7/)
 - [v6を査読し、演じ分けと結果の変化を切り分ける](/experimental-commons/research/conspiracy-family-transmission/journal/2026-08-15-self-review-v6/)
@@ -94,6 +96,7 @@ v10以前の査読・開発メモは将来遡って追加する可能性があ�
 - 質問の種類と応答の柔らかさを分けて操作できるか
 - 条件を伏せた採点器（盲検scorer）の配線修正と再実行
 - LLMエージェントで孤立状態を再現・維持できるか
+- 過去の発話による口調の模倣と、拒否された後も行動を続けることを別々に操作・評価できるか
 - 同一モデルによる評価の妥当性
 - モデル系列ごとの聞き手の採用挙動
 - 情報源側の強さ（`source-side strength`）と採用の関係
@@ -124,6 +127,7 @@ v10以前の査読・開発メモは将来遡って追加する可能性があ�
 - 著者によるv6セルフ査読メモ（2026-08-15）
 - 著者によるv7セルフ査読メモ（2026-08-22）
 - 著者によるv8セルフ査読メモ（2026-08-29）
+- 著者による `gpt-6-astra` との壁打ちと6件の予備試行の報告（2026-09-05）
 - 著者によるYouTubeレコメンドと陰謀論的言説の拡散についての観察メモ（2026-07-29）
 - [地方で聞いた陰謀論的ナラティブについての投稿](https://x.com/rootsy/status/2082027473106301437)
 - [党派性の薄い層とYouTube動画についての続報](https://x.com/rootsy/status/2082257460723925302)
