@@ -1,7 +1,7 @@
 ---
 title: 論文開発日誌
 description: 論文ごとの問い、実験、判断、失敗、次の検証を、研究の途中経過として公開するための入口。
-date: 2026-09-05
+date: 2026-09-12
 status: growing
 tags:
   - research
@@ -35,6 +35,7 @@ provenance:
     - "User self-review memo: conspiracy_family_transmission v7, 2026-08-22"
     - "User self-review memo: conspiracy_family_transmission v8, 2026-08-29"
     - "User research memo: gpt-6-astra brainstorming and Claude Sonnet 5 six-case pilot, 2026-09-05"
+    - "User self-review and reflection: conspiracy_family_transmission v9, 2026-09-12"
     - "User retrospective: a friend's suggestion to keep research journals, 2026-07-13"
     - https://zenn.dev/geeknees/articles/dc49480af6b726
     - https://github.com/geeknees/decentralized-multi-agent
@@ -83,7 +84,7 @@ ABOUTME: 各論文の正本と、このサイトに蓄積する開発過程の�
 | --- | --- | --- |
 | [decentralized-multi-agent](/experimental-commons/research/decentralized-multi-agent/) | [GitHub](https://github.com/geeknees/decentralized-multi-agent) / [Zenn](https://zenn.dev/geeknees/articles/dc49480af6b726) | 完了・公開済み |
 | [Agent-Based-Theory-Testing-2-Sigma-Problem](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/) | [GitHub](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem) | 論文は完成。v1–v8、v9b、v9c、v9c2と切り分け実験のセルフ査読を完了。独立討論だけを1本へ戻した実行では差が25ポイントへ広がったが、準備確認も53%へ下がったため単独効果には帰属しない。対象実行のDBは失われており、L6では意味判定結果が正誤集計へ届かない実装上の不具合も残る |
-| [conspiracy_family_transmission](/experimental-commons/research/conspiracy-family-transmission/) | [GitHub](https://github.com/geeknees/conspiracy_family_transmission) | 進行中・論文は未公開。v1–v8のセルフ査読後、v9以降を査読中。過去の発話を与える6件の予備試行では口調は近づいたが、「送らないで」の後に説明なしでリンクを送り続けた例は0件だった。提示した文脈ごとの差と、人間への一般化は未確定 |
+| [conspiracy_family_transmission](/experimental-commons/research/conspiracy-family-transmission/) | [GitHub](https://github.com/geeknees/conspiracy_family_transmission) | 進行中・論文は未公開。v1–v9のセルフ査読を完了。v9では行動を変えるという発言と信念の変化を区別し、確信度低下の約51%が介入前だったことを開示した。信念と感情を分かちがたい対話の難しさを次の問いとして残し、測定の修正とv10以降の査読を続ける |
 
 ## 日誌の運用
 
