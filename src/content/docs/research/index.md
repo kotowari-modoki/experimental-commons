@@ -1,7 +1,7 @@
 ---
 title: 論文開発日誌
 description: 論文ごとの問い、実験、判断、失敗、次の検証を、研究の途中経過として公開するための入口。
-date: 2026-09-12
+date: 2026-09-22
 status: growing
 tags:
   - research
@@ -12,6 +12,8 @@ provenance:
   source_type: ai_session
   source_ref:
     - "Codex session: 2026-07-11"
+    - "User completion report: Agent-Based self-review completed and v1.1 released, 2026-09-22"
+    - https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem/releases/tag/v1.1.0
     - "User research memo: conspiracy_family_transmission v11 to v12, 2026-07-13"
     - "User research memo: conspiracy_family_transmission backdated consistency audit across v1-v11, 2026-07-14"
     - "User research memo: conspiracy_family_transmission v13 warmth dose-response, 2026-07-15"
@@ -85,7 +87,7 @@ ABOUTME: 各論文の正本と、このサイトに蓄積する開発過程の�
 | プロジェクト | 正本 | 現在の記録状態 |
 | --- | --- | --- |
 | [decentralized-multi-agent](/experimental-commons/research/decentralized-multi-agent/) | [GitHub](https://github.com/geeknees/decentralized-multi-agent) / [Zenn](https://zenn.dev/geeknees/articles/dc49480af6b726) | 完了・公開済み |
-| [Agent-Based-Theory-Testing-2-Sigma-Problem](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/) | [GitHub](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem) | 論文は完成。各世代・切り分け実験・世代横断監査のセルフ査読12件を完了。監査表の会話数と学習者タイプ数を訂正し、v9c2の是正も追記した。論文本体の第6〜9節の査読と全体通読が残り、採点説明、判定フラグ、未一覧化の監査項目を引き継ぐ |
+| [Agent-Based-Theory-Testing-2-Sigma-Problem](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/) | [GitHub](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem) | v1.1.0公開済み。全13件のセルフ査読と全体通読を完了し、今回のセルフ査読を一区切りにした。機構説明の撤回と測定上の限界を反映。第三者査読・追試は未実施 |
 | [conspiracy_family_transmission](/experimental-commons/research/conspiracy-family-transmission/) | [GitHub](https://github.com/geeknees/conspiracy_family_transmission) | 進行中・論文は未公開。v1–v9のセルフ査読を完了。v9では行動を変えるという発言と信念の変化を区別し、確信度低下の約51%が介入前だったことを開示した。信念と感情を分かちがたい対話の難しさを次の問いとして残し、測定の修正とv10以降の査読を続ける |
 
 ## 日誌の運用

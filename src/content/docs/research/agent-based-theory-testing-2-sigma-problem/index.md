@@ -1,7 +1,7 @@
 ---
 title: Agent-Based Theory Testing 2 Sigma Problem 開発日誌
-description: Bloomの2シグマ問題をLLMエージェントで検証した論文の開発過程、負の結果、交絡監査、今後の自己査読をまとめる入口。
-date: 2026-09-12
+description: Bloomの2シグマ問題をLLMエージェントで検証した論文の開発過程、負の結果、交絡監査、セルフ査読完了とv1.1公開をまとめる入口。
+date: 2026-09-22
 status: growing
 tags:
   - research
@@ -14,6 +14,8 @@ provenance:
   source_type: ai_session
   source_ref:
     - "Codex session: 2026-07-11"
+    - "User completion report: self-review completed and v1.1 released, 2026-09-22"
+    - https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem/releases/tag/v1.1.0
     - "User-provided project status: paper completed; reading-based updates planned"
     - "User retrospective and experiment timeline: 2026-05-13 to 2026-07-04"
     - "User retrospective: pre-self-review decision to include run data, 2026-07-14"
@@ -51,10 +53,12 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 # Agent-Based Theory Testing 2 Sigma Problem 開発日誌
 
 このページは、`Agent-Based-Theory-Testing-2-Sigma-Problem` の論文開発日誌をまとめる入口です。
-論文は完成していますが、今後、著者自身が内容を読み直しながら理解、解釈、関連文献を更新していく予定です。
+2026-09-22に全13件のセルフ査読と全体通読を終え、v1.1.0を公開しました。今回のセルフ査読はいったん完了です。第三者の査読を受けていないワーキングペーパーであることは変わりません。
 このページでは、完成済みの論文と、その後も続く読解・再評価の過程を分けて記録します。
 
 ## 査読の更新履歴
+
+- **2026-09-22 — [セルフ査読完了とv1.1公開](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-22-self-review-complete-v1-1/):** 最終査読120分と全体通読を完了。成立していなかった学習者タイプに基づく機構説明を撤回し、L6の未測定と教材重複を開示した。全13件の査読記録、日本語訳、組版PDFを公開し、今回のセルフ査読を一区切りにする
 
 - **2026-09-12 — [世代横断監査](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-12-self-review-audit/):** v8の会話数を共通講義と追加学習に分け、学習者タイプ数と監査表の対象範囲を訂正。v9c2の討論反復の是正も追記した。判定フラグ、生成レポートの古い表示、残る監査項目の一覧は論文査読へ持ち越し、論文本体の査読と全体通読を残す
 - **2026-09-05 — [v9c2切り分け実験](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-05-self-review-v9c2-ablation/):** 独立討論数だけを各条件1本へ戻した実行では最大差25ポイント、準備確認53%だったため、反復数単独の効果とは判断しない。対象実行のDBは失われているが、実装と小規模な動作確認データから、L6の意味判定結果が正誤欄へ保存されない不具合も確認した
@@ -69,15 +73,17 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 
 ## 現在地
 
-- 論文: 完成
-- 日誌: 実験と論文化のベース日誌、実行データの公開判断、v1–v8、v9b、v9c、v9c2とその切り分け実験、世代横断監査のセルフ査読を公開
+- 論文: v1.1.0公開済み。著者セルフ査読完了、第三者査読は未実施
+- 日誌: 実験と論文化のベース日誌、実行データの公開判断、v1–v8、v9b、v9c、v9c2とその切り分け実験、世代横断監査、論文本体の最終セルフ査読とv1.1公開を記録
 - 研究上の問い: LLMエージェント環境でBloomの2シグマ効果は再現するか
 - 結果: 7世代を通じて再現せず。v9c2では教育条件間差約10ポイント、学習者タイプ間差38.4ポイント。ただし、いずれも記述統計であり人間への一般化はできない
 - 方法論上の成果: F1–F5の交絡分類とAコードの是正手順
-- 現在の研究段階: 各世代と監査文書を合わせて12件のセルフ査読を完了。予定している査読単位では論文本体の第6〜9節が残り、他者へ査読を頼む前の全体通読も未実施
-- 最終更新: 2026-09-12に世代横断監査を30分査読。集計単位と対象範囲を訂正し、v9c2の是正を監査表へ反映した。査読の着地点は見えつつあるが、論文本体の判断と全体通読が大きな山場として残る
+- 現在の研究段階: 各世代・切り分け実験・監査・論文の全13件と全体通読を完了。測定上の限界を明示して、今回のセルフ査読を一区切りにする
+- 最終更新: 2026-09-22。9月12日時点で残していた論文本体の査読・全体通読を完了し、説明の訂正と公開時の変更を反映した
 
 ## 開発日誌
+
+- [論文を120分査読し、v1.1公開でセルフ査読を一区切りにする](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-22-self-review-complete-v1-1/)
 
 - [監査文書を30分査読し、最後の全体通読を前にする](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-12-self-review-audit/)
 - [反復数だけ戻した実験を20分査読し、25ポイント差とL6採点経路を問い直す](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-05-self-review-v9c2-ablation/)
@@ -95,29 +101,23 @@ ABOUTME: 研究の現在地、未解決事項、個別の日誌、正本リポ�
 
 今後、論文を読み直して理解や評価が変わったときは、新しい日誌を追加してここへ新しい順にリンクします。
 
-## 次に記録したいこと
+## 査読での処置と、今後の研究課題
 
-- 論文本体の第6〜9節の査読と、他者へ査読を頼む前の全体通読
-- AIが研究に関わった範囲の説明と、限界の節が著者の認識に合っているか
-- 判定フラグが統計的な効果の検証を意味しないことを、論文や引用先でどう明示するか
-- 監査表が扱わない採点、記憶の受け渡し、学習量などの世代別一覧
-- L6の意味判定結果を正誤欄へ保存する修正、再実行、論文の採点説明への反映
-- 準備確認を通過した状態で、独立討論数だけを1本と5本に変える切り分け
-- 元DBを失った切り分け実験の生成レポートに、対象外の条件列と古い判定が残る問題
-- v9c2の準備確認90.3%と教材の例題重複を、論文と世代横断監査へどう反映するか
-- v9c2の約10ポイント差を、「大きな効果を確認しなかった」以上に強く解釈していないか
-- v9cの高い確信を示した誤答率12.9%への訂正が、v9c2と切り分け実験の分析文書に行き渡っていない問題
-- 個別査読で訂正した最大差の両端などが、論文と要約にも行き渡っているか
-- 手順混乱の機構説明に依存する論文箇所の更新
-- v1とv3に関する開発ログの訂正
-- `evaluation_tasks.prompt`の世代間再利用がほかのrunへ与える影響
-- 関連文献との一致点、相違点、矛盾候補
-- 現在の主張を維持するか、更新するか
-- 次に読む箇所または文献
+2026-09-12時点でここに列挙していた査読・通読・説明修正の課題は、[最終査読日誌](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-22-self-review-complete-v1-1/)に処置をまとめました。教材重複とL6の未測定は限界へ追記し、判定フラグの定義は付録へ追加、手順混乱による機構説明は撤回しました。監査項目の対応には既存の付録Bを使い、元データのないレポートは注記付きで残しています。以前の未完了一覧は[9月12日の日誌](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/journal/2026-09-12-self-review-audit/)から経緯をたどれます。
+
+次は今回の査読の宿題ではなく、今後研究を進める場合の課題です。追加実験の実施は未決定です。
+
+- L6の判定を正誤欄へ保存し、再実行によって有効な測定値を得る
+- 教材にない問題で準備確認を行い、前提知識をそろえて独立討論数だけを変える
+- 条件間の学習量をそろえ、十分な独立反復を確保する
+- 元データを失った切り分け実験の再計算不能という限界を維持する
+- 著者と独立した第三者による監査・追試、関連文献との照合を行う
 
 記録を追加するときは[論文開発日誌テンプレート](/experimental-commons/research/journal-template/)を使います。
 
 ## 一次情報源
+
+- [セルフ査読を反映したv1.1.0リリース](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem/releases/tag/v1.1.0)
 
 - [geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem)
 - [Working paper and research artifact v1.0.0](https://doi.org/10.5281/zenodo.21186083)
