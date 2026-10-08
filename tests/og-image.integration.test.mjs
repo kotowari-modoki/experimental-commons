@@ -2,7 +2,6 @@
 // ABOUTME: Checks output dimensions, escaped text, and bounded long-title layout.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
 import { mkdtemp, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -36,27 +35,33 @@ test('long Japanese titles and unbroken words fit the reserved text area', async
 	}
 });
 
-test('Japanese rendering stays identical without any system font directories', async () => {
+test('Japanese rendering stays identical with or without system font directories', async () => {
 	const options = { size: 48, width: 1000, height: 160 };
 	const text = '観測・仮説・検証 ― 未完成の知識を育てる';
-	const rendered = await renderText(text, options);
-	const expected = createHash('sha256').update(rendered.data).digest('hex');
 	const dir = await mkdtemp(join(tmpdir(), 'og-fonts-'));
 	try {
-		const config = join(dir, 'fonts.conf');
-		await writeFile(config, `<fontconfig><cachedir>${dir}</cachedir></fontconfig>`);
 		const script = `
 			import { createHash } from 'node:crypto';
 			import { renderText } from './src/lib/og-image-renderer.js';
 			const { data } = await renderText(${JSON.stringify(text)}, ${JSON.stringify(options)});
 			console.log(createHash('sha256').update(data).digest('hex'));
 		`;
-		const child = spawnSync(process.execPath, ['--input-type=module', '-e', script], {
-			encoding: 'utf8',
-			env: { ...process.env, FONTCONFIG_FILE: config },
-		});
-		assert.equal(child.status, 0, child.stderr || child.error?.message);
-		assert.equal(child.stdout.trim(), expected);
+		const systemDirectories = ['/usr/share/fonts', '/usr/local/share/fonts', '/System/Library/Fonts', '/Library/Fonts'];
+		const hashes = [];
+		// Vary only font directories: OS fontconfig defaults also change hinting and antialiasing.
+		for (const directories of [systemDirectories, []]) {
+			const config = join(dir, `fonts-${hashes.length}.conf`);
+			const entries = directories.map((path) => `<dir>${path}</dir>`).join('');
+			await writeFile(config, `<fontconfig>${entries}<cachedir>${dir}</cachedir></fontconfig>`);
+			const child = spawnSync(process.execPath, ['--input-type=module', '-e', script], {
+				encoding: 'utf8',
+				env: { ...process.env, FONTCONFIG_FILE: config },
+			});
+			assert.equal(child.status, 0, child.stderr || child.error?.message);
+			assert.match(child.stdout.trim(), /^[a-f0-9]{64}$/);
+			hashes.push(child.stdout.trim());
+		}
+		assert.equal(hashes[1], hashes[0]);
 	} finally {
 		await rm(dir, { recursive: true, force: true });
 	}

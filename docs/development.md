@@ -25,3 +25,5 @@ ABOUTME: README より細かい判断基準を置き、記事追加時のテス�
 記事のfrontmatterの `head` に `og:image` または `twitter:image` を明示した場合は、その指定を優先します。画像の自動生成・HTMLへの接続は汎用の `tests/og-image.*.test.mjs` で検証し、記事別のテストは追加しません。
 
 確認は `pnpm check` → `pnpm test:unit` → `pnpm test:integration` → `pnpm build` → `pnpm test:e2e` の順に行います。見た目は `dist/og/` のPNGを開くか、`pnpm dev` でページの `og:image` にある `/experimental-commons/og/<id>.png` を開いて確認できます。
+
+システムフォントの有無を比較するときは、Fontconfigの描画設定を揃え、フォントディレクトリだけを変えます。OS既定の設定と最小設定を比較すると、ヒンティングなどの差でもPNGのハッシュが変わるため、フォントへの依存を切り分けられません。
