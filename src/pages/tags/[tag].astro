@@ -2,6 +2,8 @@
 // ABOUTME: Generates a static page for each tag listing all docs entries with that tag.
 // ABOUTME: Provides entry points for tag-based browsing of the knowledge garden.
 import { getCollection } from 'astro:content';
+import SocialImage from '../../components/SocialImage.astro';
+import { createTagImage } from '../../lib/og-image.js';
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs');
@@ -20,6 +22,8 @@ const { tag, entries } = Astro.props;
 // entry.id is the correct field for Astro content collections v2 (docsLoader API),
 // equivalent to the path relative to the content root without extension.
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const image = createTagImage(tag);
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 ---
 
 <!doctype html>
@@ -28,6 +32,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>#{tag} — experimental-commons</title>
+    <meta name="description" content={image.description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={image.title} />
+    <meta property="og:description" content={image.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="experimental-commons" />
+    <meta property="og:locale" content="ja" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <SocialImage image={image} />
     <style>
       body {
         font-family: system-ui, sans-serif;

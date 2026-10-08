@@ -1,0 +1,15 @@
+---
+// ABOUTME: Adds share-image metadata while respecting explicit page-level images.
+// ABOUTME: Uses the same content fingerprint as the statically generated PNG route.
+import { getImageTags, type SocialImage, type HeadTag } from '../lib/og-image.js';
+
+interface Props {
+	image: SocialImage;
+	existingHead?: HeadTag[];
+}
+
+const { image, existingHead = [] } = Astro.props;
+const tags = Astro.site ? getImageTags(image, Astro.site, import.meta.env.BASE_URL, existingHead) : [];
+---
+
+{tags.map(({ attrs }) => <meta {...attrs} />)}

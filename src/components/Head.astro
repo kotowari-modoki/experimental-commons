@@ -1,10 +1,15 @@
 ---
-// ABOUTME: Extends Starlight's default head output with Mermaid client bootstrap code.
+// ABOUTME: Extends Starlight's head with generated social images and site verification.
 // ABOUTME: Renders Mermaid diagrams from pre-mermaid blocks after each page load.
 import StarlightHead from "@astrojs/starlight/components/Head.astro";
+import SocialImage from './SocialImage.astro';
+import { createDocImage } from '../lib/og-image.js';
+
+const { entry, head } = Astro.locals.starlightRoute;
 ---
 
 <StarlightHead />
+<SocialImage image={createDocImage(entry)} existingHead={head} />
 <meta name="google-site-verification" content="ysuEj023oFjddObiBNrkXRESp6QvqewPEAm0d0Ak61c" />
 
 <script>
