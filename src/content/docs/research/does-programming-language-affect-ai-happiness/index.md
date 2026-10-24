@@ -17,6 +17,8 @@ provenance:
     - https://zenn.dev/geeknees/articles/e144c89d066189
     - "Claude Code research session: Does Programming Language Affect AI Happiness, 2026-10-17 to 2026-10-23"
     - https://www.anthropic.com/research/emotion-concepts-function
+    - "User reflection: contrast between the study results and DHH's Rails World 2026 keynote, 2026-10-24"
+    - https://www.youtube.com/watch?v=vDjW_dRyKXY
   ai_process:
     - extract
     - summarize
@@ -56,7 +58,7 @@ Rubyは「プログラマーを幸せにする」ことを設計目標に掲げ�
 | 公開 | Zenn記事を公開済み。コードとデータは未公開 |
 | セルフ査読 | 未実施。主張と生データの照合、第三者による追試も未実施 |
 
-最終更新: 2026-10-24。開発期間（2026-10-17〜10-23）を3本の日誌に分けて記録しました。
+最終更新: 2026-10-24。開発期間（2026-10-17〜10-23）を3本の日誌に分けて記録し、公開後に、DHHのRails World 2026基調講演と結果を対比した振り返りを加えました。
 
 ## この研究で使う用語
 
@@ -68,6 +70,7 @@ Rubyは「プログラマーを幸せにする」ことを設計目標に掲げ�
 
 ## 開発日誌
 
+- [Rubyの「幸福」は人間のためのものだった DHHの基調講演と並べて読む](/experimental-commons/research/does-programming-language-affect-ai-happiness/journal/2026-10-24-contrast-with-dhh-rails-world-2026/)
 - [価値の概念で測り直しても、言語差は消えた](/experimental-commons/research/does-programming-language-affect-ai-happiness/journal/2026-10-23-phase3-results-and-publication/)
 - [「Rustが一番幸せ」に見えた結果から、仮説を立て直す](/experimental-commons/research/does-programming-language-affect-ai-happiness/journal/2026-10-21-rethinking-hypotheses-after-phase2/)
 - [AIの「楽しさ」を測れる形にする 無料GPUでの試行と最初のつまずき](/experimental-commons/research/does-programming-language-affect-ai-happiness/journal/2026-10-17-measuring-emotion-probes-poc/)
