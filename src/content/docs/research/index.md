@@ -1,7 +1,7 @@
 ---
 title: 論文開発日誌
 description: 論文ごとの問い、実験、判断、失敗、次の検証を、研究の途中経過として公開するための入口。
-date: 2026-09-22
+date: 2026-10-24
 status: growing
 tags:
   - research
@@ -41,6 +41,8 @@ provenance:
     - "User research memo: gpt-6-astra brainstorming and Claude Sonnet 5 six-case pilot, 2026-09-05"
     - "User self-review and reflection: conspiracy_family_transmission v9, 2026-09-12"
     - "User retrospective: a friend's suggestion to keep research journals, 2026-07-13"
+    - "Claude Code research session: Does Programming Language Affect AI Happiness, 2026-10-17 to 2026-10-23"
+    - https://zenn.dev/geeknees/articles/e144c89d066189
     - https://zenn.dev/geeknees/articles/dc49480af6b726
     - https://github.com/geeknees/decentralized-multi-agent
     - https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem
@@ -89,6 +91,7 @@ ABOUTME: 各論文の正本と、このサイトに蓄積する開発過程の�
 | [decentralized-multi-agent](/experimental-commons/research/decentralized-multi-agent/) | [GitHub](https://github.com/geeknees/decentralized-multi-agent) / [Zenn](https://zenn.dev/geeknees/articles/dc49480af6b726) | 完了・公開済み |
 | [Agent-Based-Theory-Testing-2-Sigma-Problem](/experimental-commons/research/agent-based-theory-testing-2-sigma-problem/) | [GitHub](https://github.com/geeknees/Agent-Based-Theory-Testing-2-Sigma-Problem) | v1.1.0公開済み。全13件のセルフ査読と全体通読を完了し、今回のセルフ査読を一区切りにした。機構説明の撤回と測定上の限界を反映。第三者査読・追試は未実施 |
 | [conspiracy_family_transmission](/experimental-commons/research/conspiracy-family-transmission/) | [GitHub](https://github.com/geeknees/conspiracy_family_transmission) | 進行中・論文は未公開。v1–v9のセルフ査読を完了。v9では行動を変えるという発言と信念の変化を区別し、確信度低下の約51%が介入前だったことを開示した。信念と感情を分かちがたい対話の難しさを次の問いとして残し、測定の修正とv10以降の査読を続ける |
+| [Does Programming Language Affect AI Happiness?](/experimental-commons/research/does-programming-language-affect-ai-happiness/) | [Zenn](https://zenn.dev/geeknees/articles/e144c89d066189)（コードとデータは未公開） | 3段階の実験（Phase 1〜3）を完了し、結論をZenn記事で公開済み。AIがRubyを書いても内部の「楽しさ」は他言語より強くならなかった。セルフ査読と追試は未実施 |
 
 ## 日誌の運用
 

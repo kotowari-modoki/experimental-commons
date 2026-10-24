@@ -119,6 +119,10 @@ export default defineConfig({
               label: "conspiracy_family_transmission",
               link: "/research/conspiracy-family-transmission/",
             },
+            {
+              label: "AI Happiness by Language",
+              link: "/research/does-programming-language-affect-ai-happiness/",
+            },
           ],
         },
         {
