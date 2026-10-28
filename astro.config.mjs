@@ -199,6 +199,10 @@ export default defineConfig({
           label: "Science & Systems",
           items: [
             {
+              label: "MACHINE CONSCIOUSNESS 2026",
+              link: "/science/machine-consciousness-2026/",
+            },
+            {
               label: "量子コンピューティング入門",
               link: "/guides/quantum-computing-introduction/",
             },
