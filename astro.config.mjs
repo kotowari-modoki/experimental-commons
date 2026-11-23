@@ -211,6 +211,10 @@ export default defineConfig({
               link: "/math/iut-theory-intro/",
             },
             {
+              label: "Lean がリーマン予想の証明を確かめたあと",
+              link: "/math/riemann-hypothesis-proof-and-understanding/",
+            },
+            {
               label: "ドーパミンと恐怖消去 ― 扁桃体の報酬応答ニューロン",
               link: "/science/dopamine-fear-extinction-amygdala/",
             },
