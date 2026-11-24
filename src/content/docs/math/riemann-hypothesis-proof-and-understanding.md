@@ -1,13 +1,14 @@
 ---
 title: Lean がリーマン予想の証明を確かめたあと、人は何を理解するのか
 description: AI が関わったナビエ・ストークス方程式とリーマン予想の証明、OpenAI の数学原稿集を別々の事例としてたどり、証明支援系 Lean が何を確かめられて何を確かめられないのかを補助線つきで解説する。そのうえで、正しさを確かめたあとに人が理解するとはどういうことかを考える。
-date: 2026-11-23
+date: 2026-11-24
 status: seed
 tags:
   - math
   - number-theory
   - ai
   - formal-verification
+  - complexity-theory
   - philosophy
 author: ai
 provenance:
@@ -24,6 +25,11 @@ provenance:
     - https://leanprover-community.github.io/blog/posts/riemann-hypothesis/
     - https://math.mit.edu/~drew/grh/
     - https://www.claymath.org/millennium-problems/
+    - https://andrewodesky.com/rh/stats.html
+    - https://en.wikipedia.org/wiki/Alp%C3%B6ge's_proof_of_the_Riemann_hypothesis
+    - https://github.com/anthropics/formal-math/tree/main/vp-vnp
+    - https://github.com/anthropics/formal-math/tree/main/eth
+    - "ユーザー提供のファクトチェックメモ（2026-11-24、AI による二次資料）"
     - https://leanprover-community.github.io/blog/posts/lte-final
     - https://ncatlab.org/nlab/show/inter-universal+Teichm%C3%BCller+theory
     - https://ncatlab.org/nlab/files/LANAProject-Report-July2026.pdf
@@ -42,6 +48,10 @@ provenance:
 
 :::note[更新記録 — 2026年11月23日（2回目）]
 IUT と LANA の記述は、当初は nLab と二次資料に基づいていた。LANA 中間報告の本文を確認し、プロジェクトの経緯と結論を報告書に即して書き直した。特に、論争の争点を絞ったのは Lean による判定ではなく、Lean で書ける形にしようとする過程だったことを明確にした。初稿の「Lean で形式化する LANA プロジェクトによって争点が一点に絞られた」という書き方は、Lean がすでに何かを判定したかのように読める余地があった。
+:::
+
+:::note[更新記録 — 2026年11月24日]
+「11月24日の追記」の節を加えた。内容は三つ。1,700万行という数字の読み方と、Alpöge 本人による「25万ページは冗談」という説明。11月24日に更新された Sutherland の検証記録。Anthropic が公開した VP ≠ VNP の証明と、リーマン予想との違い（問いの固定）。本文の「11月22日時点で進行中だった検査」のうち、Lean カーネルでの再検査はその後完了した。`lake comparator` は11月24日時点でも最終段階を実行中である。
 :::
 
 2026年11月20日、Levent Alpöge は Claude とともに発見し、証明支援系 Lean で形式化したリーマン予想の証明を公開した。翌日、Lean と数学ライブラリ Mathlib のコミュニティは、証明された命題も証明そのものも正しいとする共同声明を出した。Alpöge 自身は、これから証明をもっとよく理解し、人に伝わる形に書きたいと述べている。定理を使う根拠はもうある。では、その理由を人に教えられるようになるまでの間、私たちは何を知ったと言えるのだろう。[Alpöge の公開文](https://alpo.ge/remark.pdf)・[Lean・Mathlib の共同声明](https://leanprover-community.github.io/blog/posts/riemann-hypothesis/)
@@ -118,6 +128,64 @@ Lean にも確かめられないことがある。それは「形式化された
 次に調べたのは、何を前提にしてそこまで到達したかだ。MIT の数学者 Andrew Sutherland は、Claude Code を使って独立に検証を行った。**全175,187モジュール**のコンパイルに成功し、それぞれが Lean のカーネルで再検査された。主要5定理の推論をさかのぼると、依存するのは Lean の標準公理 `propext`、`Classical.choice`、`Quot.sound` の三つだけだった。つまり、未証明の仮定をこっそり置いて結論を出したわけではない。証明全体を書き出したデータは、独立に実装された **nanoda と con-leche** がともに受理した。11月22日16時20分（UTC）の更新時点では、Sutherland の環境で、書き出したデータに対する Lean カーネルでの再検査と `lake comparator` の一連の処理がまだ進行中だった。本稿で照合したのはこの時点の公開ログで、その後の完了状況は要検証である。[Sutherland の検証一覧](https://math.mit.edu/~drew/grh/)・[公理の監査ログ](https://math.mit.edu/~drew/grh/audit.log)
 
 11月23日時点で、クレイ数学研究所の一覧では RH はなお「未解決」に載っている。先に書いたとおり、懸賞の審査には出版から2年の経過と数学界の一般的な受容が必要で、機械による検証はその代わりにならない。帰結の読み方にも注意が要る。RSA 暗号は、大きな二つの素数の積を素因数分解するのが難しいことを安全性の根拠にしている。今回の零点に関する定理は、その計算を効率よく行う手順を与えていない。これをもって直ちに RSA が破られるとはいえない。[クレイの一覧](https://www.claymath.org/millennium-problems/)・[RSA 原論文](https://people.csail.mit.edu/rivest/Rsapaper.pdf)
+
+## 11月24日の追記: 数字の読み違いと、もう一つの「AI の証明」
+
+公開から数日で、二つの動きがあった。一つは、リーマン予想の証明の「大きさ」をめぐる誤解の訂正。もう一つは、Anthropic による VP ≠ VNP の証明の公開である。どちらも、本稿の問い、つまり「何が確かめられ、何がまだ確かめられていないか」を考える材料になる。
+
+### 1,700万行は、必要な証明の長さではない
+
+Andrew O'Desky が公開した統計によれば、Alpöge の Lean プロジェクトの規模は次のとおりだ。数学ライブラリ Mathlib は外部の依存先として別に数えられていて、この数字には含まれていない。[The Lean RH project in numbers](https://andrewodesky.com/rh/stats.html)
+
+| 項目 | 今回のプロジェクト | 参考: Mathlib |
+| --- | --- | --- |
+| Lean ファイル数 | 175,187 | 8,311 |
+| 行数 | 17,374,215 | 2,293,877 |
+| 定理・補題の数 | 818,755 | ― |
+| ソースの容量 | 1.03 GB | 97 MB |
+
+行数は Mathlib の約7.6倍になる。ただし、この数字は「新しい数学がそれだけあった」という意味ではない。中には、既知の理論の形式化、補助的な定理や定義、冗長な記述が大量に含まれている。Alpöge 自身も X で、Lean のコードは「明らかにゴミだらけだが、コンパイルは通る」と認め、批判はもっともだと書いた。また、人が読む形に書き直すと25万ページを超えるという話は「冗談だった」とも述べた（11月23日）。どちらの発言も X の投稿を直接は読めず、Wikipedia の記事に引用されたものを確認した（要検証）。[Wikipedia: Alpöge's proof of the Riemann hypothesis](https://en.wikipedia.org/wiki/Alp%C3%B6ge's_proof_of_the_Riemann_hypothesis)
+
+ソフトウェアに例えると分かりやすい。1,700万行のコードが動くことと、1,700万行が必要だったことはまったく別の話だ。行数は、証明の新しさや難しさの物差しにはならない。
+
+### 誇張の訂正と、証明の検証は切り離して考える
+
+では、証明そのものの信頼性は下がったのか。数字の訂正は、検証の結果には影響しない。Lean のカーネルは、コードがきれいかどうかではなく、推論の一歩一歩が規則に従っているかを点検するからだ。
+
+Sutherland の検証記録は、11月24日 03:30（UTC）に更新された。本稿の初稿の時点（11月22日）で進行中だった項目も含め、次の検査が通っている。[Sutherland の検証一覧](https://math.mit.edu/~drew/grh/)
+
+- **独立した複数の審判**: Lean 標準のカーネル（書き出したデータからの再検査、11月22日完了）、より慎重な設定の paranoid カーネル（11月23日完了）、nanoda、con-leche、con-ron、lean4lean が、いずれも証明を受理した。
+- **再現性**: ネットワークを遮断し、ソースを読み取り専用にした別のマシンで、ゼロから再ビルドできた。そこで書き出した証明のデータ（61,570,595,788バイト）は、公開されたものと1バイトも違わなかった。
+- **問いとの照合**: Comparator（v4.33.0）による一連の検査が、11月23日に「Your solution is okay!」で完了した。
+- **残っている項目**: 新しい版の `lake comparator`（v4.36.0）の最終段階だけが、まだ実行中だった。
+
+リーマン予想の形式証明が成り立っているという証拠は、むしろ厚くなったといえる。ただし、数学者が証明全体を理解し、数学界が受け入れたこととは、引き続き別の問題である。
+
+### VP ≠ VNP: 問いを誰が固定したか
+
+11月23日、Anthropic は GitHub の `formal-math` リポジトリで、「VP ≠ VNP over every field」という70ページの論文と Lean による証明を公開した。著者は「Claude (Anthropic)」で、社内の研究用 Claude モデルが発見したものだという。[Anthropic formal-math / vp-vnp](https://github.com/anthropics/formal-math/tree/main/vp-vnp)
+
+ここでも補助線を引いておく。VP と VNP は、1979年に Leslie Valiant が導入した、多項式の計算の難しさを測る分類だ。足し算と掛け算だけでできた「算術回路」で、小さな回路で計算できる多項式の族が VP、検証は易しいが計算は難しいかもしれない族が VNP にあたる。P と NP の代数版と呼ばれることもある。公開された論文は、ハミルトン閉路多項式（どの体でも）と、パーマネント（標数が2でない体で）を計算する回路には、超多項式個のゲートが必要だと主張する。ここから VP ≠ VNP が従う。
+
+注意したいのは二点だ。第一に、README は「This does not settle P vs NP.（P vs NP を解決するものではない）」と明記している。ミレニアム懸賞問題の P vs NP は、チューリングマシンなどで判定問題を解く難しさを問うもので、VP vs VNP が解けても直ちには決着しない。第二に、README は「論文も Lean の証明も AI モデルが書き、人間の数学者はまだ証明を確かめていない」とも明記している。
+
+機械による検証はある。リポジトリの CI では、Comparator が証明の結論を `Challenge.lean` に書かれた命題と照合し、独立したカーネル nanoda でも証明を再検査している。しかし、リーマン予想との違いはまさに、本稿が重視してきた「問いの固定」にある。リーマン予想では、専門家が以前から吟味してきた Mathlib の定義 `RiemannHypothesis` に照合した。VP ≠ VNP では、照合先の `Challenge.lean` が、計算量理論の専門家が意図する VP ≠ VNP を正しく表しているかを、提出者から独立した専門家が確かめたという記録は、11月24日時点で見当たらない（要検証）。カーネルが「正しい」と言えるのは、書かれた問いに対してだけだ。
+
+同じリポジトリには、3-SAT を劣指数時間で解く決定的アルゴリズムによって指数時間仮説（ETH）を反証したとする成果も置かれている。仮に正しくても、劣指数時間と多項式時間は違うので、P = NP を意味するわけではない。OpenAI も同時期に同様の成果を公開したとする報道があるが、本稿では一次資料を確認できていない（要検証）。[Anthropic formal-math / eth](https://github.com/anthropics/formal-math/tree/main/eth)・[クレイ数学研究所: P vs NP](https://www.claymath.org/millennium/p-vs-np/)
+
+### 五つの段階で見る、11月24日時点の現在地
+
+検証を五つの段階に分けると、二つの成果の違いが見えやすい。
+
+| 段階 | リーマン予想 | VP ≠ VNP |
+| --- | --- | --- |
+| ① 証明とコードの公開 | 済み | 済み |
+| ② 機械による形式検証 | 済み（独立した複数のカーネル、再現ビルド） | 済み（リポジトリの CI、nanoda） |
+| ③ 命題の妥当性と第三者による検証 | 済み（Mathlib の既存の定義と照合） | 未確認 |
+| ④ 人間による証明の理解と精査 | 始まったばかり | 未着手と明記 |
+| ⑤ 数学界での広い受容 | まだ | まだ |
+
+②までは機械が担える。③から先は人間の仕事で、③は「問いを誰が、どう定義したか」を確かめる段階だ。数学では Mathlib のように、専門家が合意した定義の蓄積があるので、③に手が届く。次の節以降で考えるのは、そうした蓄積がない領域では③をどう担うのか、という問いである。
 
 ## 検証が済んでから、理由を理解する
 
