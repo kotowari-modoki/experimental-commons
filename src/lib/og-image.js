@@ -52,6 +52,17 @@ export function createTagImage(tag) {
 	};
 }
 
+/** @returns {SocialImage} */
+export function createTagIndexImage() {
+	return {
+		title: 'すべてのタグ',
+		description: 'experimental-commons に蓄積された知識をタグから探索する。',
+		section: 'EXPLORE THE COMMONS',
+		status: '',
+		date: '',
+	};
+}
+
 /** @param {Document[]} docs @param {boolean} includeDrafts */
 export function getCollectionImages(docs, includeDrafts = false) {
 	// Match Starlight's production draft policy; PNG files are public assets too.

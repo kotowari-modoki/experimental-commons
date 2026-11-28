@@ -3,18 +3,25 @@
 // ABOUTME: Provides entry points for tag-based browsing of the knowledge garden.
 import { getCollection } from 'astro:content';
 import SocialImage from '../../components/SocialImage.astro';
+import { formatPageDate, getStatusEmoji } from '../../components/page-metadata.js';
 import { createTagImage } from '../../lib/og-image.js';
 import { buildSiteUrl, buildTagJsonLd, serializeJsonLd } from '../../lib/structured-data.js';
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs');
   const tagSet = new Set(docs.flatMap((entry) => entry.data.tags ?? []));
+  const toTime = (value: Date | string | undefined) => {
+    const t = value ? new Date(value).getTime() : -Infinity;
+    return Number.isNaN(t) ? -Infinity : t;
+  };
 
   return Array.from(tagSet).map((tag) => ({
     params: { tag },
     props: {
       tag,
-      entries: docs.filter((entry) => (entry.data.tags ?? []).includes(tag)),
+      entries: docs
+        .filter((entry) => !entry.data.draft && (entry.data.tags ?? []).includes(tag))
+        .sort((a, b) => toTime(b.data.date) - toTime(a.data.date)),
     },
   }));
 }
@@ -42,6 +49,7 @@ const jsonLd = buildTagJsonLd({ tag, entries, url: canonical, site, base });
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
     <link rel="sitemap" href={sitemapUrl} />
+    <link rel="shortcut icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
     <link rel="alternate" type="text/plain" title="LLMs.txt" href={llmsTxtUrl} />
     <link rel="alternate" type="application/rss+xml" title="experimental-commons RSS" href={rssUrl} />
     <meta property="og:title" content={image.title} />
@@ -54,31 +62,123 @@ const jsonLd = buildTagJsonLd({ tag, entries, url: canonical, site, base });
     <SocialImage image={image} />
     <script is:inline type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />
     <style>
-      body {
-        font-family: system-ui, sans-serif;
-        max-width: 48rem;
-        margin: 2rem auto;
-        padding: 0 1rem;
-        background: #0d0e14;
-        color: #e4e7eb;
+      :root {
+        color-scheme: light dark;
+        --bg: #ffffff;
+        --surface: #f5f6f8;
+        --text: #181a1f;
+        --muted: #5c6370;
+        --border: #d8dce3;
+        --accent: #3b5bdb;
       }
-      h1 { font-size: 1.5rem; margin-bottom: 1.5rem; }
-      ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
-      a { color: #e4e7eb; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      .status { font-size: 0.8rem; color: #9ca3af; margin-left: 0.5rem; }
-      .back { display: inline-block; margin-bottom: 2rem; color: #9ca3af; font-size: 0.875rem; }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0d0e14;
+          --surface: #151722;
+          --text: #e4e7eb;
+          --muted: #9ca3af;
+          --border: #2a2e3f;
+          --accent: #8da2fb;
+        }
+      }
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        max-width: 52rem;
+        margin: 2rem auto;
+        padding: 0 1.25rem 3rem;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .top-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.875rem;
+      }
+      .top-nav a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+      .top-nav a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+      h1 {
+        font-size: 1.75rem;
+        margin: 0 0 0.35rem;
+      }
+      .count {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin: 0 0 1.5rem;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+      li a {
+        display: block;
+        padding: 0.95rem 1.1rem;
+        border: 1px solid var(--border);
+        border-radius: 0.6rem;
+        background: var(--surface);
+        color: var(--text);
+        text-decoration: none;
+        transition: border-color 0.15s ease;
+      }
+      li a:hover {
+        border-color: var(--accent);
+      }
+      .entry-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .entry-title {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .entry-meta {
+        flex-shrink: 0;
+        font-size: 0.8rem;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+      .entry-desc {
+        margin: 0.4rem 0 0;
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
     </style>
   </head>
   <body>
-    <a class="back" href={`${base}/`}>← experimental-commons</a>
+    <nav class="top-nav" aria-label="Breadcrumb">
+      <a href={`${base}/`}>← experimental-commons</a>
+      <a href={`${base}/tags/`}>すべてのタグ一覧</a>
+    </nav>
     <h1>#{tag}</h1>
+    <p class="count">{entries.length} 件のページ</p>
     <ul>
       {entries.map((entry) => (
         <li>
           <a href={`${base}/${entry.id}/`}>
-            {entry.data.title}
-            <span class="status" aria-label={`status: ${entry.data.status}`}>{entry.data.status}</span>
+            <div class="entry-header">
+              <span class="entry-title">
+                {getStatusEmoji(entry.data.status)} {entry.data.title}
+              </span>
+              <span class="entry-meta">
+                {entry.data.status}
+                {formatPageDate(entry.data.date) ? ` · ${formatPageDate(entry.data.date)}` : ''}
+              </span>
+            </div>
+            {entry.data.description && <p class="entry-desc">{entry.data.description}</p>}
           </a>
         </li>
       ))}

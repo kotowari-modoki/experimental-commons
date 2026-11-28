@@ -37,6 +37,7 @@ export default defineConfig({
       components: {
         Head: "./src/components/Head.astro",
         PageTitle: "./src/components/PageTitle.astro",
+        Footer: "./src/components/Footer.astro",
       },
       head: [
         {
@@ -67,6 +68,10 @@ export default defineConfig({
           link: "/",
         },
         {
+          label: "すべてのタグ",
+          link: "/tags/",
+        },
+        {
           label: "Start Here",
           items: [
             {
@@ -81,6 +86,7 @@ export default defineConfig({
         },
         {
           label: "Publishing",
+          collapsed: true,
           items: [
             {
               label: "Content Schema",
@@ -102,6 +108,7 @@ export default defineConfig({
         },
         {
           label: "Research & Papers",
+          collapsed: true,
           items: [
             {
               label: "論文開発日誌",
@@ -127,6 +134,7 @@ export default defineConfig({
         },
         {
           label: "AI & Agents",
+          collapsed: true,
           items: [
             {
               label: "OpenClaw セットアップマニュアル",
@@ -180,6 +188,7 @@ export default defineConfig({
         },
         {
           label: "Security & Incidents",
+          collapsed: true,
           items: [
             {
               label: "Claude Code のソースコード漏洩をどう見るか",
@@ -197,6 +206,7 @@ export default defineConfig({
         },
         {
           label: "Science & Systems",
+          collapsed: true,
           items: [
             {
               label: "MACHINE CONSCIOUSNESS 2026",
@@ -226,6 +236,7 @@ export default defineConfig({
         },
         {
           label: "web3 & Governance",
+          collapsed: true,
           items: [
             {
               label: "Ethereum Foundation の縮小と Ethlabs 設立",
@@ -243,6 +254,7 @@ export default defineConfig({
         },
         {
           label: "Philosophy & Thought",
+          collapsed: true,
           items: [
             {
               label: "哲学史の見取り図",
@@ -272,6 +284,7 @@ export default defineConfig({
         },
         {
           label: "Culture & History",
+          collapsed: true,
           items: [
             {
               label: "Dawn of Everything（万物の黎明）",
@@ -317,6 +330,7 @@ export default defineConfig({
         },
         {
           label: "Practical Guides",
+          collapsed: true,
           items: [
             {
               label: "Tailscale でサーバーをチーム共有する標準設定",

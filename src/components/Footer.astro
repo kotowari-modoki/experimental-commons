@@ -1,0 +1,13 @@
+---
+// ABOUTME: Extends Starlight's footer with automatic tag-based related pages on every article.
+// ABOUTME: Keeps exploration flowing at the end of articles while skipping splash and system pages.
+import DefaultFooter from '@astrojs/starlight/components/Footer.astro';
+import RelatedPages from './RelatedPages.astro';
+
+const { entry } = Astro.locals.starlightRoute;
+const EXCLUDED_IDS = new Set(['', 'index', '404', 'research/journal-template']);
+const showRelated = !EXCLUDED_IDS.has(entry.id) && (entry.data.tags?.length ?? 0) > 0;
+---
+
+{showRelated && <RelatedPages currentSlug={entry.id} tags={entry.data.tags ?? []} />}
+<DefaultFooter />
