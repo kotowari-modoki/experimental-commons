@@ -88,6 +88,7 @@ export function buildLlmsTxt(docs, site, base) {
 		`- RSS Feed: ${rssUrl}`,
 		`- Repository: ${REPO_URL}`,
 		`- License: CC BY 4.0 (${SITE_LICENSE})`,
+		'- Markdown Access: Replace trailing `/` with `.md` on any article URL (e.g. `.../agent-authored-site.md`) to fetch clean Markdown with metadata.',
 		'- Maturity Statuses: `seed` (芽が出たばかり・仮説/要検証), `growing` (育成中・随時更新), `evergreen` (比較的安定した知見)',
 		'',
 	];
@@ -113,6 +114,37 @@ export function buildLlmsTxt(docs, site, base) {
 	return lines.join('\n');
 }
 
+/** @param {CorpusDoc} entry @param {URL | string} site @param {string} base */
+export function formatDocMarkdown(entry, site, base) {
+	const url = buildSiteUrl(site, base, `${entry.id}/`);
+	const date = formatPageDate(entry.data.date);
+	const metaLines = [
+		`# ${entry.data.title}`,
+		'',
+		`- URL: ${url}`,
+	];
+	if (date) metaLines.push(`- Date: ${date}`);
+	if (entry.data.status) metaLines.push(`- Status: ${entry.data.status}`);
+	if (entry.data.author) metaLines.push(`- Author: ${entry.data.author}`);
+	if (entry.data.tags && entry.data.tags.length > 0) {
+		metaLines.push(`- Tags: ${entry.data.tags.join(', ')}`);
+	}
+	if (entry.data.provenance?.source_type) {
+		metaLines.push(`- Source Type: ${entry.data.provenance.source_type}`);
+	}
+	if (entry.data.provenance?.confidence) {
+		metaLines.push(`- Confidence: ${entry.data.provenance.confidence}`);
+	}
+	if (entry.data.description) {
+		metaLines.push(`- Description: ${entry.data.description}`);
+	}
+	metaLines.push(`- License: CC BY 4.0 (${SITE_LICENSE})`, '');
+	if (entry.body) {
+		metaLines.push(entry.body.trim(), '');
+	}
+	return metaLines.join('\n');
+}
+
 /** @param {CorpusDoc[]} docs @param {URL | string} site @param {string} base */
 export function buildLlmsFullTxt(docs, site, base) {
 	const published = getPublishedCorpusDocs(docs);
@@ -132,35 +164,7 @@ export function buildLlmsFullTxt(docs, site, base) {
 	];
 
 	for (const entry of published) {
-		const url = buildSiteUrl(site, base, `${entry.id}/`);
-		const date = formatPageDate(entry.data.date);
-		const metaLines = [
-			'---',
-			'',
-			`# ${entry.data.title}`,
-			'',
-			`- URL: ${url}`,
-		];
-		if (date) metaLines.push(`- Date: ${date}`);
-		if (entry.data.status) metaLines.push(`- Status: ${entry.data.status}`);
-		if (entry.data.author) metaLines.push(`- Author: ${entry.data.author}`);
-		if (entry.data.tags && entry.data.tags.length > 0) {
-			metaLines.push(`- Tags: ${entry.data.tags.join(', ')}`);
-		}
-		if (entry.data.provenance?.source_type) {
-			metaLines.push(`- Source Type: ${entry.data.provenance.source_type}`);
-		}
-		if (entry.data.provenance?.confidence) {
-			metaLines.push(`- Confidence: ${entry.data.provenance.confidence}`);
-		}
-		if (entry.data.description) {
-			metaLines.push(`- Description: ${entry.data.description}`);
-		}
-		metaLines.push('');
-		if (entry.body) {
-			metaLines.push(entry.body.trim(), '');
-		}
-		chunks.push(metaLines.join('\n'));
+		chunks.push(`---\n\n${formatDocMarkdown(entry, site, base)}`);
 	}
 
 	return chunks.join('\n');

@@ -33,12 +33,12 @@ test('buildBreadcrumbs links parent research index and project page for journal 
 	]);
 });
 
-test('buildBreadcrumbs links section label for standard articles', () => {
+test('buildBreadcrumbs links topic landing page for standard articles', () => {
 	const crumbs = buildBreadcrumbs({ id: 'ai/agents/openclaw-setup' }, BASE);
 
 	assert.deepEqual(crumbs, [
 		{ label: 'Top', href: '/experimental-commons/' },
-		{ label: 'AI & Agents', href: null },
+		{ label: 'AI & Agents', href: '/experimental-commons/topics/ai-agents/' },
 	]);
 });
 

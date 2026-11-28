@@ -63,6 +63,17 @@ export function createTagIndexImage() {
 	};
 }
 
+/** @param {{ label: string; description: string }} topic @returns {SocialImage} */
+export function createTopicImage(topic) {
+	return {
+		title: topic.label,
+		description: topic.description,
+		section: 'TOPIC INDEX',
+		status: '',
+		date: '',
+	};
+}
+
 /** @param {Document[]} docs @param {boolean} includeDrafts */
 export function getCollectionImages(docs, includeDrafts = false) {
 	// Match Starlight's production draft policy; PNG files are public assets too.

@@ -8,6 +8,21 @@ export const SITE_LICENSE = 'https://creativecommons.org/licenses/by/4.0/';
 export const REPO_URL = 'https://github.com/kotowari-modoki/experimental-commons';
 
 /** @type {Record<string, string>} */
+const SECTION_TOPIC_PATHS = {
+	ai: 'topics/ai-agents/',
+	arts: 'topics/culture-history/',
+	books: 'topics/culture-history/',
+	guides: 'topics/practical-guides/',
+	history: 'topics/culture-history/',
+	math: 'topics/science-systems/',
+	philosophy: 'topics/philosophy-thought/',
+	reference: 'topics/publishing/',
+	research: 'research/',
+	science: 'topics/science-systems/',
+	web3: 'topics/web3-governance/',
+};
+
+/** @type {Record<string, string>} */
 export const SECTION_LABELS = {
 	ai: 'AI & Agents',
 	arts: 'Culture & History',
@@ -143,10 +158,12 @@ export function buildDocJsonLd({ entry, url, site, base, imageUrl }) {
 		{ '@type': 'ListItem', position: 1, name: SITE_NAME, item: homeUrl },
 	];
 	if (sectionLabel && entry.id.includes('/')) {
+		const topicPath = SECTION_TOPIC_PATHS[sectionKey];
 		breadcrumbItems.push({
 			'@type': 'ListItem',
 			position: 2,
 			name: sectionLabel,
+			...(topicPath ? { item: buildSiteUrl(site, base, topicPath) } : {}),
 		});
 	}
 	breadcrumbItems.push({
@@ -205,6 +222,49 @@ export function buildTagJsonLd({ tag, entries, url, site, base }) {
 				itemListElement: [
 					{ '@type': 'ListItem', position: 1, name: SITE_NAME, item: homeUrl },
 					{ '@type': 'ListItem', position: 2, name: `#${tag}`, item: url },
+				],
+			},
+		],
+	};
+}
+
+/**
+ * @param {{
+ *   topic: { slug: string; label: string; description: string };
+ *   entries: Array<{ id: string; data: { title: string } }>;
+ *   url: string;
+ *   site: URL | string;
+ *   base: string;
+ * }} params
+ */
+export function buildTopicJsonLd({ topic, entries, url, site, base }) {
+	const homeUrl = buildSiteUrl(site, base);
+	return {
+		'@context': 'https://schema.org',
+		'@graph': [
+			{
+				'@type': 'CollectionPage',
+				name: topic.label,
+				description: topic.description,
+				url,
+				inLanguage: 'ja',
+				isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: homeUrl },
+				mainEntity: {
+					'@type': 'ItemList',
+					numberOfItems: entries.length,
+					itemListElement: entries.map((entry, index) => ({
+						'@type': 'ListItem',
+						position: index + 1,
+						name: entry.data.title,
+						url: buildSiteUrl(site, base, `${entry.id}/`),
+					})),
+				},
+			},
+			{
+				'@type': 'BreadcrumbList',
+				itemListElement: [
+					{ '@type': 'ListItem', position: 1, name: SITE_NAME, item: homeUrl },
+					{ '@type': 'ListItem', position: 2, name: topic.label, item: url },
 				],
 			},
 		],

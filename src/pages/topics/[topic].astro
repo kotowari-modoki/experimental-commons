@@ -1,0 +1,216 @@
+---
+// ABOUTME: Renders a category landing page for each topic group in the knowledge garden.
+// ABOUTME: Connects article breadcrumbs to browsable topic indexes with structured metadata.
+import { getCollection } from 'astro:content';
+import SocialImage from '../../components/SocialImage.astro';
+import { formatPageDate, getStatusEmoji } from '../../components/page-metadata.js';
+import { TOPICS, getTopicDocs } from '../../lib/navigation.js';
+import { createTopicImage } from '../../lib/og-image.js';
+import { buildSiteUrl, buildTopicJsonLd, serializeJsonLd } from '../../lib/structured-data.js';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs');
+
+  return TOPICS.map((topic) => ({
+    params: { topic: topic.slug },
+    props: {
+      topic,
+      entries: getTopicDocs(docs, topic),
+    },
+  }));
+}
+
+const { topic, entries } = Astro.props;
+const site = Astro.site ?? new URL('https://kotowari-modoki.github.io/');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const image = createTopicImage(topic);
+const canonical = new URL(Astro.url.pathname, site).href;
+const sitemapUrl = buildSiteUrl(site, base, 'sitemap-index.xml');
+const llmsTxtUrl = buildSiteUrl(site, base, 'llms.txt');
+const rssUrl = buildSiteUrl(site, base, 'rss.xml');
+const jsonLd = buildTopicJsonLd({ topic, entries, url: canonical, site, base });
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{topic.label} — experimental-commons</title>
+    <meta name="description" content={topic.description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href={sitemapUrl} />
+    <link rel="shortcut icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <link rel="alternate" type="text/plain" title="LLMs.txt" href={llmsTxtUrl} />
+    <link rel="alternate" type="application/rss+xml" title="experimental-commons RSS" href={rssUrl} />
+    <meta property="og:title" content={image.title} />
+    <meta property="og:description" content={image.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="experimental-commons" />
+    <meta property="og:locale" content="ja" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <SocialImage image={image} />
+    <script is:inline type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #ffffff;
+        --surface: #f5f6f8;
+        --text: #181a1f;
+        --muted: #5c6370;
+        --border: #d8dce3;
+        --accent: #3b5bdb;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0d0e14;
+          --surface: #151722;
+          --text: #e4e7eb;
+          --muted: #9ca3af;
+          --border: #2a2e3f;
+          --accent: #8da2fb;
+        }
+      }
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        max-width: 54rem;
+        margin: 2rem auto;
+        padding: 0 1.25rem 3rem;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .top-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.875rem;
+      }
+      .top-nav a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+      .top-nav a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+      h1 {
+        font-size: 1.75rem;
+        margin: 0 0 0.4rem;
+      }
+      .subtitle {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin: 0 0 0.35rem;
+      }
+      .count {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin: 0 0 1.5rem;
+      }
+      .topic-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .topic-pills a {
+        padding: 0.25rem 0.65rem;
+        border: 1px solid var(--border);
+        border-radius: 999rem;
+        background: var(--surface);
+        color: var(--muted);
+        font-size: 0.8rem;
+        text-decoration: none;
+      }
+      .topic-pills a[aria-current="page"],
+      .topic-pills a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+      li a {
+        display: block;
+        padding: 0.95rem 1.1rem;
+        border: 1px solid var(--border);
+        border-radius: 0.6rem;
+        background: var(--surface);
+        color: var(--text);
+        text-decoration: none;
+        transition: border-color 0.15s ease;
+      }
+      li a:hover {
+        border-color: var(--accent);
+      }
+      .entry-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .entry-title {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .entry-meta {
+        flex-shrink: 0;
+        font-size: 0.8rem;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+      .entry-desc {
+        margin: 0.4rem 0 0;
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="top-nav" aria-label="Breadcrumb">
+      <a href={`${base}/`}>← experimental-commons</a>
+      <a href={`${base}/tags/`}>すべてのタグ一覧</a>
+      <a href={`${base}/research/`}>論文開発日誌</a>
+    </nav>
+    <h1>{topic.label}</h1>
+    <p class="subtitle">{topic.description}</p>
+    <p class="count">{entries.length} 件のページ</p>
+    <nav class="topic-pills" aria-label="Other topics">
+      {TOPICS.map((item) => (
+        <a
+          href={`${base}/topics/${item.slug}/`}
+          aria-current={item.slug === topic.slug ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <ul>
+      {entries.map((entry) => (
+        <li>
+          <a href={`${base}/${entry.id}/`}>
+            <div class="entry-header">
+              <span class="entry-title">
+                {getStatusEmoji(entry.data.status)} {entry.data.title}
+              </span>
+              <span class="entry-meta">
+                {entry.data.status}
+                {formatPageDate(entry.data.date) ? ` · ${formatPageDate(entry.data.date)}` : ''}
+              </span>
+            </div>
+            {entry.data.description && <p class="entry-desc">{entry.data.description}</p>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>

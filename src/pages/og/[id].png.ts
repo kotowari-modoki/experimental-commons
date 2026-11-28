@@ -2,7 +2,14 @@
 // ABOUTME: Runs inside Astro's existing build so GitHub Pages needs no image service.
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
-import { createTagIndexImage, getCollectionImages, getImageId, type SocialImage } from '../../lib/og-image.js';
+import {
+	createTagIndexImage,
+	createTopicImage,
+	getCollectionImages,
+	getImageId,
+	type SocialImage,
+} from '../../lib/og-image.js';
+import { TOPICS } from '../../lib/navigation.js';
 import { renderImage } from '../../lib/og-image-renderer.js';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -10,6 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	const images = [
 		...getCollectionImages(docs, import.meta.env.MODE !== 'production'),
 		createTagIndexImage(),
+		...TOPICS.map(createTopicImage),
 	];
 	const unique = new Map(images.map((image) => [getImageId(image), image]));
 	return Array.from(unique, ([id, image]) => ({ params: { id }, props: { image } }));

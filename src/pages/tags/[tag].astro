@@ -37,6 +37,8 @@ const sitemapUrl = buildSiteUrl(site, base, 'sitemap-index.xml');
 const llmsTxtUrl = buildSiteUrl(site, base, 'llms.txt');
 const rssUrl = buildSiteUrl(site, base, 'rss.xml');
 const jsonLd = buildTagJsonLd({ tag, entries, url: canonical, site, base });
+// Avoid indexing thin single-article tag archives while keeping links crawlable.
+const robotsContent = entries.length >= 2 ? 'index, follow' : 'noindex, follow';
 ---
 
 <!doctype html>
@@ -46,7 +48,7 @@ const jsonLd = buildTagJsonLd({ tag, entries, url: canonical, site, base });
     <meta name="viewport" content="width=device-width" />
     <title>#{tag} — experimental-commons</title>
     <meta name="description" content={image.description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robotsContent} />
     <link rel="canonical" href={canonical} />
     <link rel="sitemap" href={sitemapUrl} />
     <link rel="shortcut icon" href={`${base}/favicon.svg`} type="image/svg+xml" />

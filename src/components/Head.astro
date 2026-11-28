@@ -21,11 +21,17 @@ const jsonLd = buildDocJsonLd({ entry, url: canonicalUrl, site, base, imageUrl }
 const articleMetaTags = getArticleMetaTags(entry);
 const llmsTxtUrl = buildSiteUrl(site, base, 'llms.txt');
 const rssUrl = buildSiteUrl(site, base, 'rss.xml');
+const EXCLUDED_MD_IDS = new Set(['', 'index', '404', 'research/journal-template']);
+const markdownUrl =
+	!entry.data.draft && !EXCLUDED_MD_IDS.has(entry.id)
+		? buildSiteUrl(site, base, `${entry.id}.md`)
+		: null;
 ---
 
 <StarlightHead />
 <SocialImage image={image} existingHead={head} />
 {articleMetaTags.map((attrs) => <meta property={attrs.property} content={attrs.content} />)}
+{markdownUrl && <link rel="alternate" type="text/markdown" title="Markdown" href={markdownUrl} />}
 <link rel="alternate" type="text/plain" title="LLMs.txt" href={llmsTxtUrl} />
 <link rel="alternate" type="application/rss+xml" title="experimental-commons RSS" href={rssUrl} />
 <meta name="google-site-verification" content="ysuEj023oFjddObiBNrkXRESp6QvqewPEAm0d0Ak61c" />

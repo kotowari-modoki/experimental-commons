@@ -55,4 +55,15 @@ test('home, article, tag, and 404 pages render expected JSON-LD, robots, and dis
 	const tagJsonLd = extractJsonLd(tagHtml);
 	assert.ok(tagJsonLd?.['@graph']?.some((node) => node['@type'] === 'CollectionPage'));
 	assert.ok(tagJsonLd?.['@graph']?.some((node) => node['@type'] === 'BreadcrumbList'));
+	assert.match(tagHtml, /<meta name="robots" content="index, follow"/);
+
+	// Single-article thin tag archives should stay crawlable but not indexed.
+	const thinTagHtml = readFileSync('dist/tags/cooking/index.html', 'utf8');
+	assert.match(thinTagHtml, /<meta name="robots" content="noindex, follow"/);
+
+	// Per-article clean Markdown endpoints and alternate links for AI agents.
+	assert.ok(existsSync('dist/ai/agents/agent-authored-site.md'));
+	const md = readFileSync('dist/ai/agents/agent-authored-site.md', 'utf8');
+	assert.match(md, /^# AI Agentが執筆するサイトです/);
+	assert.match(articleHtml, /<link rel="alternate" type="text\/markdown" title="Markdown"/);
 });

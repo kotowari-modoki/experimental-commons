@@ -10,6 +10,9 @@ const metadata = getPageMetadata(entryData);
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const breadcrumbs = buildBreadcrumbs(entry, base);
 const tags = entry.id === '404' ? [] : (entryData.tags ?? []);
+const EXCLUDED_MD_IDS = new Set(['', 'index', '404', 'research/journal-template']);
+const markdownPath =
+	!entryData.draft && !EXCLUDED_MD_IDS.has(entry.id) ? `${base}/${entry.id}.md` : null;
 ---
 
 {
@@ -28,14 +31,28 @@ const tags = entry.id === '404' ? [] : (entryData.tags ?? []);
 }
 <h1 id="_top">{entryData.title}</h1>
 {
-	metadata.length > 0 && (
-		<div class="page-meta" aria-label="Page metadata">
-			{metadata.map((item) => (
-				<div class="page-meta-item">
-					<span class="page-meta-label">{item.label}</span>
-					<span class="page-meta-value">{item.value}</span>
+	(metadata.length > 0 || markdownPath) && (
+		<div class="page-meta-row">
+			{metadata.length > 0 && (
+				<div class="page-meta" aria-label="Page metadata">
+					{metadata.map((item) => (
+						<div class="page-meta-item">
+							<span class="page-meta-label">{item.label}</span>
+							<span class="page-meta-value">{item.value}</span>
+						</div>
+					))}
 				</div>
-			))}
+			)}
+			{markdownPath && (
+				<div class="page-actions" aria-label="Markdown actions">
+					<button type="button" class="page-action-btn" data-copy-markdown={markdownPath}>
+						Markdownをコピー
+					</button>
+					<a class="page-action-link" href={markdownPath}>
+						.md
+					</a>
+				</div>
+			)}
 		</div>
 	)
 }
@@ -88,11 +105,47 @@ const tags = entry.id === '404' ? [] : (entryData.tags ?? []);
 		color: var(--sl-color-gray-4);
 	}
 
+	.page-meta-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.75rem;
+		margin-top: 0.9rem;
+	}
+
 	.page-meta {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.75rem;
-		margin-top: 0.9rem;
+	}
+
+	.page-actions {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+
+	.page-action-btn,
+	.page-action-link {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.35rem 0.7rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.4rem;
+		background: var(--sl-color-bg-nav);
+		color: var(--sl-color-gray-2);
+		font-size: 0.8rem;
+		line-height: 1.2;
+		text-decoration: none;
+		cursor: pointer;
+		transition: border-color 0.15s ease, color 0.15s ease;
+	}
+
+	.page-action-btn:hover,
+	.page-action-link:hover {
+		border-color: var(--sl-color-accent-high);
+		color: var(--sl-color-accent-high);
 	}
 
 	.page-meta-item {
@@ -156,3 +209,32 @@ const tags = entry.id === '404' ? [] : (entryData.tags ?? []);
 		}
 	}
 </style>
+
+<script>
+	const bindCopyButtons = () => {
+		for (const button of document.querySelectorAll('button[data-copy-markdown]')) {
+			if (!(button instanceof HTMLButtonElement) || button.dataset.bound === 'true') continue;
+			button.dataset.bound = 'true';
+			button.addEventListener('click', async () => {
+				const url = button.dataset.copyMarkdown;
+				if (!url) return;
+				const defaultLabel = button.textContent ?? 'Markdownをコピー';
+				try {
+					const response = await fetch(url);
+					if (!response.ok) throw new Error(`HTTP ${response.status}`);
+					const text = await response.text();
+					await navigator.clipboard.writeText(text);
+					button.textContent = 'コピーしました';
+					setTimeout(() => {
+						button.textContent = defaultLabel;
+					}, 1800);
+				} catch {
+					window.location.href = url;
+				}
+			});
+		}
+	};
+
+	bindCopyButtons();
+	document.addEventListener('astro:page-load', bindCopyButtons);
+</script>
