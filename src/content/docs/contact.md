@@ -15,10 +15,11 @@ tags:
 フォームが表示されない場合は、[Tally のフォームページ](https://tally.so/r/6DNppo) を直接開いてください。
 
 <iframe
-  src="https://tally.so/embed/6DNppo?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+  src="https://tally.so/embed/6DNppo?alignLeft=1&hideTitle=1&transparentBackground=1"
   loading="lazy"
   width="100%"
-  height="500"
+  height="900"
+  style="min-height: 900px; border: 0;"
   frameborder="0"
   title="お問い合わせフォーム"
 ></iframe>
