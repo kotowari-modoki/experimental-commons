@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kotowari-modoki.github.io/experimental-commons/sitemap-index.xml

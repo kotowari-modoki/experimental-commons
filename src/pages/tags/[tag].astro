@@ -4,6 +4,7 @@
 import { getCollection } from 'astro:content';
 import SocialImage from '../../components/SocialImage.astro';
 import { createTagImage } from '../../lib/og-image.js';
+import { buildSiteUrl, buildTagJsonLd, serializeJsonLd } from '../../lib/structured-data.js';
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs');
@@ -21,9 +22,14 @@ export async function getStaticPaths() {
 const { tag, entries } = Astro.props;
 // entry.id is the correct field for Astro content collections v2 (docsLoader API),
 // equivalent to the path relative to the content root without extension.
+const site = Astro.site ?? new URL('https://kotowari-modoki.github.io/');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const image = createTagImage(tag);
-const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const canonical = new URL(Astro.url.pathname, site).href;
+const sitemapUrl = buildSiteUrl(site, base, 'sitemap-index.xml');
+const llmsTxtUrl = buildSiteUrl(site, base, 'llms.txt');
+const rssUrl = buildSiteUrl(site, base, 'rss.xml');
+const jsonLd = buildTagJsonLd({ tag, entries, url: canonical, site, base });
 ---
 
 <!doctype html>
@@ -33,7 +39,11 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : un
     <meta name="viewport" content="width=device-width" />
     <title>#{tag} — experimental-commons</title>
     <meta name="description" content={image.description} />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href={sitemapUrl} />
+    <link rel="alternate" type="text/plain" title="LLMs.txt" href={llmsTxtUrl} />
+    <link rel="alternate" type="application/rss+xml" title="experimental-commons RSS" href={rssUrl} />
     <meta property="og:title" content={image.title} />
     <meta property="og:description" content={image.description} />
     <meta property="og:type" content="website" />
@@ -42,6 +52,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : un
     <meta property="og:locale" content="ja" />
     <meta name="twitter:card" content="summary_large_image" />
     <SocialImage image={image} />
+    <script is:inline type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />
     <style>
       body {
         font-family: system-ui, sans-serif;

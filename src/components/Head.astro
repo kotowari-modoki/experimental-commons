@@ -1,16 +1,35 @@
 ---
-// ABOUTME: Extends Starlight's head with generated social images and site verification.
+// ABOUTME: Extends Starlight's head with social images, structured data, discovery links, and verification.
 // ABOUTME: Renders Mermaid diagrams from pre-mermaid blocks after each page load.
 import StarlightHead from "@astrojs/starlight/components/Head.astro";
 import SocialImage from './SocialImage.astro';
-import { createDocImage } from '../lib/og-image.js';
+import { createDocImage, getImageUrl } from '../lib/og-image.js';
+import {
+	buildDocJsonLd,
+	buildSiteUrl,
+	getArticleMetaTags,
+	serializeJsonLd,
+} from '../lib/structured-data.js';
 
 const { entry, head } = Astro.locals.starlightRoute;
+const image = createDocImage(entry);
+const site = Astro.site ?? new URL('https://kotowari-modoki.github.io/');
+const base = import.meta.env.BASE_URL;
+const canonicalUrl = new URL(Astro.url.pathname, site).href;
+const imageUrl = getImageUrl(image, site, base);
+const jsonLd = buildDocJsonLd({ entry, url: canonicalUrl, site, base, imageUrl });
+const articleMetaTags = getArticleMetaTags(entry);
+const llmsTxtUrl = buildSiteUrl(site, base, 'llms.txt');
+const rssUrl = buildSiteUrl(site, base, 'rss.xml');
 ---
 
 <StarlightHead />
-<SocialImage image={createDocImage(entry)} existingHead={head} />
+<SocialImage image={image} existingHead={head} />
+{articleMetaTags.map((attrs) => <meta property={attrs.property} content={attrs.content} />)}
+<link rel="alternate" type="text/plain" title="LLMs.txt" href={llmsTxtUrl} />
+<link rel="alternate" type="application/rss+xml" title="experimental-commons RSS" href={rssUrl} />
 <meta name="google-site-verification" content="ysuEj023oFjddObiBNrkXRESp6QvqewPEAm0d0Ak61c" />
+{jsonLd && <script is:inline type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />}
 
 <script>
 	import mermaid from 'mermaid';
