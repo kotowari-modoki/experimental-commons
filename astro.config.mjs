@@ -82,6 +82,10 @@ export default defineConfig({
               label: "執筆フロー",
               link: "/guides/contributing/",
             },
+            {
+              label: "お問い合わせ",
+              link: "/contact/",
+            },
           ],
         },
         {
